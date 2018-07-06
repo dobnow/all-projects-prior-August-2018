@@ -1,0 +1,93 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="PL SP SD" allow-return-values="true">
+
+<listeners>
+    <listener class-name="listener.TestsListenerAdapter" />
+</listeners>
+
+<test name="PlLegalization">
+    <classes>
+     <class name="com.testcases.plspsd.PlLegalization" />
+    </classes>
+</test>
+
+<test name="PlLegalizationProfCert">
+    <classes>
+     <class name="com.testcases.plspsd.PlLegalizationProfCert" />
+    </classes>
+</test>
+
+<test name="PlNew">
+    <classes>
+     <class name="com.testcases.plspsd.PlNew" />
+    </classes>
+</test>
+
+<test name="PlNewProfCert">
+    <classes>
+     <class name="com.testcases.plspsd.PlNewProfCert" />
+    </classes>
+</test>
+
+<test name="PlSpSdLegalization">
+    <classes>
+     <class name="com.testcases.plspsd.PlSpSdLegalization" />
+    </classes>
+</test>
+
+<test name="PlSpSdLegalizationProfCert">
+    <classes>
+     <class name="com.testcases.plspsd.PlSpSdLegalizationProfCert" />
+    </classes>
+</test>
+
+<test name="PlSpSdNew">
+    <classes>
+     <class name="com.testcases.plspsd.PlSpSdNew" />
+    </classes>
+</test>
+
+<test name="PlSpSdNewProfCert">
+    <classes>
+     <class name="com.testcases.plspsd.PlSpSdNewProfCert" />
+    </classes>
+</test>
+
+<test name="SdNew">
+    <classes>
+     <class name="com.testcases.plspsd.SdNew" />
+    </classes>
+</test>
+
+<test name="SdNewProfCert">
+    <classes>
+     <class name="com.testcases.plspsd.SdNewProfCert" />
+    </classes>
+</test>
+
+<test name="SpLegalization">
+    <classes>
+     <class name="com.testcases.plspsd.SpLegalization" />
+    </classes>
+</test>
+
+<test name="SpLegalizationProfCert">
+    <classes>
+     <class name="com.testcases.plspsd.SpLegalizationProfCert" />
+    </classes>
+</test>
+
+<test name="SpNew">
+    <classes>
+     <class name="com.testcases.plspsd.SpNew" />
+    </classes>
+</test>
+
+<test name="SpNewProfCert">
+    <classes>
+     <class name="com.testcases.plspsd.SpNewProfCert" />
+    </classes>
+</test>
+
+
+</suite>

@@ -1,0 +1,134 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="FAB4" allow-return-values="true">
+
+<listeners>
+    <listener class-name="listener.TestsListenerAdapter" />
+</listeners>
+
+<test name="1">
+    <classes>
+     <class name="com.testcases.fab4.FnLegalization" />
+    </classes>
+</test>
+
+<test name="2">
+    <classes>
+     <class name="com.testcases.fab4.FnLegalizationProfCert" />
+    </classes>
+</test>
+
+<test name="3">
+    <classes>
+     <class name="com.testcases.fab4.FnNew" />
+    </classes>
+</test>
+
+<test name="4">
+    <classes>
+     <class name="com.testcases.fab4.FnNewProfCert" />
+    </classes>
+</test>
+
+<test name="SfLegalization">
+    <classes>
+     <class name="com.testcases.fab4.SfLegalization" />
+    </classes>
+</test>
+
+<test name="SfLegalizationProfCert">
+    <classes>
+     <class name="com.testcases.fab4.SfLegalizationProfCert" />
+    </classes>
+</test>
+
+<test name="SfNew">
+    <classes>
+     <class name="com.testcases.fab4.SfNew" />
+    </classes>
+</test>
+
+<test name="SfNewProfCert">
+    <classes>
+     <class name="com.testcases.fab4.SfNewProfCert" />
+    </classes>
+</test>
+
+<test name="SfShFnLegalization">
+    <classes>
+     <class name="com.testcases.fab4.SfShFnLegalization" />
+    </classes>
+</test>
+
+<test name="SfShFnLegalizationProfCert">
+    <classes>
+     <class name="com.testcases.fab4.SfShFnLegalizationProfCert" />
+    </classes>
+</test>
+
+<test name="SfShFnNew">
+    <classes>
+     <class name="com.testcases.fab4.SfShFnNew" />
+    </classes>
+</test>
+
+<test name="SfShFnNewProfCert">
+    <classes>
+     <class name="com.testcases.fab4.SfShFnNewProfCert" />
+    </classes>
+</test>
+
+<test name="SgLegalization">
+    <classes>
+     <class name="com.testcases.fab4.SgLegalization" />
+    </classes>
+</test>
+
+<test name="SgLegalizationProfCert">
+    <classes>
+     <class name="com.testcases.fab4.SgLegalizationProfCert" />
+    </classes>
+</test>
+
+<test name="SgNew">
+    <classes>
+     <class name="com.testcases.fab4.SgNew" />
+    </classes>
+</test>
+
+<test name="SgNewProfCert">
+    <classes>
+     <class name="com.testcases.fab4.SgNewProfCert" />
+    </classes>
+</test>
+
+<test name="ShLegalization">
+    <classes>
+     <class name="com.testcases.fab4.ShLegalization" />
+    </classes>
+</test>
+
+<test name="ShLegalizationProfCert">
+    <classes>
+     <class name="com.testcases.fab4.ShLegalizationProfCert" />
+    </classes>
+</test>
+
+<test name="ShNew">
+    <classes>
+     <class name="com.testcases.fab4.ShNew" />
+    </classes>
+</test>
+
+<test name="ShNewProfCert">
+    <classes>
+     <class name="com.testcases.fab4.ShNewProfCert" />
+    </classes>
+</test>
+
+
+
+
+
+
+
+</suite>
