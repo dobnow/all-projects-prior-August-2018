@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.testng.TESTNG_CONTAINER"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/framework/selenium-java-3.11.0/client-combined-3.11.0.jar"/>
+	<classpathentry kind="lib" path="C:/framework/selenium-java-3.11.0/client-combined-3.11.0-sources.jar"/>
+	<classpathentry kind="lib" path="C:/framework/selenium-java-3.11.0/libs/httpcore-4.4.6.jar"/>
+	<classpathentry kind="lib" path="C:/framework/selenium-java-3.11.0/libs/okhttp-3.9.1.jar"/>
+	<classpathentry kind="lib" path="C:/framework/selenium-java-3.11.0/libs/okio-1.13.0.jar"/>
+	<classpathentry kind="lib" path="C:/framework/selenium-java-3.11.0/libs/httpclient-4.5.3.jar"/>
+	<classpathentry kind="lib" path="C:/framework/selenium-java-3.11.0/libs/guava-23.6-jre.jar"/>
+	<classpathentry kind="lib" path="C:/framework/selenium-java-3.11.0/libs/gson-2.8.2.jar"/>
+	<classpathentry kind="lib" path="C:/framework/selenium-java-3.11.0/libs/commons-codec-1.10.jar"/>
+	<classpathentry kind="lib" path="C:/framework/selenium-java-3.11.0/libs/commons-exec-1.3.jar"/>
+	<classpathentry kind="lib" path="C:/framework/selenium-java-3.11.0/libs/commons-logging-1.2.jar"/>
+	<classpathentry kind="lib" path="C:/framework/selenium-java-3.11.0/libs/byte-buddy-1.7.9.jar"/>
+	<classpathentry kind="lib" path="C:/framework/Selenium JARS/apache-mime4j-0.6.jar"/>
+	<classpathentry kind="lib" path="C:/framework/Selenium JARS/appium java-client-3.1.0.jar"/>
+	<classpathentry kind="lib" path="C:/framework/Selenium JARS/commons-beanutils-1.8.0.jar"/>
+	<classpathentry kind="lib" path="C:/framework/Selenium JARS/commons-codec-1.6.jar"/>
+	<classpathentry kind="lib" path="C:/framework/Selenium JARS/commons-collections-3.2.1.jar"/>
+	<classpathentry kind="lib" path="C:/framework/Selenium JARS/commons-exec-1.1.jar"/>
+	<classpathentry kind="lib" path="C:/framework/Selenium JARS/commons-io-2.2.jar"/>
+	<classpathentry kind="lib" path="C:/framework/Selenium JARS/commons-jxpath-1.3.jar"/>
+	<classpathentry kind="lib" path="C:/framework/Selenium JARS/commons-lang3-3.1.jar"/>
+	<classpathentry kind="lib" path="C:/framework/Selenium JARS/commons-logging-1.1.1.jar"/>
+	<classpathentry kind="lib" path="C:/framework/Selenium JARS/commons-logging-1.1.jar"/>
+	<classpathentry kind="lib" path="C:/framework/Selenium JARS/cssparser-0.9.9.jar"/>
+	<classpathentry kind="lib" path="C:/framework/Selenium JARS/derbyclient.jar"/>
+	<classpathentry kind="lib" path="C:/framework/Selenium JARS/dom4j-1.6.1.jar"/>
+	<classpathentry kind="lib" path="C:/framework/Selenium JARS/eclipselink-2.0.0.jar"/>
+	<classpathentry kind="lib" path="C:/framework/Selenium JARS/extentreports-2.41.2.jar"/>
+	<classpathentry kind="lib" path="C:/framework/Selenium JARS/flash-selenium.jar"/>
+	<classpathentry kind="lib" path="C:/framework/Selenium JARS/freemarker-2.3.23.jar"/>
+	<classpathentry kind="lib" path="C:/framework/Selenium JARS/htmlunit-2.12.jar"/>
+	<classpathentry kind="lib" path="C:/framework/Selenium JARS/htmlunit-core-js-2.12.jar"/>
+	<classpathentry kind="lib" path="C:/framework/Selenium JARS/ini4j-0.5.2.jar"/>
+	<classpathentry kind="lib" path="C:/framework/Selenium JARS/java-client-3.1.0.jar"/>
+	<classpathentry kind="lib" path="C:/framework/Selenium JARS/java-json.jar"/>
+	<classpathentry kind="lib" path="C:/framework/Selenium JARS/javax.persistence-2.0.0.jar"/>
+	<classpathentry kind="lib" path="C:/framework/Selenium JARS/jcommander-1.29.jar"/>
+	<classpathentry kind="lib" path="C:/framework/Selenium JARS/jcommander-1.48.jar"/>
+	<classpathentry kind="lib" path="C:/framework/Selenium JARS/jetty-websocket-8.1.8.jar"/>
+	<classpathentry kind="lib" path="C:/framework/Selenium JARS/json-20080701.jar"/>
+	<classpathentry kind="lib" path="C:/framework/Selenium JARS/json-lib-2.4-jdk15.jar"/>
+	<classpathentry kind="lib" path="C:/framework/Selenium JARS/junit-dep-4.11.jar"/>
+	<classpathentry kind="lib" path="C:/framework/Selenium JARS/log4j-1.2.17.jar"/>
+	<classpathentry kind="lib" path="C:/framework/Selenium JARS/logging-selenium-1.2.jar"/>
+	<classpathentry kind="lib" path="C:/framework/Selenium JARS/mail.jar"/>
+	<classpathentry kind="lib" path="C:/framework/Selenium JARS/mysql-connector-java-5.0.7-bin(2).jar"/>
+	<classpathentry kind="lib" path="C:/framework/Selenium JARS/nekohtml-1.9.17.jar"/>
+	<classpathentry kind="lib" path="C:/framework/Selenium JARS/operadriver-1.2.jar"/>
+	<classpathentry kind="lib" path="C:/framework/Selenium JARS/phantomjsdriver-1.0.3.jar"/>
+	<classpathentry kind="lib" path="C:/framework/Selenium JARS/poi-3.6-20091214.jar"/>
+	<classpathentry kind="lib" path="C:/framework/Selenium JARS/poi-3.8-20120326.jar"/>
+	<classpathentry kind="lib" path="C:/framework/Selenium JARS/poi-3.9.jar"/>
+	<classpathentry kind="lib" path="C:/framework/Selenium JARS/poi-3.9-sources.jar"/>
+	<classpathentry kind="lib" path="C:/framework/Selenium JARS/poi-examples-3.8-20120326.jar"/>
+	<classpathentry kind="lib" path="C:/framework/Selenium JARS/poi-excelant-3.8-20120326.jar"/>
+	<classpathentry kind="lib" path="C:/framework/Selenium JARS/poi-ooxml-3.6-20091214.jar"/>
+	<classpathentry kind="lib" path="C:/framework/Selenium JARS/poi-ooxml-3.8-20120326.jar"/>
+	<classpathentry kind="lib" path="C:/framework/Selenium JARS/poi-ooxml-3.9-sources.jar"/>
+	<classpathentry kind="lib" path="C:/framework/Selenium JARS/poi-ooxml-schemas-3.6-20091214.jar"/>
+	<classpathentry kind="lib" path="C:/framework/Selenium JARS/poi-ooxml-schemas-3.8-20120326.jar"/>
+	<classpathentry kind="lib" path="C:/framework/Selenium JARS/poi-ooxml-schemas-3.9.jar"/>
+	<classpathentry kind="lib" path="C:/framework/Selenium JARS/poi-scratchpad-3.8-20120326.jar"/>
+	<classpathentry kind="lib" path="C:/framework/Selenium JARS/poi-scratchpad-3.9.jar"/>
+	<classpathentry kind="lib" path="C:/framework/Selenium JARS/poi-scratchpad-3.9-sources.jar"/>
+	<classpathentry kind="lib" path="C:/framework/Selenium JARS/protobuf-java-2.4.1.jar"/>
+	<classpathentry kind="lib" path="C:/framework/Selenium JARS/sac-1.3.jar"/>
+	<classpathentry kind="lib" path="C:/framework/Selenium JARS/saxon-8.7.jar"/>
+	<classpathentry kind="lib" path="C:/framework/Selenium JARS/SaxonLiaison.jar"/>
+	<classpathentry kind="lib" path="C:/framework/Selenium JARS/selenium-java-2.32.0.jar"/>
+	<classpathentry kind="lib" path="C:/framework/Selenium JARS/selenium-java-2.32.0-srcs.jar"/>
+	<classpathentry kind="lib" path="C:/framework/Selenium JARS/selenium-java-client-driver.jar"/>
+	<classpathentry kind="lib" path="C:/framework/Selenium JARS/selenium-java-client-driver-sources.jar"/>
+	<classpathentry kind="lib" path="C:/framework/Selenium JARS/selenium-java-client-driver-tests.jar"/>
+	<classpathentry kind="lib" path="C:/framework/Selenium JARS/selenium-java-client-driver-test-sources.jar"/>
+	<classpathentry kind="lib" path="C:/framework/Selenium JARS/selenium-server.jar"/>
+	<classpathentry kind="lib" path="C:/framework/Selenium JARS/selenium-server-coreless.jar"/>
+	<classpathentry kind="lib" path="C:/framework/Selenium JARS/selenium-server-sources.jar"/>
+	<classpathentry kind="lib" path="C:/framework/Selenium JARS/serializer-2.7.1.jar"/>
+	<classpathentry kind="lib" path="C:/framework/Selenium JARS/snakeyaml-1.17.jar"/>
+	<classpathentry kind="lib" path="C:/framework/Selenium JARS/stax-api-1.0.1.jar"/>
+	<classpathentry kind="lib" path="C:/framework/Selenium JARS/testng.jar"/>
+	<classpathentry kind="lib" path="C:/framework/Selenium JARS/testng-xslt-maven-plugin-test-0.0.jar"/>
+	<classpathentry kind="lib" path="C:/framework/Selenium JARS/validation-api-1.0.0.GA.jar"/>
+	<classpathentry kind="lib" path="C:/framework/Selenium JARS/xalan-2.7.1.jar"/>
+	<classpathentry kind="lib" path="C:/framework/Selenium JARS/xercesImpl-2.10.0.jar"/>
+	<classpathentry kind="lib" path="C:/framework/Selenium JARS/xml-apis-1.4.01.jar"/>
+	<classpathentry kind="lib" path="C:/framework/Selenium JARS/xmlbeans-2.6.0.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

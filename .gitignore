@@ -1,0 +1,7 @@
+XSLT_Reports/
+screenshots/
+test-output/
+Reports/
+**/logs
+build/
+*.log
