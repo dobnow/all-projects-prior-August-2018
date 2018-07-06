@@ -1,0 +1,138 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="ANTENNA">
+<listeners>
+    <listener class-name="listener.TestsListenerAdapter" />
+</listeners>
+
+
+
+
+<test name="AnProfCertNoPW2Test">
+    <classes>
+        <class name="com.testcases.AnProfCertNoPW2Test"/>  
+    </classes>
+</test>
+
+<test name="AnProfCertPW2Test">
+    <classes>
+        <class name="com.testcases.AnProfCertPW2Test"/>  
+    </classes>
+</test>
+
+<test name="AnQaFailedProfCertNoPW2Test">
+    <classes>
+        <class name="com.testcases.AnQaFailedProfCertNoPW2Test"/>  
+    </classes>
+</test>
+
+<test name="AnQaFailedProfCertPW2Test">
+    <classes>
+        <class name="com.testcases.AnQaFailedProfCertPW2Test"/>  
+    </classes>
+</test>
+
+<test name="AnQaFailedStandardTest">
+    <classes>
+        <class name="com.testcases.AnQaFailedStandardTest"/>  
+    </classes>
+</test>
+
+<test name="AnCorrectionsTest">
+    <classes>
+        <class name="com.testcases.AnCorrectionsTest"/>  
+    </classes>
+</test>
+
+<test name="AnStandardIncompleteTest">
+    <classes>
+        <class name="com.testcases.AnStandardIncompleteTest"/>  
+    </classes>
+</test>
+
+<test name="AnStandardTest">
+    <classes>
+        <class name="com.testcases.AnStandardTest"/>  
+    </classes>
+</test>
+
+<test name="PayInitialByCheckTest">
+    <classes>
+        <class name="com.testcases.PayInitialByCheckTest"/>  
+    </classes>
+</test>
+
+<test name="PayInitialByCreditCardTest">
+    <classes>
+        <class name="com.testcases.PayInitialByCreditCardTest"/>  
+    </classes>
+</test>
+
+<test name="PayPaaByCheckTest">
+    <classes>
+        <class name="com.testcases.PayPaaByCheckTest"/>  
+    </classes>
+</test>
+
+<test name="PayPaaByCreditCardTest">
+    <classes>
+        <class name="com.testcases.PayPaaByCreditCardTest"/>  
+    </classes>
+</test>
+
+<test name="PaySubsByCheckTest">
+    <classes>
+        <class name="com.testcases.PaySubsByCheckTest"/>  
+    </classes>
+</test>
+
+<test name="PaySubsByCreditCardTest">
+    <classes>
+        <class name="com.testcases.PaySubsByCreditCardTest"/>  
+    </classes>
+</test>
+
+
+
+
+
+<test name="AnAhvTest">
+    <classes>
+        <class name="com.testcases.AnAhvTest"/>  
+    </classes>
+</test>
+
+<test name="AnObjectionsTest">
+    <classes>
+        <class name="com.testcases.AnObjectionsTest"/>  
+    </classes>
+</test>
+
+<test name="AnOnAnSubsTest">
+    <classes>
+        <class name="com.testcases.AnOnAnSubsTest"/>  
+    </classes>
+</test>
+
+<test name="AnOnCcSubsTest">
+    <classes>
+        <class name="com.testcases.AnOnCcSubsTest"/>  
+    </classes>
+</test>
+
+
+<test name="AnPaaOnSubsTest">
+    <classes>
+        <class name="com.testcases.AnPaaOnSubsTest"/>  
+    </classes>
+</test>
+
+<test name="AnPermitRenewalTest">
+    <classes>
+        <class name="com.testcases.AnPermitRenewalTest"/>  
+    </classes>
+</test>
+
+
+
+
+</suite>

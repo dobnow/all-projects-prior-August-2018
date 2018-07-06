@@ -1,0 +1,29 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="ParallelSuite" parallel="tests" thread-count="2" verbose="10">
+
+<listeners>
+    <listener class-name="listener.TestsListenerAdapter" />
+</listeners>
+
+
+<test name="2">
+    <classes>
+        <class name="com.testcases.Parallel2" />  
+    </classes>
+</test>
+<test name="1">
+    <classes>
+        <class name="com.testcases.Parallel" />  
+    </classes>
+</test>
+
+
+
+
+
+
+
+
+
+
+</suite>

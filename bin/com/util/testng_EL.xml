@@ -1,0 +1,93 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="ELECTRICAL" allow-return-values="true">
+<listeners>
+    <listener class-name="listener.TestsListenerAdapter" />
+</listeners>
+
+
+
+<test name="ElFieldSignInspectionTest">
+    <classes>
+        <class name="com.testcases.electrical.ElFieldSignInspectionTest"></class>  
+    </classes>
+</test>
+
+
+
+<test name="ElMinorWorkTest">
+    <classes>
+        <class name="com.testcases.electrical.ElMinorWorkTest"></class>  
+    </classes>
+</test>
+
+<test name="ElNewInstallTest">
+    <classes>
+        <class name="com.testcases.electrical.ElNewInstallTest"></class>  
+    </classes>
+</test>
+
+<test name="ElOnElSubsTest">
+    <classes>
+        <class name="com.testcases.electrical.ElOnElSubsTest"></class>  
+    </classes>
+</test>
+
+<test name="ElOnOtherSubsTest">
+    <classes>
+        <class name="com.testcases.electrical.ElOnOtherSubsTest"></class>  
+    </classes>
+</test>
+
+<test name="ElPaaTest">
+    <classes>
+        <class name="com.testcases.electrical.ElPaaTest"></class>  
+    </classes>
+</test>
+
+
+<test name="ElPaByCheckTest">
+    <classes>
+        <class name="com.testcases.electrical.ElPaByCheckTest"></class>  
+    </classes>
+</test>
+
+<test name="ElPaByCreditCardTest">
+    <classes>
+        <class name="com.testcases.electrical.ElPaByCreditCardTest"></class>  
+    </classes>
+</test>
+
+<test name="ElSubsPayByCheckTest">
+    <classes>
+        <class name="com.testcases.electrical.ElSubsPayByCheckTest"></class>  
+    </classes>
+</test>
+
+<test name="ElSubsPayByCreditCardTest">
+    <classes>
+        <class name="com.testcases.electrical.ElSubsPayByCreditCardTest"></class>  
+    </classes>
+</test>
+
+
+
+<test name="ElLegalizationMinorTest">
+    <classes>
+        <class name="com.testcases.electrical.ElLegalizationMinorTest"></class>  
+    </classes>
+</test>
+
+<test name="ElLegalizationNewInstallTest">
+    <classes>
+        <class name="com.testcases.electrical.ElLegalizationNewInstallTest"></class>  
+    </classes>
+</test>
+
+
+
+
+
+
+
+
+</suite>
