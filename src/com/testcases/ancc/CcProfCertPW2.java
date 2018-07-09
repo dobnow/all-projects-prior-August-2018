@@ -94,36 +94,38 @@ public class CcProfCertPW2 extends TestBase {
 		pw1.previewToFile(data.get("preview_to_file"));
 	}
  	
-	// CPE VIEW-ACCEPT DOCS
- 	@Test(priority=5, dataProvider="getTestData", dependsOnMethods={"Portal"})
- 	public void ProfSertQaSuperviserAcceptDocsTest(Hashtable<String,String> data) {
- 		CrmTaskFormPage task_form = PageFactory.initElements(driver, CrmTaskFormPage.class);
+/*	// CPE VIEW-ACCEPT DOCS
+	@Test(priority = 5, dataProvider = "getTestData", dependsOnMethods = { "Portal" })
+	public void ProfSertQaSuperviserAcceptDocsTest(Hashtable<String, String> data) {
+		CrmTaskFormPage task_form = PageFactory.initElements(driver, CrmTaskFormPage.class);
 		task_form.viewAcceptDocuments(data.get("prof_sert_qa_superviser"));
- 	}	
- 	
- // PROF SERT QA SUPERVISER VIEW ACCEPT DOCS
- 		@Test(priority=13, dataProvider="getTestData", dependsOnMethods={"ProfSertQaSuperviserAcceptDocsTest"})
- 		public void QaAdministratorTest(Hashtable<String,String> data) {
+	}
+
+	// PROF SERT QA SUPERVISER VIEW ACCEPT DOCS
+	@Test(priority = 13, dataProvider = "getTestData", dependsOnMethods = { "ProfSertQaSuperviserAcceptDocsTest" })
+	public void QaAdministratorTest(Hashtable<String, String> data) {
 // 			CrmDashboardPage crm_dash = PageFactory.initElements(driver, CrmDashboardPage.class);
- 			CrmTR1Page tr1 = PageFactory.initElements(driver, CrmTR1Page.class); 
- 			CrmTR8Page tr8 = PageFactory.initElements(driver, CrmTR8Page.class);
- 			tr1.viewAcceptTR1Fuel(data.get("prof_sert_qa_superviser"), data.get("accept_tr"));
-			tr1.viewAcceptTR1Fina(data.get("prof_sert_qa_superviser"), data.get("accept_tr"));
-			tr8.viewAcceptTR8PDocs(data.get("prof_sert_qa_superviser"), data.get("accept_tr"));
-		}
+		CrmTR1Page tr1 = PageFactory.initElements(driver, CrmTR1Page.class);
+		CrmTR8Page tr8 = PageFactory.initElements(driver, CrmTR8Page.class);
+		tr1.viewAcceptTR1Fuel(data.get("prof_sert_qa_superviser"), data.get("accept_tr"));
+		tr1.viewAcceptTR1Fina(data.get("prof_sert_qa_superviser"), data.get("accept_tr"));
+		tr8.viewAcceptTR8PDocs(data.get("prof_sert_qa_superviser"), data.get("accept_tr"));
+	}
+
 // PROF SERT QA SUPERVISER ASSIGN TO ADMIN
- 	@Test(priority=14, dataProvider="getTestData", dependsOnMethods={"QaAdministratorTest"})
- 	public void ProfSertQaSuperviserAssignToTest(Hashtable<String,String> data) {
+	@Test(priority = 14, dataProvider = "getTestData", dependsOnMethods = { "QaAdministratorTest" })
+	public void ProfSertQaSuperviserAssignToTest(Hashtable<String, String> data) {
 		CrmTaskFormPage task_form = PageFactory.initElements(driver, CrmTaskFormPage.class);
 		task_form.assignTo(data.get("prof_sert_qa_superviser"));
- 	}
- // ISSUE PERMIT
- 		@Test(priority=15, dataProvider="getTestData", dependsOnMethods={"ProfSertQaSuperviserAssignToTest"})
- 		public void IssuePermitTest(Hashtable<String,String> data) {
- 			CrmPW2Page pw2 = PageFactory.initElements(driver, CrmPW2Page.class);
-			pw2.viewAcceptPW2Docs(data.get("prof_sert_qa_administrator"), data.get("accept_pw2_docs"));
-  			CrmTaskFormPage task_form = PageFactory.initElements(driver, CrmTaskFormPage.class);
- 			task_form.isuePermit(data.get("prof_sert_qa_administrator"));
- 			successMessage(data.get("description"));
- 		}	
+	}
+
+	// ISSUE PERMIT
+	@Test(priority = 15, dataProvider = "getTestData", dependsOnMethods = { "ProfSertQaSuperviserAssignToTest" })
+	public void IssuePermitTest(Hashtable<String, String> data) {
+		CrmPW2Page pw2 = PageFactory.initElements(driver, CrmPW2Page.class);
+		pw2.viewAcceptPW2Docs(data.get("prof_sert_qa_administrator"), data.get("accept_pw2_docs"));
+		CrmTaskFormPage task_form = PageFactory.initElements(driver, CrmTaskFormPage.class);
+		task_form.isuePermit(data.get("prof_sert_qa_administrator"));
+		successMessage(data.get("description"));
+	}*/
 }

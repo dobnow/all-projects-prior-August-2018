@@ -88,7 +88,7 @@ public class CcQaFailedProfCert extends TestBase {
 		pw1.previewToFile(data.get("preview_to_file"));
 	}
  	
-	// CPE VIEW-ACCEPT DOCS
+/*	// CPE VIEW-ACCEPT DOCS
  	@Test(priority=5, dataProvider="getTestData", dependsOnMethods={"Portal"})
 	public void ProfSertQaSuperviserAcceptDocsTest(Hashtable<String, String> data) {
  		CrmTaskFormPage task_form = PageFactory.initElements(driver, CrmTaskFormPage.class);
@@ -128,5 +128,5 @@ public class CcQaFailedProfCert extends TestBase {
 		CrmTaskFormPage task_form = PageFactory.initElements(driver, CrmTaskFormPage.class);
 		task_form.qaFailed(data.get("qa_administrator"));
 		successMessage(data.get("description"));
-	}
+	}*/
 }

@@ -76,7 +76,7 @@ public class AnPaaOnSubsTest extends TestBase {
 
 		
 		dash.paa(data.get("filter"));
-		pw1.pAa(data.get("paa"), data.get("assert_paa"));	
+		pw1.pAa(data.get("paa"));	
 		signature.applicantSignature(data.get("signatures_paa"));
 		signature.ownerSignature(data.get("owner_signature"));
 		docs.uploadDocuments(data.get("docs_paa"));

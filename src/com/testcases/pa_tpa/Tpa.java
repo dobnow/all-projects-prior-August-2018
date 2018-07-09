@@ -48,7 +48,7 @@ public class Tpa extends TestBase {
 		return TestUtil.getData("Tpa", xlsx);
 	}
 
-	@Test(priority = 0, dataProvider = "getTestData", invocationCount = 19)
+	@Test(priority = 0, dataProvider = "getTestData", invocationCount = 1)
 	public void Portal(Hashtable<String, String> data) {
 		if (!TestUtil.isExecutable("Tpa", xlsx) || data.get("Runmode").equals("N"))
 			throw new SkipException("Skipping the test");

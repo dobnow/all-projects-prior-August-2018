@@ -7,6 +7,7 @@ import com.util.Xls_Reader;
 import java.util.Hashtable;
 import org.testng.SkipException;
 import org.testng.annotations.Test;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.DataProvider;
@@ -41,6 +42,11 @@ public class CcPaaOnSubsTest extends TestBase {
 	public void quit() {
 		quitDriver();
 	}
+	
+	@AfterClass
+	public void setChrome() {
+		setConfigBrowser("Chrome");
+	}
 
 	@AfterSuite
 	public void killDrivers() {
@@ -63,39 +69,27 @@ public class CcPaaOnSubsTest extends TestBase {
 		test = rep.startTest("Test Case Data");
 		test.log(LogStatus.INFO, data.toString());
 		setConfigBrowser("Chrome");
-	}
-	
-	// SUBS
-	@Test(priority = 1, dataProvider = "getTestData", dependsOnMethods = {"Base"})
-	public void PaaTest(Hashtable<String, String> data) {
 		DobDashboardPage dash = PageFactory.initElements(driver, DobDashboardPage.class);
-		dash.paa(data.get("filter"));
-		DobPW1Page pw1 = PageFactory.initElements(driver, DobPW1Page.class);
-		pw1.pAa(data.get("paa"), data.get("assert_paa"));	
-	}
-
-	// STATENTS SIGNATURES
-	@Test(priority = 2, dataProvider = "getTestData", dependsOnMethods = {"PaaTest"})
-	public void StatementsSignaturesPaaTest(Hashtable<String, String> data) {
+		DobPW1Page pw1 = PageFactory.initElements(driver, DobPW1Page.class);		
 		DobSignaturesPage signature = PageFactory.initElements(driver, DobSignaturesPage.class);
-		signature.applicantSignature(data.get("signatures_paa"));
-		signature.ownerSignature(data.get("owner_signature"));
-//		signature.ownerSignDocuments(data.get("owner_signature"),data.get("owner_email"), data.get("work_type"));
-	}
-	// DOCUMENTS
-	@Test(priority = 3, dataProvider = "getTestData", dependsOnMethods = {"StatementsSignaturesPaaTest"})//
-	public void DocumentsPaaTest(Hashtable<String, String> data) {
 		DobDocumentsPage docs = PageFactory.initElements(driver, DobDocumentsPage.class);
+		
+		
+		
+		
+		dash.paa(data.get("filter"));
+		pw1.pAa(data.get("paa"));	
+		signature.applicantSignature(data.get("signatures_paa"));
+		signature.ownerSignature(data.get("owner_signature"));		
 		docs.uploadDocuments(data.get("docs_paa"));
 		setConfigBrowser("IE");
-		initConfigurations();
 	}
+
 	// PAY NOW CITY PAY
-	@Test(priority = 4, dataProvider = "getTestData", dependsOnMethods = {"DocumentsPaaTest"})//
+	@Test(priority = 4, dataProvider = "getTestData", dependsOnMethods = {"Base"})//
 	public void PayNowCityPayTest(Hashtable<String, String> data) {
 		CityPayPage pay = PageFactory.initElements(driver, CityPayPage.class);
 		pay.cityPay(data.get("pay_now_paa"));
-		setConfigBrowser("Chrome");
 	}
 	
 	// PREVIEW TO FILE
@@ -104,7 +98,8 @@ public class CcPaaOnSubsTest extends TestBase {
 		DobPW1Page pw1 = PageFactory.initElements(driver, DobPW1Page.class);
 		pw1.previewToFile(data.get("preview_to_file_paa"));
 	}
-// CPE VIEW-ACCEPT DOCS
+	
+/*// CPE VIEW-ACCEPT DOCS
 	@Test(priority= 6, dataProvider="getTestData", dependsOnMethods={"PreviewToFilePaaTest"})
 	public void CPEAcceptDocsPaaTest(Hashtable<String,String> data) {
 		CrmTaskFormPage task_form = PageFactory.initElements(driver, CrmTaskFormPage.class);
@@ -122,5 +117,5 @@ public class CcPaaOnSubsTest extends TestBase {
 			CrmTaskFormPage task_form = PageFactory.initElements(driver, CrmTaskFormPage.class);
 			task_form.peAction(data.get("pe_approved_paa"));
 			successMessage(data.get("description"));
-		}	
+		}*/	
 }

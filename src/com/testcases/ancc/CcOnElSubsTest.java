@@ -63,17 +63,17 @@ public class CcOnElSubsTest extends TestBase {
 		test.log(LogStatus.INFO, data.get("description"));
 		test = rep.startTest("Test Case Data");
 		test.log(LogStatus.INFO, data.toString());
-
-	}
- 	
-	@Test(priority = 1, dataProvider = "getTestData", dependsOnMethods = {"Base"})
-	public void PW1(Hashtable<String, String> data) {
 		DobDashboardPage dash = PageFactory.initElements(driver, DobDashboardPage.class);
 		DobPW1Page pw1 = PageFactory.initElements(driver, DobPW1Page.class);
+		DobSignaturesPage signature = PageFactory.initElements(driver, DobSignaturesPage.class);
+		DobDocumentsPage docs = PageFactory.initElements(driver, DobDocumentsPage.class);
+		
+
+		
 		dash.subsFilingAction(data.get("filter"));
 		dash.selectWorkTypeSubs(data.get("work_type_subs"));
 		waitUntilISpinnersInvisible();
-		pw1.applicantInfoSubs(data.get("subsequent_filing"));
+		pw1.applicantInfoSubs(data.get("user_info"));
 		pw1.directive14acceptanceRequested(data.get("job_project_type"));
 		pw1.additionalInfoSubs(data.get("cost_floor_area_build_type"));
 		pw1.additionalConciderationsCurb(data.get("additional_conciderations"));
@@ -81,29 +81,17 @@ public class CcOnElSubsTest extends TestBase {
 		pw1.zonningCharacteristics(data.get("dist_overlay_spec_dist_map"));
 		pw1.buildingCharacteristics(data.get("building_charcteristics"));
 		pw1.savePW1_subs(data.get("pw1_subs"));
-		pw1.curbCutDescription(data.get("curb_cut_description"));
-		pw1.fireProtectionEquipment(data.get("fire_equipment"));
-		pw1.siteCharacteristics(data.get("site_characteristics"));
-		pw1.savePW1(data.get("pw1_subs")); 
-	}
-
-	// STATENTS SIGNATURES
-	@Test(priority = 2, dataProvider = "getTestData", dependsOnMethods = {"PW1"})
-	public void StatementsSignaturesTest(Hashtable<String, String> data) {
-		DobSignaturesPage signature = PageFactory.initElements(driver, DobSignaturesPage.class);
 		signature.applicantStatementsSignature(data.get("signatures"));
 		signature.ownerSignature(data.get("owner_signature"));
-	}
-
-	// DOCUMENTS
-	@Test(priority = 9, dataProvider = "getTestData", dependsOnMethods = {"StatementsSignaturesTest"})
-	public void DocumentsTest(Hashtable<String, String> data) {
-		DobDocumentsPage docs = PageFactory.initElements(driver, DobDocumentsPage.class);
 		docs.uploadDocuments(data.get("documents"));
+		pw1.previewToFile(data.get("preview_to_file"));
+		successMessage(data.get("description"));
+
 	}
 
+/*	
 	// PREVIEW TO FILE
-	@Test(priority = 10, dataProvider = "getTestData", dependsOnMethods = {"DocumentsTest"})
+	@Test(priority = 10, dataProvider = "getTestData", dependsOnMethods = {"Base"})
 	public void PreviewToFileTest(Hashtable<String, String> data) {
 		DobPW1Page pw1 = PageFactory.initElements(driver, DobPW1Page.class);
 		pw1.previewToFile(data.get("preview_to_file"));
@@ -128,7 +116,7 @@ public class CcOnElSubsTest extends TestBase {
 		task_form.peAction(data.get("plan_examiner"));
 		successMessage(data.get("description"));
 	}
-
+*/
 
 
 }

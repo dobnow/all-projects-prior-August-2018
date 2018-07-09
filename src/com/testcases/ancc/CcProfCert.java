@@ -86,7 +86,7 @@ public class CcProfCert extends TestBase {
 		signature.applicantStatementsSignature(data.get("signatures"));
 		signature.ownerSignature(data.get("owner_signature"));
 		docs.uploadDocuments(data.get("documents"));
-//		pw1.previewToFile(data.get("preview_to_file"));
+		pw1.previewToFile(data.get("preview_to_file"));
 	}
  	
 /*	// CPE VIEW-ACCEPT DOCS
