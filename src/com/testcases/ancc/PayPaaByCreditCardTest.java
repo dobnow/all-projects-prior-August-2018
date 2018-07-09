@@ -14,6 +14,8 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 import org.openqa.selenium.support.PageFactory;
 import com.pages.DobDashboardPage;
+import com.pages.DobPW3Page;
+import com.pages.DobSOWPage;
 import com.relevantcodes.extentreports.LogStatus;
 import com.base.TestBase;
 import com.pages.CityPayPage;
@@ -58,31 +60,25 @@ public class PayPaaByCreditCardTest extends TestBase {
 		test.log(LogStatus.INFO, data.get("description"));
 		test = rep.startTest("Test Case Data");
 		test.log(LogStatus.INFO, data.toString());
-		setConfigBrowser("Chrome");
-		
-	}
-	
-	// PAA PW1
-	@Test(priority = 1, dataProvider = "getTestData", dependsOnMethods = {"Base"})
-	public void Paa(Hashtable<String, String> data) {
 		DobDashboardPage dash = PageFactory.initElements(driver, DobDashboardPage.class);
-		dash.filterJob(data.get("filter"));
-		addToProps("job_number", text(Constants.job_label).trim().substring(6, 15).trim());		
+		DobSOWPage asw = PageFactory.initElements(driver, DobSOWPage.class);
+		DobPW3Page pw3 = PageFactory.initElements(driver, DobPW3Page.class);
+		
+
+		
+		dash.filterToPay(data.get("filter"));
+		addToProps("job_number", text(Constants.job_label).trim().substring(6, 15).trim());	
+		asw.scopeOfWork(data.get("asw"));
+		pw3.costAffidavit(data.get("pw3"));
 		setConfigBrowser("IE");
-		initConfigurations();
 	}
 	
 	// PAY NOW / CITY PAY
-	@Test(priority = 2, dataProvider = "getTestData", dependsOnMethods = {"Paa"})
+	@Test(priority = 4, dataProvider = "getTestData", dependsOnMethods = {"Base"})
 	public void CityPay(Hashtable<String, String> data) {
 		CityPayPage pay = PageFactory.initElements(driver, CityPayPage.class);
 		pay.cityPay(data.get("pay_now"));
 		successMessage(data.get("description"));
-	}
-	// SET CHROME
-	@Test(priority=3, dataProvider = "getTestData")
-	public void SetBrowserToChrome(Hashtable<String, String> data) {
-		setConfigBrowser("Chrome");
 	}
 	
 }

@@ -89,7 +89,7 @@ public class CcIIncompleteTest extends TestBase {
 		pw1.previewToFile(data.get("preview_to_file"));
 	}
  	
-	// CPE INCOMPLTE
+/*	// CPE INCOMPLTE
  	@Test(priority=5, dataProvider="getTestData", dependsOnMethods={"Portal"})
  	public void Incomplete(Hashtable<String,String> data) {
 		CrmTaskFormPage task_form = PageFactory.initElements(driver, CrmTaskFormPage.class);
@@ -157,5 +157,5 @@ public class CcIIncompleteTest extends TestBase {
 		task_form.isuePermit(data.get("qa_administrator"));
 		successMessage(data.get("description"));
 	}
-
+*/
 }

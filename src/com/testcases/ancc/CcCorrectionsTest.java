@@ -87,7 +87,7 @@ public class CcCorrectionsTest extends TestBase {
 		pw1.previewToFile(data.get("preview_to_file"));
 	}
  	
-	// CPE VIEW-ACCEPT DOCS
+/*	// CPE VIEW-ACCEPT DOCS
  	@Test(priority=5, dataProvider="getTestData", dependsOnMethods={"Portal"})
  	public void CPEAcceptDocsTest(Hashtable<String,String> data) {
 		CrmTaskFormPage task_form = PageFactory.initElements(driver, CrmTaskFormPage.class);
@@ -111,6 +111,6 @@ public class CcCorrectionsTest extends TestBase {
 		CrmTaskFormPage task_form = PageFactory.initElements(driver, CrmTaskFormPage.class);		
 		task_form.peAction(data.get("plan_examiner"));
 		successMessage(data.get("description"));
-	}
+	}*/
  	
 }

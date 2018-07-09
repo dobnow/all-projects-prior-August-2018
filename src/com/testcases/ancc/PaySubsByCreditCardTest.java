@@ -3,7 +3,6 @@ package com.testcases.ancc;
 import com.util.Constants;
 import com.util.TestUtil;
 import com.util.Xls_Reader;
-
 import java.util.Hashtable;
 import org.testng.SkipException;
 import org.testng.annotations.Test;
@@ -14,6 +13,8 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 import org.openqa.selenium.support.PageFactory;
 import com.pages.DobDashboardPage;
+import com.pages.DobPW1Page;
+import com.pages.DobPW3Page;
 import com.relevantcodes.extentreports.LogStatus;
 import com.base.TestBase;
 import com.pages.CityPayPage;
@@ -58,32 +59,37 @@ public class PaySubsByCreditCardTest extends TestBase {
 		test.log(LogStatus.INFO, data.get("description"));
 		test = rep.startTest("Test Case Data");
 		test.log(LogStatus.INFO, data.toString());
-		setConfigBrowser("Chrome");
-
-	}
-
-	// SUBS
-	@Test(priority = 1, dataProvider = "getTestData", dependsOnMethods = { "Base" })
-	public void Paa(Hashtable<String, String> data) {
 		DobDashboardPage dash = PageFactory.initElements(driver, DobDashboardPage.class);
-		dash.filterJob(data.get("filter"));
-		addToProps("job_number", text(Constants.job_label).trim().substring(6, 15).trim());
+		DobPW1Page pw1 = PageFactory.initElements(driver, DobPW1Page.class);
+		DobPW3Page pw3 = PageFactory.initElements(driver, DobPW3Page.class);
+		
+		CityPayPage pay = PageFactory.initElements(driver, CityPayPage.class);
+		pay.cityPay(data.get("pay_now"));
+		
+		dash.subsFilingAction(data.get("filter"));
+		dash.selectWorkTypeSubs(data.get("work_type_subs"));
+		pw1.workOnFloors(data.get("work_on_floors"));
+		pw1.applicantInfo(data.get("user_info"));
+		pw1.directive14acceptanceRequested(data.get("job_project_type"));
+		pw1.workTypes(data.get("new_existing_both"));
+		pw1.additionalInfoSubs(data.get("cost_floor_area_build_type"));
+		pw1.additionalConciderationsAntenna(data.get("demolition"));
+		pw1.complianceNYCECC(data.get("nycecc"));
+		pw1.zonningCharacteristics(data.get("dist_overlay_spec_dist_map"));
+		pw1.buildingCharacteristics(data.get("building_charcteristics"));
+		pw1.fireProtectionEquipment(data.get("fire_equipment"));
+		pw1.siteCharacteristics(data.get("site_characteristics"));
+		pw1.savePW1(data.get("pw1_subs")); 
+		pw3.costAffidavit(data.get("pw3"));
 		setConfigBrowser("IE");
-		initConfigurations();
 	}
 
 	// PAY NOW / CITY PAY
-	@Test(priority = 2, dataProvider = "getTestData", dependsOnMethods = { "Paa" })
+	@Test(priority = 2, dataProvider = "getTestData", dependsOnMethods = {"Base"})
 	public void CityPay(Hashtable<String, String> data) {
 		CityPayPage pay = PageFactory.initElements(driver, CityPayPage.class);
 		pay.cityPay(data.get("pay_now"));
 		successMessage(data.get("description"));
-	}
-
-	// SET CHROME
-	@Test(priority = 3, dataProvider = "getTestData")
-	public void SetBrowserToChrome(Hashtable<String, String> data) {
-		setConfigBrowser("Chrome");
 	}
 
 }
