@@ -73,7 +73,7 @@ public class CityPayPage extends TestBase {
 						break;
 					}
 				}
-				for (int i = 1; i < 5; i++) {
+				for (int i = 1; i < 20; i++) {
 					
 /*					Set<String> handleswindow = driver.getWindowHandles();
 					for (String windowHandle : handleswindow) {
@@ -96,10 +96,22 @@ public class CityPayPage extends TestBase {
 						driver.switchTo().window(windowHandle);
 						driver.manage().window().maximize();
 					}
-					if (!driver.getTitle().equals("Certificate Error: Navigation Blocked"))
+					if (!driver.getTitle().equals("Certificate Error: Navigation Blocked")) {
+						
 						System.out.println(" You are in the wrong window");
+						ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
+						driver.switchTo().defaultContent();
+						driver.switchTo().window(tabs.get(0));
+						driver.switchTo().window(tabs.get(1));
+						
+						
+						
 					if (count("//a[@id='overridelink']") > 0)
 						break;
+					}
+/*						System.out.println(" You are in the wrong window");
+					if (count("//a[@id='overridelink']") > 0)
+						break;*/
 				}
 				while (count("//a[@id='overridelink']") > 0) {
 					driver.navigate().to("javascript:document.getElementById('overridelink').click()");
@@ -175,6 +187,7 @@ public class CityPayPage extends TestBase {
 //				driver.close();
 			}
 		}
+		successMessage("cityPay");
 	}
 
 }

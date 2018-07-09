@@ -128,8 +128,8 @@ public class DobDashboardPage extends TestBase {
 				type("//span[text()='Modified Date']/following::input[@ng-model='colFilter.term']", data[10]);
 			if (!data[11].equals(""))
 				type("//span[text()='Payment Status']/following::input[@ng-model='colFilter.term']", data[11]);
-			reportPass("filter");
 		}
+		reportPass("filter");
 	}
 	public void filterPermits(String filter) {
 		if (!filter.equals("")) {
@@ -644,6 +644,42 @@ public class DobDashboardPage extends TestBase {
 	 		reportPass("Success");
 		}
 	}
+	
+	public void filterToPay(String filter) {
+		if (!filter.equals("")) {
+			test = rep.startTest("filterToPay");
+			System.out.println(convertedTimestamp() + " **************** filterToPay");
+			loginToPortal(user);
+			// click(Constants.my_work_permits_tab);
+			waitUntilISpinnersInvisible();
+			waitVisible(Constants.global_first_filter_field);
+			select("//select[@ng-model='grid.options.paginationPageSize']", "20");
+			filter(filter);
+			
+			if(count(Constants.click_to_view_icon) > 0) {
+				click(Constants.click_to_view_icon);
+				clickButton("OK");
+				waitInvisible(Constants.ok_button);
+				waitUntilISpinnersInvisible();
+			}
+/*			for (int i = 1; i < 20; i++) {
+				wait(1);
+				fdsfdsfdsf
+				select("(//select[@id='FilingAction'])[" + i + "]", "PAA");
+				// select(Constants.filing_action_label, "PAA");
+				click(Constants.yes_button);
+				wait(2);
+				if (count("//p[@id='desc'][contains(text(), 'PAA already in progress')]") > 0)
+					click(Constants.ok_button);
+				else
+					break;
+			}*/
+			waitInvisible(Constants.ok_button);
+			waitInvisible(Constants.yes_button);
+			waitUntilISpinnersInvisible();
+			reportPass("Success");
+		}
+	}
 
 	public void paa(String filter) {
 		if (!filter.equals("")) {
@@ -655,7 +691,14 @@ public class DobDashboardPage extends TestBase {
 			waitVisible(Constants.global_first_filter_field);
 			select("//select[@ng-model='grid.options.paginationPageSize']", "20");
 			filter(filter);
-			for (int i = 1; i < 20; i++) {
+			
+			if(count(Constants.click_to_view_icon) > 0) {
+				click(Constants.click_to_view_icon);
+				clickButton("OK");
+				waitInvisible(Constants.ok_button);
+				waitUntilISpinnersInvisible();
+			}
+/*			for (int i = 1; i < 20; i++) {
 				wait(1);
 				select("(//select[@id='FilingAction'])[" + i + "]", "PAA");
 				// select(Constants.filing_action_label, "PAA");
@@ -665,7 +708,7 @@ public class DobDashboardPage extends TestBase {
 					click(Constants.ok_button);
 				else
 					break;
-			}
+			}*/
 			waitInvisible(Constants.ok_button);
 			waitInvisible(Constants.yes_button);
 			waitUntilISpinnersInvisible();
