@@ -31,10 +31,10 @@ import com.pages.CrmTR8Page;
 import com.relevantcodes.extentreports.LogStatus;
 
 public class AnSubs extends TestBase {
-	
+
 	Xls_Reader xlsx = new Xls_Reader(Constants.testCasesSubs);
 	String testname = "AnSubs";
-	
+
 	@BeforeSuite
 	public void BeforeSuite() {
 		initConfigurations();
@@ -66,35 +66,20 @@ public class AnSubs extends TestBase {
 	public void Portal(Hashtable<String, String> data) {
 		if (!TestUtil.isExecutable(testname, xlsx) || data.get("Runmode").equals("N"))
 			throw new SkipException("Skipping test");
-		System.out.println("BEGIN " + convertedTimestamp() + " **************** " + data.get("description"));
-			test = rep.startTest(data.get("description"));
-			test.log(LogStatus.INFO, data.get("description"));
-			test = rep.startTest("Test Case Data");
-			test.log(LogStatus.INFO, data.toString());
-			DobDashboardPage dash = PageFactory.initElements(driver, DobDashboardPage.class);
-			DobPW1Page pw1 = PageFactory.initElements(driver, DobPW1Page.class);
-			dash.subsFilingAction(data.get("filter"));
-			dash.selectWorkTypeSubs(data.get("work_type"));
-			pw1.workOnFloorsSubs(data.get("work_type"));
-			pw1.applicantInfoSubs(data.get("user_info"));
-			pw1.buildingCharacteristics(data.get("building_charcteristics"));
-			pw1.savePW1("Y");
-			successMessage(data.get("description"));
-			wait(3);			
-/*			pw1.directive14acceptanceRequested(data.get("job_project_type"));
-			pw1.workTypes(data.get("new_existing_both"));
-			pw1.additionalInfoSubs(data.get("cost_floor_area_build_type"));
-			pw1.additionalConciderationsAntenna(data.get("demolition"));
-			pw1.complianceNYCECC(data.get("nycecc"));
-			pw1.zonningCharacteristics(data.get("dist_overlay_spec_dist_map"));
-			pw1.buildingCharacteristics(data.get("building_charcteristics"));
-			pw1.fireProtectionEquipment(data.get("fire_equipment"));
-			pw1.siteCharacteristics(data.get("site_characteristics"));
-			pw1.savePW1(data.get("pw1_subs")); */
-
-
+		System.out.println("BEGIN " +convertedTimestamp()+ " **************** " +data.get("description"));
+		test = rep.startTest(data.get("description"));
+		test.log(LogStatus.INFO, data.get("description"));
+		test = rep.startTest("Test Case Data");
+		test.log(LogStatus.INFO, data.toString());
+		DobDashboardPage dash = PageFactory.initElements(driver, DobDashboardPage.class);
+		DobPW1Page pw1 = PageFactory.initElements(driver, DobPW1Page.class);
+		dash.subsFilingAction(data.get("filter"));
+		dash.selectWorkTypeSubs(data.get("work_type"));
+		pw1.workOnFloorsSubs(data.get("work_type"));
+		pw1.applicantInfoSubs(data.get("user_info"));
+		pw1.buildingCharMixedSubs(data.get("building_charcteristics"));
+		pw1.savePW1("Y");
+		successMessage(data.get("description"));
 	}
-
-
 
 }

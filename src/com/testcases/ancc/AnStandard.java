@@ -7,6 +7,7 @@ import com.util.Xls_Reader;
 import java.util.Hashtable;
 import org.testng.SkipException;
 import org.testng.annotations.Test;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.DataProvider;
@@ -50,6 +51,11 @@ public class AnStandard extends TestBase {
 	public void quit() {
 		quitDriver();
 	}
+	
+	@AfterClass
+	public void setChrome() {
+		setConfigBrowser("Chrome");
+	}
 
 	@AfterSuite
 	public void killDrivers() {
@@ -61,6 +67,16 @@ public class AnStandard extends TestBase {
 		return TestUtil.getData(testname, xlsx);
 	}
 
+	DobDashboardPage dash = new  DobDashboardPage();
+	DobPW1Page pw1 = new  DobPW1Page();
+	DobDS1Page ds1 = new DobDS1Page();
+	DobSOWPage asw = new DobSOWPage();
+	DobPW3Page pw3 = new DobPW3Page();
+	DobTR1Page tr1 = new DobTR1Page();
+	DobTR8Page tr8 = new DobTR8Page();
+	DobSignaturesPage signature = new DobSignaturesPage();
+	DobDocumentsPage docs = new DobDocumentsPage();
+	
 	@Test(priority = 0, dataProvider = "getTestData", invocationCount = 1)
 	public void Portal(Hashtable<String, String> data) {
 		if (!TestUtil.isExecutable(testname, xlsx) || data.get("Runmode").equals("N"))
@@ -71,48 +87,10 @@ public class AnStandard extends TestBase {
 			test.log(LogStatus.INFO, data.get("description"));
 			test = rep.startTest("Test Case Data");
 			test.log(LogStatus.INFO, data.toString());
-			DobDashboardPage dash = PageFactory.initElements(driver, DobDashboardPage.class);
-			
-			
-			DobPW1Page pw1 = new  DobPW1Page();
-			DobDS1Page ds1 = new DobDS1Page();
-			DobSOWPage asw = new DobSOWPage();
-			DobPW3Page pw3 = PageFactory.initElements(driver, DobPW3Page.class);
-			DobTR1Page tr1 = PageFactory.initElements(driver, DobTR1Page.class);
-			DobTR8Page tr8 = PageFactory.initElements(driver, DobTR8Page.class);
-			DobSignaturesPage signature = PageFactory.initElements(driver, DobSignaturesPage.class);
-			DobDocumentsPage docs = PageFactory.initElements(driver, DobDocumentsPage.class);
-			
-//			asw.scopeOfWork(data.get("asw"));
-			pw3.costAffidavit(data.get("pw3"));
-			tr1.specialInspection(data.get("tr1"));
-			tr1.specialInspectorSignature(data.get("tr1"));
-			tr1.progressInspecSign(data.get("tr1"));
-			tr8.energyCodeProgressInspection(data.get("tr8"));
-			tr8.energyCodeSignature(data.get("tr8"));
-			signature.applicantStatementsSignature(data.get("signatures"));
-			signature.ownerSignature(data.get("owner_signature"));
-			docs.uploadDocuments(data.get("documents"));
-			pw1.previewToFile(data.get("preview_to_file"));
-			
-/*			DobPW1Page pw1 = PageFactory.initElements(driver, DobPW1Page.class);
-			DobDS1Page ds1 = PageFactory.initElements(driver, DobDS1Page.class);
-			DobSOWPage asw = PageFactory.initElements(driver, DobSOWPage.class);
-			DobPW3Page pw3 = PageFactory.initElements(driver, DobPW3Page.class);
-			DobTR1Page tr1 = PageFactory.initElements(driver, DobTR1Page.class);
-			DobTR8Page tr8 = PageFactory.initElements(driver, DobTR8Page.class);
-			DobSignaturesPage signature = PageFactory.initElements(driver, DobSignaturesPage.class);
-			DobDocumentsPage docs = PageFactory.initElements(driver, DobDocumentsPage.class);*/
-			
-/*			CrmTaskFormPage task_form = new CrmTaskFormPage();
-			
-//			CrmTaskFormPage task_form = PageFactory.initElements(driver, CrmTaskFormPage.class);
-			CrmTR1Page crmtr1 = PageFactory.initElements(driver, CrmTR1Page.class);
-			CrmTR8Page crmtr8 = PageFactory.initElements(driver, CrmTR8Page.class);
-			crmtr1.viewAcceptTR1Fuel(data.get("qa_superviser"), data.get("accept_tr"));
-			crmtr1.viewAcceptTR1Fina(data.get("qa_superviser"), data.get("accept_tr"));
-			crmtr8.viewAcceptTR8PDocs(data.get("qa_superviser"), data.get("accept_tr"));
-			task_form.qaSuperviser(data.get("qa_superviser"));*/
+
+
+
+
 			
 			
 			dash.selectWorkType(data.get("work_type"));
