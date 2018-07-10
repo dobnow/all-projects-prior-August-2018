@@ -88,8 +88,8 @@ public class CrmTR8Page extends TestBase {
 	public WebElement qa_action;
 	@FindBy(xpath = Constants.option_permit_issued)
 	public WebElement option_permit_issued;
-	@FindBy(xpath = Constants.click_here_to_go_to_job_filing)
-	public WebElement click_here_to_go_to_job_filing;
+	@FindBy(xpath = Constants.label_job_filing)
+	public WebElement label_job_filing;
 	@FindBy(xpath = Constants.qa_admin_tr1_tab)
 	public WebElement qa_admin_tr1_tab;
 	@FindBy(xpath = Constants.qa_admin_tr8_tab)
@@ -171,15 +171,15 @@ public class CrmTR8Page extends TestBase {
 			loginToCrm(data[0]);
 			searchForJobCrm();
 			driver.switchTo().frame("contentIFrame0");
-			waitUntilElementVisible(Constants.click_here_to_go_to_job_filing, 30);
+			waitUntilElementVisible(Constants.label_job_filing, 30);
 			for (int i=1; i < 20; i++) {
-				click_here_to_go_to_job_filing.click();
+				label_job_filing.click();
 				wait(2);
-				if (count(Constants.click_here_to_go_to_job_filing) < 1) 
+				if (count(Constants.label_job_filing) < 1) 
 					break;
 			}			
 			ifAlertExistAccept();
-			waitInvisible(Constants.click_here_to_go_to_job_filing);
+			waitInvisible(Constants.label_job_filing);
 			waitVisible(Constants.qa_admin_application_highlights_label);
 			waitUntilElementVisible(Constants.qa_admin_tr8_tab, 60);
 			for (int i = 1; i <= 20; i++) {
@@ -229,15 +229,15 @@ public class CrmTR8Page extends TestBase {
 			loginToCrm(data[0]);
 			searchForJobCrm();
 			driver.switchTo().frame("contentIFrame0");
-			waitUntilElementVisible(Constants.click_here_to_go_to_job_filing, 30);
+			waitUntilElementVisible(Constants.label_job_filing, 30);
 			for (int i=1; i < 20; i++) {
-				click(Constants.click_here_to_go_to_job_filing);
+				click(Constants.label_job_filing);
 				wait(2);
-				if (count(Constants.click_here_to_go_to_job_filing) < 1) 
+				if (count(Constants.label_job_filing) < 1) 
 					break;
 			}			
 			ifAlertExistAccept();
-			waitInvisible(Constants.click_here_to_go_to_job_filing);
+			waitInvisible(Constants.label_job_filing);
 			waitVisible(Constants.qa_admin_application_highlights_label);
 			waitVisible(Constants.qa_admin_tr8_tab);
 			for (int i = 1; i <= 20; i++) {

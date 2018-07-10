@@ -92,8 +92,8 @@ public class CrmPW2Page extends TestBase {
 	public WebElement qa_action;
 	@FindBy(xpath = Constants.option_permit_issued)
 	public WebElement option_permit_issued;
-	@FindBy(xpath = Constants.click_here_to_go_to_job_filing)
-	public WebElement click_here_to_go_to_job_filing;
+	@FindBy(xpath = Constants.label_job_filing)
+	public WebElement label_job_filing;
 	@FindBy(xpath = Constants.qa_admin_tr1_tab)
 	public WebElement qa_admin_tr1_tab;
 	@FindBy(xpath = Constants.qa_admin_tr8_tab)
@@ -187,10 +187,10 @@ public class CrmPW2Page extends TestBase {
 				System.out.println(convertedTimestamp() + " **************** " + "PW1 Fuel Oil");
 				searchForJobCrm();
 				driver.switchTo().frame("contentIFrame0");
-				waitUntilElementVisible(Constants.click_here_to_go_to_job_filing, 30);
-				click_here_to_go_to_job_filing.click();
+				waitUntilElementVisible(Constants.label_job_filing, 30);
+				label_job_filing.click();
 				waitTime(10000L);
-				waitInvisible(Constants.click_here_to_go_to_job_filing);
+				waitInvisible(Constants.label_job_filing);
 				waitVisible(Constants.qa_admin_application_highlights_label);
 				waitUntilElementVisible(Constants.qa_admin_tr1_tab, 60);
 				//waitUntilElementVisible(Constants.qa_admin_work_on_floors_document, 30);
@@ -222,8 +222,8 @@ public class CrmPW2Page extends TestBase {
 				waitUntilElementVisible(Constants.crm_top_nav_search_button, 30);
 				waitTime(5000L);
 				driver.switchTo().frame("contentIFrame0");
-				waitUntilElementVisible(Constants.click_here_to_go_to_job_filing, 30);
-				click_here_to_go_to_job_filing.click();
+				waitUntilElementVisible(Constants.label_job_filing, 30);
+				label_job_filing.click();
 				waitTime(10000L);
 				waitUntilElementVisible(Constants.qa_admin_tr1_tab, 60);
 				//waitUntilElementVisible(Constants.qa_admin_work_on_floors_document, 30);
@@ -255,8 +255,8 @@ public class CrmPW2Page extends TestBase {
 				waitUntilElementVisible(Constants.crm_top_nav_search_button, 30);
 				waitTime(5000L);
 				driver.switchTo().frame("contentIFrame0");
-				waitUntilElementVisible(Constants.click_here_to_go_to_job_filing, 30);
-				click_here_to_go_to_job_filing.click();
+				waitUntilElementVisible(Constants.label_job_filing, 30);
+				label_job_filing.click();
 				waitTime(10000L);
 				waitUntilElementVisible(Constants.qa_admin_tr8_tab, 60);
 				// //waitUntilElementVisible(Constants.qa_admin_work_on_floors_document, 30);
@@ -295,7 +295,7 @@ public class CrmPW2Page extends TestBase {
 			loginToCrm(data[0]);
 			searchForJobCrm();
 			waitDocStatus();
-			waitVisible(Constants.click_here_to_go_to_job_filing);
+			waitVisible(Constants.label_job_filing);
 			if (user_name.contains("BUILD02")) {
 				waitUntilElementVisible(Constants.crm_permit_not_yet_issued_link, 30);
 				new Actions(driver).contextClick(crm_permit_not_yet_issued_link).build().perform();
@@ -336,7 +336,7 @@ public class CrmPW2Page extends TestBase {
 					waitForPageToLoad();
 					wait(2);
 					driver.switchTo().frame("contentIFrame0");
-//					waitVisible(Constants.click_here_to_go_to_job_filing);
+//					waitVisible(Constants.label_job_filing);
 					waitClickableOr("//nobr[text()='Accepted']", "//nobr[text()='Submitted']");
 					if (count(Constants.crm_document_status_submitted) == 0) {
 						reportPass("viewAcceptDocuments");
@@ -354,7 +354,7 @@ public class CrmPW2Page extends TestBase {
 			searchForJobCrm();
 			waitDocStatus();
 //			driver.switchTo().frame("contentIFrame0");
-			waitUntilElementVisible(Constants.click_here_to_go_to_job_filing, 30);
+			waitUntilElementVisible(Constants.label_job_filing, 30);
 			if (user_name.contains("BUILD02")) {
 				waitUntilElementVisible(Constants.crm_permit_not_yet_issued_link, 30);
 				new Actions(driver).contextClick(crm_permit_not_yet_issued_link).build().perform();
@@ -463,7 +463,7 @@ public class CrmPW2Page extends TestBase {
 					waitForPageToLoad();
 					wait(2);
 					driver.switchTo().frame("contentIFrame0");
-//					waitVisible(Constants.click_here_to_go_to_job_filing);
+//					waitVisible(Constants.label_job_filing);
 					waitClickableOr("//nobr[text()='Accepted']", "//nobr[text()='Submitted']");
 					if (count(Constants.crm_document_status_submitted) == 0) {
 						reportPass("viewAcceptPW2DocsAhv");
@@ -504,7 +504,7 @@ public class CrmPW2Page extends TestBase {
 		waitForPageToLoad();
 		wait(3);
 		driver.switchTo().frame("contentIFrame0");
-//		waitVisible(Constants.click_here_to_go_to_job_filing);
+//		waitVisible(Constants.label_job_filing);
 			waitVisible(Constants.click_here_to_go_to_ahv);
 			click(Constants.click_here_to_go_to_ahv + "/following::span[@class='ms-crm-Lookup-Item']");
 

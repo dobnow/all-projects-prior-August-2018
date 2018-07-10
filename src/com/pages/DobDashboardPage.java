@@ -290,7 +290,7 @@ public class DobDashboardPage extends TestBase {
 	}
 	public void selectWorkTypeSubs(String work_type) {	
 			String[] data = work_type.split(" :: ");
-			System.out.println(convertedTimestamp() + " ****************  selectWorkTypeSubs");
+			System.out.println(convertedTimestamp() + " **************** selectWorkTypeSubs");
 			test = rep.startTest("selectWorkTypeSubs");
 	 		waitUntilElementVisible(Constants.el_subsequent_filing_create_button, 30);
 			String document_xpath =  "//input[@ng-model='rowData." + data[0] +  "FilingWorktype']";
@@ -301,56 +301,6 @@ public class DobDashboardPage extends TestBase {
 			waitInvisible(Constants.global_create_subsequent_button);
 			waitUntilISpinnersInvisible();
 			reportPass("selectWorkTypeSubs");
-	}
-	public void pAa(String paa) {	
-		if(!paa.equals("")){
-			test = rep.startTest("pAa");
-			System.out.println(convertedTimestamp() + " ****************  PAA");
-			loginToPortal(OR_PROPERTIES.getProperty("user_email"));
-			waitVisible(Constants.global_first_filter_field);
-			type(Constants.job_number_filter, JOB_NUMBER.getProperty("job_number"));
-			wait(1);
-			type(Constants.eljob_filing_number_filter, "I");
-			wait(1);
-//	 		waitUntilElementVisible(Constants.select_action_dropdown, 30);
-	 		click(Constants.select_action_dropdown);
-//	 		waitUntilElementVisible(Constants.el_select_action_paa, 30);
-	 		click(Constants.el_select_action_paa);
-	 		waitTime(3000L);
-//	 		waitVisible(Constants.paa_confirm_yes_button);
-	 		while(count(Constants.confirm_yes_button) != 0) {
-		 		click(Constants.confirm_yes_button); 
-		 		wait(1);
-	 		}
-	 		waitInvisible(Constants.paa_confirm_yes_button);
-	 		waitUntilISpinnersInvisible();
-	 		reportPass("Success");
-		}
-	}
-	public void pAaOnSubs(String paa) {	
-		if(!paa.equals("")){
-			test = rep.startTest("PAa On Subs");
-			System.out.println(convertedTimestamp() + " ****************  PAA");
-			loginToPortal(OR_PROPERTIES.getProperty("user_email"));
-			waitVisible(Constants.global_first_filter_field);
-//			type(Constants.job_number_filter, JOB_NUMBER.getProperty("job_number"));
-			wait(1);
-//			type(Constants.eljob_filing_number_filter, "s");
-			type("(//input[@ng-model='colFilter.term'])[3]", "subsequent");
-			type("(//input[@ng-model='colFilter.term'])[4]", "approved");
-			wait(1);
-	 		waitUntilElementVisible(Constants.select_action_dropdown, 30);
-	 		select(Constants.select_action_dropdown, "PAA");
-	 		waitTime(3000L);
-	 		waitVisible(Constants.paa_confirm_yes_button);
-	 		while(count(Constants.paa_confirm_yes_button) != 0) {
-		 		click(Constants.paa_confirm_yes_button); 
-		 		waitTime(1000L);
-	 		}
-	 		waitInvisible(Constants.paa_confirm_yes_button);
-	 		waitUntilISpinnersInvisible();
-	 		reportPass("Success");
-		}
 	}
 
 	public void correction(String filter) {
@@ -687,18 +637,16 @@ public class DobDashboardPage extends TestBase {
 			System.out.println(convertedTimestamp() + " **************** paa dash");
 			loginToPortal(user);
 			// click(Constants.my_work_permits_tab);
-			waitUntilISpinnersInvisible();
 			waitVisible(Constants.global_first_filter_field);
 			select("//select[@ng-model='grid.options.paginationPageSize']", "20");
-			filter(filter);
-			
-			if(count(Constants.click_to_view_icon) > 0) {
+			filter(filter);			
+/*			if(count(Constants.click_to_view_icon) > 0) {
 				click(Constants.click_to_view_icon);
 				clickButton("OK");
 				waitInvisible(Constants.ok_button);
 				waitUntilISpinnersInvisible();
-			}
-/*			for (int i = 1; i < 20; i++) {
+			}*/
+			for (int i = 1; i < 20; i++) {
 				wait(1);
 				select("(//select[@id='FilingAction'])[" + i + "]", "PAA");
 				// select(Constants.filing_action_label, "PAA");
@@ -708,7 +656,7 @@ public class DobDashboardPage extends TestBase {
 					click(Constants.ok_button);
 				else
 					break;
-			}*/
+			}
 			waitInvisible(Constants.ok_button);
 			waitInvisible(Constants.yes_button);
 			waitUntilISpinnersInvisible();

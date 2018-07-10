@@ -6,10 +6,10 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public class DobDocumentsPage extends TestBase {
-	WebDriver driver;
+/*	WebDriver driver;
 	public DobDocumentsPage(WebDriver dr) {
 		driver = dr;
-	}
+	}*/
 
 	public void uploadDocuments(String upload_file) {
 		if (!upload_file.equals("")) {

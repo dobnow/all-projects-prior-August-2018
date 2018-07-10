@@ -12,11 +12,11 @@ import com.base.TestBase;
 import com.relevantcodes.extentreports.LogStatus;
 
 public class DobTR1Page extends TestBase {
-	WebDriver driver;
+/*	WebDriver driver;
 
 	public DobTR1Page(WebDriver dr) {
 		driver = dr;
-	}
+	}*/
 
 	@FindBy(xpath = Constants.pw2_work_permit_step)
 	public WebElement pw2_work_permit_step;

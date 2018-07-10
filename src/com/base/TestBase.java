@@ -371,7 +371,7 @@ public class TestBase {
 
 	public void takeScreenShot(){
 		Date d=new Date();
-		String screenshotFile=d.toString().replaceAll(" EST 2018", "").replace(":", "_").replace(" ", "_")+".png";
+		String screenshotFile=d.toString().replaceAll(" EDT 2018", "").replace(":", "_").replace(" ", "_")+".png";
 		File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
 		try {
 			FileUtils.copyFile(scrFile, new File(System.getProperty("user.dir")+"//screenshots//"+screenshotFile));
@@ -1202,29 +1202,6 @@ public class TestBase {
 		waitUntilISpinnersInvisible();
 		scrollAllWayUp();
 	}
-	public void filterJobPAA(String user_name) {
-		String search_results_xpath = Constants.found_job_part_one + JOB_NUMBER.getProperty("job_number")
-				+ Constants.found_job_part_two;
-		// waitUntilISpinnersInvisible();
-		waitVisible(Constants.job_number_filter);
-		type(Constants.job_number_filter, JOB_NUMBER.getProperty("job_number"));
-		waitVisible(Constants.filing_action_label);
-		int numbers = driver.findElements(By.xpath(search_results_xpath)).size();
-		while (numbers <= 0) {
-			loginToPortal(user_name);
-			waitVisible(Constants.job_number_filter);
-			type(Constants.job_number_filter, JOB_NUMBER.getProperty("job_number"));
-			waitVisible(Constants.filing_action_label);
-			numbers = driver.findElements(By.xpath(search_results_xpath)).size();
-		}
-		waitVisible(Constants.filtered_job);
-		doubleclick(Constants.filtered_job);
-		waitVisible(Constants.global_notification_ok_button);
-		click(Constants.global_notification_ok_button);
-		waitInvisible(Constants.global_notification_ok_button);
-		waitUntilISpinnersInvisible();
-		scrollAllWayUp();
-	}
 
 	public void addToProps(String prop_name, String value) {
 		if (!prop_name.equals("")) {
@@ -1280,7 +1257,7 @@ public class TestBase {
 				waitForPageToLoad();
 				wait(2);
 				driver.switchTo().frame("contentIFrame0");
-				waitVisible(Constants.click_here_to_go_to_job_filing);
+				waitVisible(Constants.label_job_filing);
 				waitClickableOr("//nobr[text()='Accepted']", "//nobr[text()='Submitted']");
 				if (count(Constants.crm_document_status_submitted) == 0) {
 					reportPass("viewAcceptDocuments");
@@ -1433,51 +1410,6 @@ public class TestBase {
 		}
 	}
 	
-	public void OviewAcceptDoc(int total_docs) {
-		if (total_docs > 0) {
-			test = rep.startTest(" View Accept Document");
-			test.log(LogStatus.INFO, "viewAcceptDoc");
-			waitForPageToLoad();
-			waitVisible("//nobr[contains(.,'Document Status')]");
-			if(count(Constants.crm_document_status_submitted) > 0) {
-				while (count(Constants.crm_document_status_submitted) > 0) {
-					doubleclick(Constants.crm_document_status_submitted);
-					wait(3);
-					driver.switchTo().defaultContent();
-					while (driver.getWindowHandles().size() < 2) {
-						click(Constants.view_document_button);
-						wait(3);
-					}
-					ArrayList<String> tabs_pw2_documents = new ArrayList<String>(driver.getWindowHandles());
-					while (driver.getWindowHandles().size() > 1) {
-						driver.switchTo().window(tabs_pw2_documents.get(0));
-						wait(1);
-						driver.switchTo().window(tabs_pw2_documents.get(1));
-						driver.close();
-						wait(2);
-					}
-					wait(1);
-					driver.switchTo().window(tabs_pw2_documents.get(0));
-					driver.switchTo().defaultContent();
-					click(Constants.accept_document_button);
-					ifAlertExistAccept();
-					wait(1);
-					waitVisible(Constants.accept_document_button);
-					driver.switchTo().frame("contentIFrame0");
-					waitVisible(Constants.crm_document_accepted);
-					driver.switchTo().defaultContent();
-					driver.navigate().back();
-					ifAlertExistAccept();
-					wait(1);
-					driver.switchTo().frame("contentIFrame0");
-					wait(2);
-				}
-				driver.navigate().back();
-			}
-			else
-				driver.navigate().back();	
-		}
-	}
 	public void viewAcceptDoc(int total_docs) {
 		if (total_docs > 0) {
 			test = rep.startTest(" View Accept Document");
@@ -1530,269 +1462,7 @@ public class TestBase {
 				driver.navigate().back();	
 		}
 	}
-	public void viewAcceptDocsOLD() {
-			waitVisible(Constants.crm_documents_total);
-			String total_string = text(Constants.crm_documents_total);
-			int total_docs = Integer.valueOf(total_string);
-			test.log(LogStatus.INFO, "view accept docs. Total " + total_docs);
-			waitVisible(Constants.click_here_to_go_to_job_filing);
-			viewAcceptDocsPage1(total_docs);
-			waitVisible(Constants.click_here_to_go_to_job_filing);
-			viewAcceptDocsPage2(total_docs);
-			waitVisible(Constants.click_here_to_go_to_job_filing);
-			viewAcceptDocsPage3(total_docs);
-			waitVisible(Constants.click_here_to_go_to_job_filing);
-			viewAcceptDocsPage4(total_docs);
-			waitVisible(Constants.click_here_to_go_to_job_filing);
-	}
 	
-	public void viewAcceptDocsPage1(int total_docs) {
-		if (total_docs > 0) {
-			test.log(LogStatus.INFO, "View accept docs Page 1");
-			waitForPageToLoad();
-			waitVisible(Constants.crm_documents_total);
-			while (count(Constants.crm_document_status_submitted) > 0) {
-				doubleclick(Constants.crm_document_status_submitted);
-				wait(3);
-				driver.switchTo().defaultContent();
-				while (driver.getWindowHandles().size() < 2) {
-					click(Constants.view_document_button);
-					wait(3);
-				}
-				ArrayList<String> tabs_pw2_documents = new ArrayList<String>(driver.getWindowHandles());
-				driver.switchTo().window(tabs_pw2_documents.get(1));
-				driver.close();
-				wait(1);
-				driver.switchTo().window(tabs_pw2_documents.get(0));
-				driver.switchTo().defaultContent();
-				click(Constants.accept_document_button);
-				ifAlertExistAccept();
-				wait(1);
-				waitVisible(Constants.accept_document_button);
-				driver.switchTo().frame("contentIFrame0");
-				waitVisible(Constants.crm_document_accepted);
-				driver.switchTo().defaultContent();
-				driver.navigate().back();
-				wait(1);
-				driver.switchTo().frame("contentIFrame0");
-				wait(2);
-			}
-		}
-		if (total_docs > 4)
-			click(Constants.crm_load_next_page_arrow);
-			waitVisible(Constants.crm_documents_total);
-	}
-
-	public void viewAcceptDocsPage2(int total_docs) {
-		if (total_docs > 4) {
-			test.log(LogStatus.INFO, "View accept docs Page 2");
-			waitForPageToLoad();
-			waitVisible(Constants.crm_documents_total);
-			while (count(Constants.crm_document_status_submitted) > 0) {
-				doubleclick(Constants.crm_document_status_submitted);
-				wait(3);
-				driver.switchTo().defaultContent();
-				while (driver.getWindowHandles().size() < 2) {
-					click(Constants.view_document_button);
-					wait(3);
-				}
-				ArrayList<String> tabs_pw2_documents = new ArrayList<String>(driver.getWindowHandles());
-				driver.switchTo().window(tabs_pw2_documents.get(1));
-				driver.close();
-				wait(1);
-				driver.switchTo().window(tabs_pw2_documents.get(0));
-				driver.switchTo().defaultContent();
-				click(Constants.accept_document_button);
-				ifAlertExistAccept();
-				wait(1);
-				waitVisible(Constants.accept_document_button);
-				driver.switchTo().frame("contentIFrame0");
-				waitVisible(Constants.crm_document_accepted);
-				driver.switchTo().defaultContent();
-				driver.navigate().back();
-				wait(1);
-				driver.switchTo().frame("contentIFrame0");
-				wait(2);
-				click(Constants.crm_load_next_page_arrow);
-				waitVisible(Constants.crm_documents_total);
-			}
-		}
-		if (total_docs > 8)
-			click(Constants.crm_load_next_page_arrow);
-			waitVisible(Constants.crm_documents_total);
-	}
-
-	public void viewAcceptDocsPage3(int total_docs) {
-		if (total_docs > 8) {
-			test.log(LogStatus.INFO, "View accept docs Page 3");
-			waitForPageToLoad();
-			waitVisible(Constants.crm_documents_total);
-			while (count(Constants.crm_document_status_submitted) > 0) {
-				doubleclick(Constants.crm_document_status_submitted);
-				wait(3);
-				driver.switchTo().defaultContent();
-				while (driver.getWindowHandles().size() < 2) {
-					click(Constants.view_document_button);
-					wait(3);
-				}
-				ArrayList<String> tabs_pw2_documents = new ArrayList<String>(driver.getWindowHandles());
-				driver.switchTo().window(tabs_pw2_documents.get(1));
-				driver.close();
-				wait(1);
-				driver.switchTo().window(tabs_pw2_documents.get(0));
-				driver.switchTo().defaultContent();
-				click(Constants.accept_document_button);
-				ifAlertExistAccept();
-				wait(1);
-				waitVisible(Constants.accept_document_button);
-				driver.switchTo().frame("contentIFrame0");
-				waitVisible(Constants.crm_document_accepted);
-				driver.switchTo().defaultContent();
-				driver.navigate().back();
-				wait(1);
-				driver.switchTo().frame("contentIFrame0");
-				wait(2);
-				click(Constants.crm_load_next_page_arrow);
-				waitVisible(Constants.crm_documents_total);
-				click(Constants.crm_load_next_page_arrow);
-				waitVisible(Constants.crm_documents_total);
-			}
-			if (total_docs > 12)
-				click(Constants.crm_load_next_page_arrow);
-				waitVisible(Constants.crm_documents_total);
-		}
-	}	
-	public void viewAcceptDocsPage4(int total_docs) {
-		if (total_docs > 12) {
-			test.log(LogStatus.INFO, "View accept docs Page 4");
-			waitForPageToLoad();
-			waitVisible(Constants.crm_documents_total);
-			while (count(Constants.crm_document_status_submitted) > 0) {
-				doubleclick(Constants.crm_document_status_submitted);
-				wait(3);
-				driver.switchTo().defaultContent();
-				while (driver.getWindowHandles().size() < 2) {
-					click(Constants.view_document_button);
-					wait(3);
-				}
-				ArrayList<String> tabs_pw2_documents = new ArrayList<String>(driver.getWindowHandles());
-				driver.switchTo().window(tabs_pw2_documents.get(1));
-				driver.close();
-				wait(1);
-				driver.switchTo().window(tabs_pw2_documents.get(0));
-				driver.switchTo().defaultContent();
-				click(Constants.accept_document_button);
-				ifAlertExistAccept();
-				wait(1);
-				waitVisible(Constants.accept_document_button);
-				driver.switchTo().frame("contentIFrame0");
-				waitVisible(Constants.crm_document_accepted);
-				driver.switchTo().defaultContent();
-				driver.navigate().back();
-				wait(1);
-				driver.switchTo().frame("contentIFrame0");
-				wait(2);
-				click(Constants.crm_load_next_page_arrow);
-				waitVisible(Constants.crm_documents_total);
-				click(Constants.crm_load_next_page_arrow);
-				waitVisible(Constants.crm_documents_total);
-				click(Constants.crm_load_next_page_arrow);
-				waitVisible(Constants.crm_documents_total);
-			}
-			if (total_docs > 16)
-				click(Constants.crm_load_next_page_arrow);
-				waitVisible(Constants.crm_documents_total);
-		}
-	}	
-
-
-	public void viewAcceptDocsOLD(String document_xpath) {
-		test.log(LogStatus.INFO, "view accept docs. Total  - " + text(Constants.crm_documents_total));
-		wait(3);
-/*		System.out.println(text(Constants.crm_documents_total));
-		System.out.println(count("//img[@alt='Load Next Page'][@title='Load Next Page'][@id='_nextPageImg']"));
-		System.out.println(count("//img[@alt='Load Next Page'][@title='Load Next Page'][@id='page_R0']"));
-		System.out.println(count("//img[@alt='Load Next Page'][@title='Load Next Page'][@id='ms-crm-ImageStrip-page_R1']"));
-		System.out.println(count("//img[@alt='Load Next Page'][@title='Load Next Page']"));*/
-		
-		int doc_num = 0;
-		while (count(Constants.crm_document_status_submitted) > 0) { // "//nobr[@class='gridcellpadding'][@title='Submitted']"
-			doubleclick(Constants.crm_document_status_submitted);
-			doc_num = doc_num +1;
-			test.log(LogStatus.INFO, "Document " +doc_num);
-/*			// System.out.println(count(Constants.crm_document_status_submitted));
-			WebElement document = driver.findElement(By.xpath(document_xpath));
-			new Actions(driver).contextClick(document).build().perform();
-			wait(1);
-			new Actions(driver).sendKeys(Keys.ENTER).build().perform();*/
-			wait(3);
-			driver.switchTo().defaultContent();
-			while (driver.getWindowHandles().size() < 2) {
-				waitVisible(Constants.view_document_button);
-				click(Constants.view_document_button);
-				wait(3);
-			}
-			ArrayList<String> tabs_pw2_documents = new ArrayList<String>(driver.getWindowHandles());
-			driver.switchTo().window(tabs_pw2_documents.get(1));
-			driver.close();
-			wait(1);
-			driver.switchTo().window(tabs_pw2_documents.get(0));
-			driver.switchTo().defaultContent();
-			waitVisible(Constants.accept_document_button);
-			click(Constants.accept_document_button);
-			ifAlertExistAccept();
-			wait(1);
-//			driver.switchTo().defaultContent();
-//			wait(1);
-			driver.navigate().back();
-			wait(1);
-			driver.switchTo().frame("contentIFrame0");
-			wait(3);
-		}
-//		System.out.println(count(Constants.crm_documents_total));
-//		System.out.println(text(Constants.crm_documents_total));
-//		System.out.println(count(Constants.crm_load_next_page_arrow));
-		if(count(Constants.crm_load_next_page_arrow) > 0)
-			click(Constants.crm_load_next_page_arrow);
-		wait(2);
-		while (count(Constants.crm_document_status_submitted) > 0) {
-			doubleclick(Constants.crm_document_status_submitted);
-			doc_num = doc_num +1;
-			test.log(LogStatus.INFO, "Document " +doc_num);
-/*			doc_num = doc_num +1;
-			test.log(LogStatus.INFO, "Upload document " +doc_num);
-			// System.out.println(count(Constants.crm_document_status_submitted));
-			WebElement document = driver.findElement(By.xpath(document_xpath));
-			new Actions(driver).contextClick(document).build().perform();
-			wait(1);
-			new Actions(driver).sendKeys(Keys.ENTER).build().perform();*/
-			wait(3);
-			driver.switchTo().defaultContent();
-			while (driver.getWindowHandles().size() < 2) {
-				waitVisible(Constants.view_document_button);
-				click(Constants.view_document_button);
-				wait(3);
-			}
-			ArrayList<String> tabs_pw2_documents = new ArrayList<String>(driver.getWindowHandles());
-			driver.switchTo().window(tabs_pw2_documents.get(1));
-			driver.close();
-			wait(1);
-			driver.switchTo().window(tabs_pw2_documents.get(0));
-			driver.switchTo().defaultContent();
-			waitVisible(Constants.accept_document_button);
-			click(Constants.accept_document_button);
-			ifAlertExistAccept();
-			driver.switchTo().defaultContent();
-			wait(1);
-			driver.navigate().back();
-			wait(1);
-			driver.switchTo().frame("contentIFrame0");
-			wait(3);
-			click(Constants.crm_load_next_page_arrow);
-			wait(3);
-		}
-	}
-
 	public boolean isElementPresent(String locatorKey) {
 		List<WebElement> elementList = null;
 		elementList = driver.findElements(By.xpath(locatorKey));

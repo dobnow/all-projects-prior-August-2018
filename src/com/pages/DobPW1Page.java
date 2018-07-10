@@ -135,8 +135,10 @@ public class DobPW1Page extends TestBase {
 				email(data[0]);
 				select(Constants.license_type_list, data[1]);
 				wait(1);
-				if(CONFIG.getProperty("env").contains("8085"))
+				if(count(Constants.business_name_list) > 0)
 					select(Constants.business_name_list, data[2]);
+/*				if(CONFIG.getProperty("env").contains("8085"))
+					select(Constants.business_name_list, data[2])*/;
 		 		type(Constants.job_description_for_new_work, user_info);
 		 		scrollToElement(Constants.global_save_step_button);
 				click(Constants.global_save_step_button);
@@ -153,12 +155,13 @@ public class DobPW1Page extends TestBase {
 		if(!user_info.equals("")){
 			String[] data = user_info.split(" :: ");
 			test = rep.startTest("Applicant Info Subs");
-			System.out.println(convertedTimestamp() + " ****************  applicantInfoSubs");
+			System.out.println(convertedTimestamp() + " **************** applicantInfoSubs");
 			email(data[0]);
 			wait(1);
 			select(Constants.license_type_list, data[1]);
-			wait(1);
-//			select(Constants.business_name_list, data[2]);
+			wait(1);	
+			if(count(Constants.business_name_list) > 0)
+				select(Constants.business_name_list, data[2]);
 			if(count(Constants.job_description_for_new_work) > 0)
 				type(Constants.job_description_for_new_work, user_info);
 	 	}
@@ -492,8 +495,8 @@ public class DobPW1Page extends TestBase {
 	}	
 
 	// 13. Building Characteristics
-		public void buildingCharacteristics(String characteristics) {
-			if(!characteristics.equals("")){
+		public void buildingCharacteristics(String building_charcteristics) {
+			if(!building_charcteristics.equals("")){
 				test = rep.startTest("buildingCharacteristics");
 				radio(Constants.pw1_13_mixed_use_type_no);
 				type(Constants.pw1_13_building_height_existing, "100");
@@ -505,6 +508,20 @@ public class DobPW1Page extends TestBase {
 		 	}
 		}
 
+		public void buildingCharMixedSubs(String building_charcteristics) {
+			if(building_charcteristics.equals("Y")){
+				System.out.println(convertedTimestamp() + " **************** buildingCharMixedSubs");
+				test = rep.startTest("buildingCharMixedSubs");
+				radio(Constants.pw1_13_mixed_use_type_no);
+				type(Constants.pw1_13_building_height_existing, "100");
+				type(Constants.pw1_13_building_height_proposed, "111");
+				type(Constants.pw1_13_building_stories_existing, "1");
+				type(Constants.pw1_13_building_stories_proposed, "2");
+				type(Constants.pw1_13_building_dwelling_units_existing, "50");
+				type(Constants.pw1_13_building_dwelling_units_proposed, "51");
+		 	}
+		}
+		
 		// 15.Construction Equipment
 		public void constructionEquipment(String equipment) {	
 			if(!equipment.equals("")){
@@ -654,8 +671,10 @@ public class DobPW1Page extends TestBase {
 			clickButton("OK");
 			waitInvisible(Constants.ok_button);
 			wait(2);
-			if(CONFIG.getProperty("env").contains("electrical"))
+			waitClickableOr("//b[contains(text(),'Job#')]", "//strong[@class='ng-binding']");
+			if(count("//strong[@class='ng-binding']") > 0) { // ELECERICAL
 				addToProps("job_number", text(Constants.el_job_label).substring(0, 10).trim());
+			}
 			else			
 				addToProps("job_number", text(Constants.job_label).trim().substring(6, 15).trim());
 	 	}
@@ -720,11 +739,11 @@ public class DobPW1Page extends TestBase {
 		}
 	}	
 
-	public void pAa(String paa, String description) {	
+	public void pAa(String paa) {	
 		if(!paa.equals("")){
 			System.out.println(convertedTimestamp() + " ****************  PAA PW1");
 			test = rep.startTest("PAA PW1");
-			type(Constants.job_description_for_new_work, description + " "+ convertedTimestamp());
+			type(Constants.job_description_for_new_work, convertedTimestamp());
 			savePW1("Y");
 //			addToProps("job_number", text(Constants.job_label).trim().substring(6, 15).trim());
 		}

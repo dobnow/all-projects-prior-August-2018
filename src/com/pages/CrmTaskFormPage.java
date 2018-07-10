@@ -107,8 +107,8 @@ public class CrmTaskFormPage extends TestBase {
 	
 	@FindBy(xpath = Constants.option_permit_issued)
 	public WebElement option_permit_issued;
-	@FindBy(xpath = Constants.click_here_to_go_to_job_filing)
-	public WebElement click_here_to_go_to_job_filing;
+	@FindBy(xpath = Constants.label_job_filing)
+	public WebElement label_job_filing;
 	@FindBy(xpath = Constants.qa_admin_tr1_tab)
 	public WebElement qa_admin_tr1_tab;
 	@FindBy(xpath = Constants.qa_admin_tr8_tab)
@@ -425,7 +425,7 @@ public class CrmTaskFormPage extends TestBase {
 					waitForPageToLoad();
 					wait(2);
 					driver.switchTo().frame("contentIFrame0");
-					waitVisible(Constants.click_here_to_go_to_job_filing);
+					waitVisible(Constants.label_job_filing);
 					waitClickableOr("//nobr[text()='Accepted']", "//nobr[text()='Submitted']");
 					if (count(Constants.crm_document_status_submitted) == 0) {
 						reportPass("viewAcceptDocuments");
@@ -469,7 +469,7 @@ public class CrmTaskFormPage extends TestBase {
 				waitForPageToLoad();
 				wait(2);
 				driver.switchTo().frame("contentIFrame0");
-				waitVisible(Constants.click_here_to_go_to_job_filing);
+				waitVisible(Constants.label_job_filing);
 				waitClickableOr("//nobr[text()='Accepted']", "//nobr[text()='Submitted']");
 				if (count(Constants.crm_document_status_submitted) == 0) {
 					reportPass("viewAcceptDocuments");
@@ -532,7 +532,7 @@ public class CrmTaskFormPage extends TestBase {
 					waitForPageToLoad();
 					wait(2);
 					driver.switchTo().frame("contentIFrame0");
-					waitVisible(Constants.click_here_to_go_to_job_filing);
+					waitVisible(Constants.label_job_filing);
 					waitClickableOr("//nobr[text()='Accepted']", "//nobr[text()='Submitted']");
 					if (count(Constants.crm_document_status_submitted) == 0) {
 						reportPass("viewAcceptDocuments");
@@ -552,7 +552,7 @@ public class CrmTaskFormPage extends TestBase {
 			test = rep.startTest("adressObjections");
 			waitForPageToLoad();
 			driver.switchTo().frame("contentIFrame0");
-			waitVisible(Constants.click_here_to_go_to_job_filing);
+			waitVisible(Constants.label_job_filing);
 			waitVisible(Constants.crm_document_title_link);
 			for (int i = 1; i <= 5; i++) {
 				WebElement document = driver.findElement(By.xpath(Constants.crm_document_status_resolved));
@@ -612,7 +612,7 @@ public class CrmTaskFormPage extends TestBase {
 	public void centralAssigner(String cpe_acpe) {
 		if (!cpe_acpe.equals("")) {
 			String[] data = cpe_acpe.split(" :: ");
-			System.out.println(convertedTimestamp() + " **************** cpeAcpeAssign " + data[0]+ " Assign to " +data[1]);
+			System.out.println(convertedTimestamp() + " **************** centralAssigner ----- " + data[0]+ " Assign to " +data[1]);
 			for (int i = 1; i <= 5; i++) {
 				loginToCrm(data[0]);
 				searchForJobCrm();
@@ -633,7 +633,7 @@ public class CrmTaskFormPage extends TestBase {
 				driver.switchTo().frame("contentIFrame0");
 				ifAlertExistAccept();
 				if (count(Constants.crm_completed_message) > 0) {
-					reportPass("cpeAcpeAssign");
+					reportPass("centralAssigner");
 					break;
 				}
 			}
@@ -913,9 +913,9 @@ public class CrmTaskFormPage extends TestBase {
 			searchForJobCrm();
 			waitForPageToLoad();
 			driver.switchTo().frame("contentIFrame0");
-			click(Constants.click_here_to_go_to_job_filing);
+			click(Constants.label_job_filing);
 			ifAlertExistAccept();
-			waitInvisible(Constants.click_here_to_go_to_job_filing);
+			waitInvisible(Constants.label_job_filing);
 			waitForPageToLoad();
 			wait(10);
 			waitVisible(Constants.crm_job_description);

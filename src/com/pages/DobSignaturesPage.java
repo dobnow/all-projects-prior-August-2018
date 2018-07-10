@@ -5,14 +5,10 @@ import com.util.Constants;
 import org.openqa.selenium.WebDriver;
 
 public class DobSignaturesPage extends TestBase {
-	WebDriver driver;
-	public DobSignaturesPage(WebDriver dr) {
-		driver = dr;
-	}
 
 	public void applicantStatementsSignature(String signatures) {
 		if(!signatures.equals("")){
-			System.out.println(convertedTimestamp() + " **************** Applicant Statements Signature");
+			System.out.println(convertedTimestamp() + " **************** Applicant Sign");
 			filterJob(OR_PROPERTIES.getProperty("user_email"));	
 			test = rep.startTest("Statemments Signatures");
 			click(Constants.ss_statement_signatures_step);
@@ -43,7 +39,7 @@ public class DobSignaturesPage extends TestBase {
 		if(!signatures.equals("")){
 			System.out.println(convertedTimestamp() + " **************** StatementsSignaturesTest");
 //			loginToPortal(OR_PROPERTIES.getProperty("user_email"));
-			filterJob(OR_PROPERTIES.getProperty("user_email"));	
+			filterJob(user);	
 			test = rep.startTest("signatures");
 			waitUntilElementVisible(Constants.ss_statement_signatures_step, 30);
 			click(Constants.ss_statement_signatures_step);
@@ -93,7 +89,7 @@ public class DobSignaturesPage extends TestBase {
 	public void applicantSignature(String statements_signatures) {	
 		if(!statements_signatures.equals("")){
 			System.out.println(convertedTimestamp() + " **************** " + "applicantSignature");
-			filterJob(OR_PROPERTIES.getProperty("user_email"));	
+			filterJob(user);	
 			test = rep.startTest("Applicant Sign");
 			click(Constants.ss_statement_signatures_step);
 			wait(2);
@@ -114,7 +110,7 @@ public class DobSignaturesPage extends TestBase {
 	}
 	public void ownerSignature(String owner_signature) {	
 		if(!owner_signature.equals("")){
-			System.out.println(convertedTimestamp() + " **************** Owner Signature");
+			System.out.println(convertedTimestamp() + " **************** Owner Sign");
 			filterJob(OR_PROPERTIES.getProperty("owner_email"));
 			test = rep.startTest("Owner Sign");
 			click(Constants.ss_statement_signatures_step);

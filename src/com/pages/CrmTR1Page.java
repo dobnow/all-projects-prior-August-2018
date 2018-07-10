@@ -88,8 +88,8 @@ public class CrmTR1Page extends TestBase {
 	public WebElement qa_action;
 	@FindBy(xpath = Constants.option_permit_issued)
 	public WebElement option_permit_issued;
-	@FindBy(xpath = Constants.click_here_to_go_to_job_filing)
-	public WebElement click_here_to_go_to_job_filing;
+	@FindBy(xpath = Constants.label_job_filing)
+	public WebElement label_job_filing;
 	@FindBy(xpath = Constants.qa_admin_tr1_tab)
 	public WebElement qa_admin_tr1_tab;
 	@FindBy(xpath = Constants.qa_admin_tr8_tab)
@@ -170,15 +170,15 @@ public class CrmTR1Page extends TestBase {
 			loginToCrm(data[0]);
 			searchForJobCrm();
 			driver.switchTo().frame("contentIFrame0");
-//			waitUntilElementVisible(Constants.click_here_to_go_to_job_filing, 30);
+//			waitUntilElementVisible(Constants.label_job_filing, 30);
 			for (int i=1; i < 20; i++) {
-				click(Constants.click_here_to_go_to_job_filing);
-				waitInvisible(Constants.click_here_to_go_to_job_filing);
-				if (count(Constants.click_here_to_go_to_job_filing) < 1) 
+				click(Constants.label_job_filing);
+				waitInvisible(Constants.label_job_filing);
+				if (count(Constants.label_job_filing) < 1) 
 					break;
 			}	
 			ifAlertExistAccept();
-			waitInvisible(Constants.click_here_to_go_to_job_filing);
+			waitInvisible(Constants.label_job_filing);
 			waitVisible(Constants.qa_admin_application_highlights_label);
 			waitVisible(Constants.qa_admin_tr1_tab);
 			for (int i = 1; i <= 20; i++) {
@@ -206,13 +206,13 @@ public class CrmTR1Page extends TestBase {
 			searchForJobCrm();
 			driver.switchTo().frame("contentIFrame0");
 			for (int i=1; i < 20; i++) {
-				click(Constants.click_here_to_go_to_job_filing);
-				waitInvisible(Constants.click_here_to_go_to_job_filing);
-				if (count(Constants.click_here_to_go_to_job_filing) < 1) 
+				click(Constants.label_job_filing);
+				waitInvisible(Constants.label_job_filing);
+				if (count(Constants.label_job_filing) < 1) 
 					break;
 			}			
 			ifAlertExistAccept();
-			waitInvisible(Constants.click_here_to_go_to_job_filing);
+			waitInvisible(Constants.label_job_filing);
 			waitUntilElementVisible(Constants.qa_admin_tr1_tab, 60);
 			for (int i = 1; i <= 20; i++) {
 				click(Constants.qa_admin_tr1_tab);
@@ -238,12 +238,12 @@ public class CrmTR1Page extends TestBase {
 			loginToCrm(data[0]);
 			searchForJobCrm();
 			driver.switchTo().frame("contentIFrame0");
-			waitVisible(Constants.click_here_to_go_to_job_filing);
+			waitVisible(Constants.label_job_filing);
 			for (int i=1; i < 5; i++) {
 				if(i > num_of_docs)
 					break;
-				while(count(Constants.click_here_to_go_to_job_filing) > 0) {
-					clickAndWait(Constants.click_here_to_go_to_job_filing, Constants.qa_admin_application_highlights_label);
+				while(count(Constants.label_job_filing) > 0) {
+					clickAndWait(Constants.label_job_filing, Constants.qa_admin_application_highlights_label);
 				}
 			ifAlertExistAccept();
 			waitVisible(Constants.qa_admin_application_highlights_label);
