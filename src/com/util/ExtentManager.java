@@ -15,7 +15,7 @@ public class ExtentManager {
 	public static ExtentReports getInstance() {
 		if (extent == null) {
 			Date d = new Date();
-			String fileName = d.toString().replace(":", "_").replace(" ", "_")+".html";
+			String fileName = d.toString().replaceAll(" EDT 2018", "").replace(":", "_").replace(" ", "_")+".html";
 //			extent = new ExtentReports("C:\\report\\"+fileName, true, DisplayOrder.NEWEST_FIRST);
 //			extent = new ExtentReports(System.getProperty("user.dir") + "//Reports//" + fileName);
 			extent = new ExtentReports(System.getProperty("user.dir") + "//Reports//" + fileName, true, DisplayOrder.NEWEST_FIRST);

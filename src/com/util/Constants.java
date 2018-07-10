@@ -1108,7 +1108,9 @@ public class Constants {
 //	public static final String qa_admin_job_subject = "//a[contains(.,'QA Administrator Work Permit Request')]";
 //	public static final String qa_admin_job_subject = "(//a[starts-with(@id,'gridBodyTable_primaryField_')])[1]"; //*[starts-with(name(),'B')]	
 //	public static final String qa_admin_job_subject = "//a[contains(.,'QA Administrator Work Permit Request Task form for Work Permit Tracking')]";
-	public static final String click_here_to_go_to_job_filing = "//span[text()='Job Filing']/following::span[@otypename='dobnyc_jobfiling']";	
+//	public static final String click_here_to_go_to_job_filing = "//span[text()='Job Filing']/following::span[@otypename='dobnyc_jobfiling']";	// 443 444
+	public static final String label_job_filing = "//span[text()='Job Filing']";
+	public static final String job_filing_link = "//span[text()='Job Filing']/following::span[@otypename='dobnyc_jobfiling']";
 //	public static final String click_here_to_go_to_job_filing = "//*[@id='dobnyc_task_clickheretogotojobfiling']/div[1]/span[1]";	
 	public static final String qa_admin_actions_label = "//div[contains(.,'Actions')]";
 	public static final String qa_admin_tr1_tab = "//span[contains(.,'Technical Report - Statement Of Responsibility')]";
@@ -1608,4 +1610,7 @@ public class Constants {
 	        System.out.println(s); 
 	    }*/
 	//*[contains(@id, 'idNumber1') or contains(@id, 'idNumber2')]
+	
+	//div[.//a[text()='SELENIUM']]/ancestor::div[@class='rt-grid-2 rt-omega']
+	//div[.//a[text()='SELENIUM']]/following-sibling::div
 }
