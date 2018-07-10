@@ -1,6 +1,5 @@
 package com.base;
 
-import org.openqa.selenium.support.FindBy;
 import java.awt.AWTException;
 import java.awt.Robot;
 import java.awt.Toolkit;
@@ -57,51 +56,7 @@ import com.util.Constants;
 import com.util.ErrorUtil;
 import com.util.Xls_Reader;
 
-/*import com.util.ExtentManager;
-import com.relevantcodes.extentreports.ExtentReports;
-import com.relevantcodes.extentreports.ExtentTest;
-import com.relevantcodes.extentreports.LogStatus;*/
-
 public class TestBase {
-
-	@FindBy(xpath = Constants.welcome_email)
-	public WebElement welcome_email;
-	@FindBy(xpath = Constants.welcome_password)
-	public WebElement welcome_password;
-	@FindBy(xpath = Constants.welcome_login_button)
-	public WebElement welcome_login_button;
-	@FindBy(xpath = Constants.dob_now_build_component)
-	public WebElement dob_now_build_component;
-	@FindBy(xpath = Constants.filtered_job)
-	public WebElement filtered_job;
-	@FindBy(xpath = Constants.job_number_search)
-	public WebElement job_number_search;
-	@FindBy(xpath = Constants.eljob_number_filter)
-	public WebElement eljob_number_filter;
-	@FindBy(xpath = Constants.job_search_input_box)
-	public WebElement job_search_input_box;
-	@FindBy(xpath = Constants.search_button)
-	public WebElement search_button;
-	@FindBy(xpath = Constants.search_for_records_one)
-	public WebElement search_for_records_one;
-	@FindBy(xpath = Constants.search_for_records_one_field)
-	public WebElement search_for_records_one_field;
-	@FindBy(xpath = Constants.search_for_records_one_image)
-	public WebElement search_for_records_one_image;
-	@FindBy(xpath = Constants.search_results_job_subject)
-	public WebElement search_results_job_subject;
-
-	@FindBy(xpath = Constants.crm_top_nav_search_button)
-	public WebElement crm_top_nav_search_button;
-
-	@FindBy(xpath = Constants.pw1_confirm_save_button)
-	public WebElement pw1_confirm_save_button;
-	@FindBy(xpath = Constants.global_save_step_button)
-	public WebElement global_save_step_button;
-	@FindBy(xpath = Constants.global_notification_ok_button)
-	public WebElement global_notification_ok_button;
-	@FindBy(xpath = Constants.global_loading_spinner)
-	public WebElement global_loading_spinner;
 
 	public static Logger APPLICATION_LOGS = null;
 	public static Properties CONFIG = null;

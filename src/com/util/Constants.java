@@ -1105,9 +1105,6 @@ public class Constants {
 //	public static final String prof_sert_qa_admin_job_subject = "//*[@id='gridBodyTable']/tbody/tr/td[2]/div";
 	
 	public static final String incorrect_email_and_password_message = "//p[@class='alert-desc ng-binding']";
-//	public static final String qa_admin_job_subject = "//a[contains(.,'QA Administrator Work Permit Request')]";
-//	public static final String qa_admin_job_subject = "(//a[starts-with(@id,'gridBodyTable_primaryField_')])[1]"; //*[starts-with(name(),'B')]	
-//	public static final String qa_admin_job_subject = "//a[contains(.,'QA Administrator Work Permit Request Task form for Work Permit Tracking')]";
 //	public static final String click_here_to_go_to_job_filing = "//span[text()='Job Filing']/following::span[@otypename='dobnyc_jobfiling']";	// 443 444
 	public static final String label_job_filing = "//span[text()='Job Filing']";
 	public static final String job_filing_link = "//span[text()='Job Filing']/following::span[@otypename='dobnyc_jobfiling']";

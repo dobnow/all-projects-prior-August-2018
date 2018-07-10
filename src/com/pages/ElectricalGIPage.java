@@ -306,15 +306,15 @@ public class ElectricalGIPage extends TestBase {
 				test = rep.startTest("saveGI Subs");
 				scrollToElement(Constants.global_save_step_button);
 				waitUntilElementVisible(Constants.global_save_step_button, 30);
-				global_save_step_button.click();
+				click(Constants.global_save_step_button);
 				if(!work_type_subs.equals("Electrical")) {
 					waitUntilElementVisible(Constants.global_save_step_button, 30);
-					pw1_confirm_save_button.click();
+					click(Constants.pw1_confirm_save_button);
 				}
 				waitUntilISpinnersInvisible();
 				waitUntilElementVisible(Constants.global_notification_ok_button, 60);
 				assertNotification(TEXT_PROPERTIES.getProperty("job_filing_saved"), "saveForm");
-				global_notification_ok_button.click();
+				clickButton("OK");
 				waitInvisible(Constants.global_notification_ok_button);
 		 	}
 		}

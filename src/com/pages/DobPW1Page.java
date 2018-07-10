@@ -149,7 +149,7 @@ public class DobPW1Page extends TestBase {
 				clickButton("OK");
 				waitInvisible(Constants.ok_button);
 		 	}
-		}
+		} 
 
 	public void applicantInfoSubs(String user_info) {	
 		if(!user_info.equals("")){
