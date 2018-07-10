@@ -3,7 +3,6 @@ package com.testcases.ancc;
 import com.util.Constants;
 import com.util.TestUtil;
 import com.util.Xls_Reader;
-
 import java.util.Hashtable;
 import org.testng.SkipException;
 import org.testng.annotations.Test;
@@ -89,9 +88,6 @@ public class AnStandard extends TestBase {
 			test.log(LogStatus.INFO, data.toString());
 
 
-
-
-			
 			
 			dash.selectWorkType(data.get("work_type"));
 			pw1.locationImfo(data.get("address"));

@@ -67,6 +67,6 @@ public class CcSubs extends TestBase {
 		pw1.buildingCharMixedSubs(data.get("building_charcteristics"));
 		pw1.savePW1("Y");
 		successMessage(data.get("description"));
-	}
+	} 
 
 }
