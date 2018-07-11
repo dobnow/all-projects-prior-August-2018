@@ -94,7 +94,6 @@ public class TestBase {
 	
 	public void setConfigBrowser(String browser) {
 		try {
-//			test = rep.startTest("setConfigBrowser " + browser);
 			System.out.println(convertedTimestamp() + " **************** Set Config Browser to " +browser);
 			FileInputStream fileName = new FileInputStream(Constants.CONFIG_FILE_PATH);
 			Properties props = new Properties();
