@@ -23,6 +23,7 @@ import com.relevantcodes.extentreports.LogStatus;
 public class AnAhvTest extends TestBase {
 	
 	Xls_Reader xlsx = new Xls_Reader(Constants.testCases);
+	String testname = "AnAhvTest";
 	
 	@BeforeSuite
 	public void BeforeSuite() {
@@ -47,12 +48,12 @@ public class AnAhvTest extends TestBase {
 
 	@DataProvider
 	public Object[][] getTestData() {
-		return TestUtil.getData("AnAhvTest", xlsx);
+		return TestUtil.getData("testname", xlsx);
 	}
 
 	@Test(priority = 0, dataProvider = "getTestData")
 	public void Base(Hashtable<String, String> data) {
-		if (!TestUtil.isExecutable("AnAhvTest", xlsx) || data.get("Runmode").equals("N"))
+		if (!TestUtil.isExecutable("testname", xlsx) || data.get("Runmode").equals("N"))
 			throw new SkipException("Skipping test");
 		System.out.println("BEGIN " + convertedTimestamp() + " **************** " + data.get("description"));
 		test = rep.startTest(data.get("description"));
