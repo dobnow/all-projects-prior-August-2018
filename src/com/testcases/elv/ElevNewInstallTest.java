@@ -49,12 +49,12 @@ public class ElevNewInstallTest extends TestBase {
 
 	@DataProvider
 	public Object[][] getTestData() {
-		return TestUtil.getData("Tpa", xlsx);
+		return TestUtil.getData("LaaNew", xlsx);
 	}
 
 	@Test(priority = 0, dataProvider = "getTestData")
 	public void Portal(Hashtable<String, String> data) {
-		if (!TestUtil.isExecutable("Tpa", xlsx) || data.get("Runmode").equals("N"))
+		if (!TestUtil.isExecutable("LaaNew", xlsx) || data.get("Runmode").equals("N"))
 			throw new SkipException("Skipping the test");
 		System.out.println("BEGIN " + convertedTimestamp() + " **************** " + data.get("description"));
 		test = rep.startTest(data.get("description"));
