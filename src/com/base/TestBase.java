@@ -264,7 +264,6 @@ public class TestBase {
 		}
 		if (CONFIG.getProperty("env").contains("electrical")) {
 			user = Constants.DOBELECTRICIAN8;
-
 		}
 		if (CONFIG.getProperty("env").contains("elevators")) {
 			user = Constants.DOBELVDIRECTOR;
@@ -284,6 +283,11 @@ public class TestBase {
 /*			pw2_user = Constants.MRCTEST003;
 			pw2_lic = Constants.MSTRPLMR;*/
 		}
+		if (CONFIG.getProperty("env").contains("laa")) {
+			user = Constants.DOBTEST05;
+		}
+		
+		
 /*		if (CONFIG.getProperty("env").equals("ant_444")) {
 			dob_now_url = Constants.dob_now_protocol_stage + Constants.dob_now_stage_444;
 			crm_url = Constants.crm_stage;

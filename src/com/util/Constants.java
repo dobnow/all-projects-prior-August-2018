@@ -21,6 +21,8 @@ public class Constants {
 	public static String testCasesesEctrical = System.getProperty("user.dir")+"\\src\\com\\data\\Test Cases Elc.xlsx";
 	public static String testCasesesElevator = System.getProperty("user.dir")+"\\src\\com\\data\\Test Cases Elv.xlsx";
 	public static String testCasesesAssembly = System.getProperty("user.dir")+"\\src\\com\\data\\Test Cases Pa.xlsx";
+	public static String testCasesesLaa = System.getProperty("user.dir")+"\\src\\com\\data\\Test Cases Laa.xlsx";
+	
 	public static String testCasesesBoilers = System.getProperty("user.dir")+"\\src\\com\\data\\boilers\\Test Cases.xlsx";
 	public static String chromePath = System.getProperty("user.home")+"\\drivers\\chromedriver.exe";
 	public static String iePath = System.getProperty("user.home")+"\\drivers\\IEDriverServer.exe";
@@ -188,6 +190,8 @@ public class Constants {
 	public static final String pw1_1_community_board = "//input[@id='txtPWLocCBNo']";
 	public static final String pw1_1_zip_code = "//input[@id='txtPWLocZip']";
 	public static final String pw1_1_apt_suite_number = "//input[@id='txtPWLocAptCondoNo']";
+	
+	public static final String proposed_work_summary = "//textarea[@id='txtPWLocCBNo']";
 	// Work on floors
 	public static final String plumbing_work_on_floors = "//input[@id='txtPWLocWorkFloor']";
 	public static final String pw1_1_add_work_floors_button = "//button[contains(.,'Add')]";//button[contains(.,' Add')]
@@ -1564,6 +1568,77 @@ public class Constants {
 	public static final String DOBELECTRICIAN8 = "DOBELECTRICIAN8@GMAIL.COM";
 	
 	public static final String SGNHNGR = "Sign Hanger";
+	public static final String DOBTEST05 = "DOBTEST05@GMAIL.COM";
+
+	
+	// LAA
+	public static final String laa_legalization_yes = "//input[@id='rdIsLegalization']";
+	public static final String laa_legalization_no = "//input[@id='rdIsNonLegalization']";
+
+	public static final String laa_specify_building_type = "//select[@id='ddlBuildingType']";
+	public static final String laa_building_use = "//select[@id='ddlBuildingUseType']";
+	public static final String laa_total_number_of_floors = "//input[@id='totalNumberOfFloors']";
+	public static final String laa_total_construction_roof_area = "//input[@id='totalConstructionArea']";
+	public static final String laa_category_type = "//select[@ng-model='FormLAAObj.FeeAssesment.CategoryType']";
+	public static final String laa_estimated_cost = "//input[@id='txtEstimatedCost']";
+	public static final String laa_the_deed_holder_is = "//input[@ng-model='FormLAAObj.FeeExemptionApplicationValue1']";
+	public static final String the_scope_of_work_asbestos = "//input[@id='rbAsbestos1']";
+	public static final String adrress_confirmation = "//button[@ng-click='ngDialogData.SaveLAAFiling(false)']";
+	public static final String scope_of_work_tab = "//a[@class='ng-binding'][contains(text(),'Scope of Work')]";
+	
+	
+	
+	public static final String add_scope_of_work = "//button[contains(.,'Add Scope of Work')]";
+
+	
+	public static final String laa_limited_alteration_scope = "//select[@id='selWorkType']";
+	public static final String laa_filing_includes = "//select[@ng-model='ScopeOfWork.FileIncludes']";
+	public static final String laa_item_category = "//select[@id='selItemCategory']";
+	
+	public static final String auxilary_hose_cabinets = "//input[@id='Auxiliary hose cabinets']";
+	public static final String sprinkler_heads = "//input[@id='Sprinkler heads']";
+	public static final String sprinkler_heads_quantity = "//input[@id='Sprinkler heads']/following::input[@ng-model='item.Quantity']";
+	
+	public static final String sprinkler_piping = "//input[@id='Sprinkler Piping']";
+	public static final String sprinkler_piping_quantity = "//input[@id='Sprinkler Piping']/following::input[@ng-model='item.Quantity']";
+	
+	public static final String gas_sgut_off_valve = "//input[@id='Gas Emergency Shut Off Valve']";
+	public static final String gas_sgut_off_valve_quantity = "//input[@id='Gas Emergency Shut Off Valve']/following::input[@ng-model='item.Quantity']";
+	public static final String gas_light = "//input[@id='Gas Light (Commercial and Residential)']";
+	public static final String gas_light_quantity = "//input[@id='Gas Light (Commercial and Residential)']/following::input[@ng-model='item.Quantity']";
+	public static final String gas_light_additional_meters = "//input[@id='Gas Light (Commercial and Residential)']/following::input[@id='rdAnswerText2']";
+	public static final String gas_oil_burner_pilot = "//input[@id='Gas Oil Burner Pilot']";
+	public static final String gas_oil_burner_pilot_quantity = "//input[@id='Gas Oil Burner Pilot']/following::input[@ng-model='item.Quantity']";	
+	public static final String gas_oil_burner_pilot_additional_meters = "//input[@id='Gas Oil Burner Pilot']/following::input[@id='rdAnswerText2']";
+	public static final String gas_for_cooking = "//input[@id='Gas piping for residential cooking']";
+	public static final String gas_for_cooking_quantity = "//input[@id='Gas piping for residential cooking']/following::input[@ng-model='item.Quantity']";
+	public static final String for_sro_restricted = "//div[contains(text(),'SRO restricted property')]/following::input[@id='rdAnswerText2']";
+	
+	public static final String laa_item_quantity = "//input[@ng-model='item.Quantity']";
+	
+	public static final String have_associated_job_number_no = "//div[contains(text(),'associated Job Number')]/following::input[@id='rdAnswerText2']";
+	public static final String laa_offline_8_hours_no = "//div[contains(text(),'offline for more than 8 hours')]/following::input[@id='rdAnswerText2']";
+	
+//	public static final String save_scope_of_work = "//button[@ng-click='SaveScopeofWork(ScopeOfWork)']";
+	public static final String save_scope_of_work = "//span[@class='glyphicon glyphicon-ok-sign']";
+	public static final String add_appliance_data = "//button[contains(.,'Add Appliance Data')]";
+	public static final String floor_location = "//select[@id='FloorFDSelCategoryWorklist']";
+	public static final String total_number_of_appliances = "//input[@ng-model='ngDialogData.ApplianceData.TotalNumberofAppliance']";
+	public static final String manyfacturer_name = "//input[@ng-model='ngDialogData.ApplianceData.ManufacturerName']";
+	public static final String listing_agency_name = "//select[@name='selListingAgency']";
+	public static final String certification_number = "//input[@ng-model='ngDialogData.ApplianceData.Certification']";
+	public static final String model_number = "//input[@ng-model='ngDialogData.ApplianceData.ModelNumber']";
+	public static final String input_btu = "//input[@ng-model='ngDialogData.ApplianceData.InputBtuhr']";
+	
+	public static final String oil_piping = "//input[@id='Oil piping']";
+
+	public static final String statements_signatures_tab = "//a[@class='ng-binding'][contains(text(),'Statements & Signatures')]";
+	public static final String i_understand_and_agree = "//input[@id='ApplicantAuthorizationCheckPW1']";
+	public static final String documents = "//a[@class='ng-binding'][contains(text(),'Documents')]";
+	
+	public static final String document_status_field = "//span[text()='Document Status']/following::input[@ng-model='colFilter.term']";
+	
+	public static final String laa_spinner = "//i[@class='fa fa-spinner fa-pulse fa-3x fa-fw build-color']";
 	
 //	public static final String ENV="PROD"; //PROD, UAT,SAT 
 	//paths
