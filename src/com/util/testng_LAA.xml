@@ -1,0 +1,113 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="LAA">
+<listeners>
+    <listener class-name="listener.TestsListenerAdapter" />
+</listeners>
+
+
+<test name="CommerciaWhirlpool">
+    <classes>
+        <class name="com.testcases.laa.CommerciaWhirlpool"></class>  
+    </classes>
+</test>
+
+<test name="Equipment">
+    <classes>
+        <class name="com.testcases.laa.Equipment"></class>  
+    </classes>
+</test>
+
+<test name="EwnFromDash">
+    <classes>
+        <class name="com.testcases.laa.EwnFromDash"></class>  
+    </classes>
+</test>
+
+<test name="EwnNumber">
+    <classes>
+        <class name="com.testcases.laa.EwnNumber"></class>  
+    </classes>
+</test>
+
+<test name="FireSuppressionPay">
+    <classes>
+        <class name="com.testcases.laa.FireSuppressionPay"></class>  
+    </classes>
+</test>
+
+<test name="LaaFromEwn">
+    <classes>
+        <class name="com.testcases.laa.LaaFromEwn"></class>  
+    </classes>
+</test>
+
+<test name="LegalizationNo">
+    <classes>
+        <class name="com.testcases.laa.LegalizationNo"></class>  
+    </classes>
+</test>
+
+<test name="LegalizationYes">
+    <classes>
+        <class name="com.testcases.laa.LegalizationYes"></class>  
+    </classes>
+</test>
+
+<test name="OilBurner">
+    <classes>
+        <class name="com.testcases.laa.OilBurner"></class>  
+    </classes>
+</test>
+
+<test name="OilBurnerPay">
+    <classes>
+        <class name="com.testcases.laa.OilBurnerPay"></class>  
+    </classes>
+</test>
+
+<test name="PaaOnCorrerctions">
+    <classes>
+        <class name="com.testcases.laa.PaaOnCorrerctions"></class>  
+    </classes>
+</test>
+
+<test name="PaaOnPermitted">
+    <classes>
+        <class name="com.testcases.laa.PaaOnPermitted"></class>  
+    </classes>
+</test>
+
+<test name="PlumbingGas">
+    <classes>
+        <class name="com.testcases.laa.PlumbingGas"></class>  
+    </classes>
+</test>
+
+<test name="PlumbingGasPay">
+    <classes>
+        <class name="com.testcases.laa.PlumbingGasPay"></class>  
+    </classes>
+</test>
+
+<test name="PlumbingWater">
+    <classes>
+        <class name="com.testcases.laa.PlumbingWater"></class>  
+    </classes>
+</test>
+
+<test name="PlumbingWaterPay">
+    <classes>
+        <class name="com.testcases.laa.PlumbingWaterPay"></class>  
+    </classes>
+</test>
+
+<test name="WithoutAppliance">
+    <classes>
+        <class name="com.testcases.laa.WithoutAppliance"></class>  
+    </classes>
+</test>
+
+
+
+
+</suite>

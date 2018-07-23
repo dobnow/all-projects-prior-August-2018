@@ -221,12 +221,12 @@ public class LaaPage extends TestBase {
 				check(Constants.branch_water_filters);
 				type(Constants.branch_water_filters_quantity, "1");				
 			}
-			if(sow.contains("Fixture")) {
-//				scrollDown();
-//				scrollAllWayDown();
+			if(sow.contains("Fixture")) {				
 				check(Constants.whirlpooltub_commercial);
 				type(Constants.whirlpooltub_quantity, "1");	
-				select(Constants.select_voltage, "110V");
+				if(count("//input[@id='rdAnswerText1']") > 0) 
+					radio("//input[@id='rdAnswerText1']"); // 443 has extra radiobutton
+				select(Constants.select_voltage, "110V");				
 			}
 			if(sow.contains("Gas Work")) {
 				check(Constants.gas_sgut_off_valve);
