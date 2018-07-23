@@ -18,12 +18,12 @@ import com.base.TestBase;
 import com.util.Constants;
 
 public class CityPayPage extends TestBase {
-	WebDriver driver;
+/*	WebDriver driver;
 	public CityPayPage(WebDriver dr) {
 		driver = dr;
-	}
+	}*/
 	
-	@FindBy(xpath=Constants.resubmit_button)
+/*	@FindBy(xpath=Constants.resubmit_button)
 	public WebElement resubmit_button;
 	@FindBy(xpath=Constants.preview_to_file_button)
 	public WebElement preview_to_file_button;
@@ -34,7 +34,7 @@ public class CityPayPage extends TestBase {
 	@FindBy(xpath=Constants.file_button)
 	public WebElement file_button;
 	@FindBy(xpath=Constants.global_cancel_button)
-	public WebElement global_cancel_button;
+	public WebElement global_cancel_button;*/
 	
 	
 	// City Pay

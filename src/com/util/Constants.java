@@ -1599,6 +1599,8 @@ public class Constants {
 	public static final String sprinkler_heads = "//input[@id='Sprinkler heads']";
 	public static final String sprinkler_heads_quantity = "//input[@id='Sprinkler heads']/following::input[@ng-model='item.Quantity']";
 	
+	
+	
 	public static final String sprinkler_piping = "//input[@id='Sprinkler Piping']";
 	public static final String sprinkler_piping_quantity = "//input[@id='Sprinkler Piping']/following::input[@ng-model='item.Quantity']";
 	
@@ -1618,6 +1620,24 @@ public class Constants {
 	
 	public static final String have_associated_job_number_no = "//div[contains(text(),'associated Job Number')]/following::input[@id='rdAnswerText2']";
 	public static final String laa_offline_8_hours_no = "//div[contains(text(),'offline for more than 8 hours')]/following::input[@id='rdAnswerText2']";
+	
+	public static final String branch_water_filters = "//input[@id='Branch Water Filters']";
+	public static final String branch_water_filters_quantity = "//input[@id='Branch Water Filters']/following::input[@ng-model='item.Quantity']";
+	
+	public static final String whirlpooltub_commercial = "//input[@id='Commercial Whirlpool']";
+	public static final String whirlpooltub_quantity = "//input[@id='Commercial Whirlpool']/following::input[@ng-model='item.Quantity']";
+	public static final String select_voltage = "//select[@id='questionSel']";
+	
+	
+	
+	public static final String tub_with = "(//input[@ng-model='question.AnswerText'])[1]";
+	public static final String tub_lenght = "(//input[@ng-model='question.AnswerText'])[2]";
+	public static final String tub_dept = "(//input[@ng-model='question.AnswerText'])[3]";
+//	public static final String tub_dept = "(//input[@ng-model='question.AnswerText'])[4]";
+//	public static final String branch_water_filters_quantity = "//input[@id='Branch Water Filters']/following::input[@ng-model='item.Quantity']";
+	
+	
+	public static final String violation_number = "//input[@id='workPermitViolationNumber']";
 	
 //	public static final String save_scope_of_work = "//button[@ng-click='SaveScopeofWork(ScopeOfWork)']";
 	public static final String save_scope_of_work = "//span[@class='glyphicon glyphicon-ok-sign']";
@@ -1639,6 +1659,15 @@ public class Constants {
 	public static final String document_status_field = "//span[text()='Document Status']/following::input[@ng-model='colFilter.term']";
 	
 	public static final String laa_spinner = "//i[@class='fa fa-spinner fa-pulse fa-3x fa-fw build-color']";
+	
+	public static final String ewn_button = "//button[@ng-click='EmergencyNewAppOptions()']";
+	public static final String ewn_tab = "//a[@ng-click='tab.setTab(7)']";
+	
+	public static final String laa_select_action = "//select[@ng-model='grid.appScope.LaaFilingActionChange[rowRenderIndex]']";
+	
+	public static final String have_ewn = "//input[@id='rdIsEmergencyWork']";
+	public static final String ewn = "//input[@id='txtEmergencyFilingNo']";
+	public static final String search_ewn = " //span[@class='glyphicon glyphicon-search']";
 	
 //	public static final String ENV="PROD"; //PROD, UAT,SAT 
 	//paths

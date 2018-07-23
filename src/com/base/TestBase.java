@@ -101,7 +101,7 @@ public class TestBase {
 			props.setProperty("browser", browser);
 			fileName.close();
 			FileOutputStream outFileName = new FileOutputStream(Constants.CONFIG_FILE_PATH);
-			props.store(outFileName, " BROWSERS::  IE  Chrome  Mozilla # ENVIRONMENTS ::  443 444 8085 + WORK TYPES:: antenna curbcut plumbing electrical elevators fab4");
+			props.store(outFileName, " # BROWSERS::  IE  Chrome  Mozilla # ENVIRONMENTS ::  443 444 8085 + WORK TYPES:: antenna curbcut plumbing electrical elevators fab4 laa");
 			outFileName.close();
 			// props.load(fileName);
 			FileInputStream fs = new FileInputStream(Constants.CONFIG_FILE_PATH);
@@ -114,7 +114,6 @@ public class TestBase {
 
 	public void initConfigurations() {
 		if (CONFIG == null) {
-//			APPLICATION_LOGS = Logger.getLogger("devpinoyLogger");
 			CONFIG = new Properties();
 			try {
 				FileInputStream fs = new FileInputStream(Constants.CONFIG_FILE_PATH);
@@ -641,7 +640,7 @@ public class TestBase {
 			test = rep.startTest("Verify Notification: " +expectedText);
 			test.log(LogStatus.INFO, "Expected Text: " +expectedText);
 			String actualText=getElement(locatorKey).getText().trim();
-			if(actualText.equals(expectedText)) {
+			if(actualText.contains(expectedText)) {
 				test.log(LogStatus.PASS, actualText + " == " + expectedText);
 				return true;
 			}
@@ -682,6 +681,7 @@ public class TestBase {
 			}
 		}
 	public void assertTextPresent(String expectedText, String screenShotName) {
+		test = rep.startTest("assertTextPresent: " + expectedText);
 		try {
 			String pagesource = driver.getPageSource();
 			Assert.assertTrue(pagesource.contains(expectedText));
@@ -920,7 +920,6 @@ public class TestBase {
 	}
 
 	public String convertedTimestamp() {
-		String timestamp;
 		DateFormat dateFormat = new SimpleDateFormat("M-d HH:mm:ss"); // 07/31/2014 16:31
 		timestamp = dateFormat.format(Calendar.getInstance().getTime());
 		return timestamp;
@@ -1554,6 +1553,44 @@ public class TestBase {
 			return false;
 		}
 		return true;
+	}
+	
+	public void filter(String filter) {
+		if (!filter.equals("")) {
+			String[] data = filter.split(" :: ");
+//			System.out.println(filter);
+			System.out.println(convertedTimestamp() + " **************** Filter");
+			test = rep.startTest("Filter");
+			if (!data[0].equals("")) {
+				click(Constants.filter_my_jobs_button);
+				click("//a[text()='" + data[0] + Constants.close_xpath);
+			}
+//			System.out.println(data[5]);
+			waitVisible(Constants.global_first_filter_field);
+			if (!data[1].equals(""))
+				type("//span[text()='Job Number']/following::input[@ng-model='colFilter.term']", data[1]);
+			if (!data[2].equals(""))
+				type("//span[text()='Filing Number']/following::input[@ng-model='colFilter.term']", data[2]);
+			if (!data[3].equals(""))
+				type("//span[text()='Filing Type']/following::input[@ng-model='colFilter.term']", data[3]);
+			if (!data[4].equals(""))
+				type("//span[text()='Filing Status']/following::input[@ng-model='colFilter.term']", data[4]);
+			if (!data[5].equals(""))
+				type("//span[text()='Address']/following::input[@ng-model='colFilter.term']", data[5]);
+			if (!data[6].equals(""))
+				type("//span[text()='Borough']/following::input[@ng-model='colFilter.term']", data[6]);
+			if (!data[7].equals(""))
+				type("//span[text()='Applicant of Record']/following::input[@ng-model='colFilter.term']", data[7]);
+			if (!data[8].equals(""))
+				type("//span[text()='Owner']/following::input[@ng-model='colFilter.term']", data[8]);
+			if (!data[9].equals(""))
+				type("//span[text()='Created Date']/following::input[@ng-model='colFilter.term']", data[9]);
+			if (!data[10].equals(""))
+				type("//span[text()='Modified Date']/following::input[@ng-model='colFilter.term']", data[10]);
+			if (!data[11].equals(""))
+				type("//span[text()='Payment Status']/following::input[@ng-model='colFilter.term']", data[11]);
+		}
+		reportPass("filter");
 	}
 	
 	// Action moveToElement("//span[contains(text(),'DOB AHV Permits')]").click().keyDown(Keys.Ctrl).sendkeys(Keys.Down).build().perform();
