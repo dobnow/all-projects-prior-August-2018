@@ -45,23 +45,23 @@ public class Tpa extends TestBase {
 
 	@DataProvider
 	public Object[][] getTestData() {
-		return TestUtil.getData("LaaNew", xlsx);
+		return TestUtil.getData("Tpa", xlsx);
 	}
+	
+	PaPage pa = new PaPage();	
 
-	@Test(priority = 0, dataProvider = "getTestData", invocationCount = 1)
+	@Test(priority = 0, dataProvider = "getTestData", invocationCount = 10)
 	public void Portal(Hashtable<String, String> data) {
-		if (!TestUtil.isExecutable("LaaNew", xlsx) || data.get("Runmode").equals("N"))
+		if (!TestUtil.isExecutable("Tpa", xlsx) || data.get("Runmode").equals("N"))
 			throw new SkipException("Skipping the test");
 		System.out.println("BEGIN " + convertedTimestamp() + " **************** " + data.get("description"));
 		test = rep.startTest(data.get("description"));
 		test.log(LogStatus.INFO, data.get("description"));
 		test = rep.startTest("Test Case Data");
 		test.log(LogStatus.INFO, data.toString());
-		PaPage pa = new PaPage();		
-		CrmTaskFormPage task_form = new CrmTaskFormPage();
+	
 		
-//		pa.owner(data.get("owner"));
-//		task_form.viewAcceptDocuments(data.get("cpe"));
+
 		
 		pa.selectWorkTypePa(data.get("work_type"));
 		pa.locationImfo(data.get("address"));
@@ -81,7 +81,7 @@ public class Tpa extends TestBase {
 		successMessage(data.get("description"));
 	}
 
-	// ASSIGN TO TEAM
+/*	// ASSIGN TO TEAM
 	@Test(priority = 1, dataProvider = "getTestData", dependsOnMethods = {"Portal"})
 	public void CentralAssigner(Hashtable<String, String> data) {
 		CrmTaskFormPage task_form = PageFactory.initElements(driver, CrmTaskFormPage.class);
@@ -117,6 +117,6 @@ public class Tpa extends TestBase {
 	public void CpeAction(Hashtable<String, String> data) {
 		CrmTaskFormPage task_form = PageFactory.initElements(driver, CrmTaskFormPage.class);
 		task_form.cpeAction(data.get("chief_plan_examiner"));
-	}
+	}*/
 
 }

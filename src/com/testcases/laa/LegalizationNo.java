@@ -15,9 +15,9 @@ import com.base.TestBase;
 import com.pages.LaaPage;
 import com.relevantcodes.extentreports.LogStatus;
 
-public class LaaNew extends TestBase {
+public class LegalizationNo extends TestBase {
 	Xls_Reader xlsx = new Xls_Reader(Constants.testCasesesLaa);
-	String testname = "LaaNew";
+	String testname = "LegalizationNo";
 
 	@BeforeSuite
 	public void BeforeSuite() {
@@ -45,6 +45,8 @@ public class LaaNew extends TestBase {
 		return TestUtil.getData(testname, xlsx);
 	}
 
+	LaaPage laa = new LaaPage();
+	
 	@Test(priority = 0, dataProvider = "getTestData", invocationCount = 1)
 	public void Portal(Hashtable<String, String> data) {
 		if (!TestUtil.isExecutable(testname, xlsx) || data.get("Runmode").equals("N"))
@@ -54,7 +56,8 @@ public class LaaNew extends TestBase {
 		test.log(LogStatus.INFO, data.get("description"));
 		test = rep.startTest("Test Case Data");
 		test.log(LogStatus.INFO, data.toString());
-		LaaPage laa = new LaaPage();
+		
+		
 
 		laa.selectWorkType(data.get("user_info"));
 		laa.locationImfo(data.get("address"));
@@ -62,8 +65,8 @@ public class LaaNew extends TestBase {
 		laa.feeAssessment(data.get("fee_assessment"));
 		laa.saveGI("Y");
 		laa.scopeOfWork(data.get("sow"));
-		laa.signatures(data.get("signature"));
 		laa.uploadDocuments(data.get("documents"));
+		laa.signatures(data.get("signature"));
 		laa.previewToFile(data.get("file"));
 		successMessage(data.get("description"));
 	}

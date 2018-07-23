@@ -56,12 +56,12 @@ public class AnPaaOnSubsTest extends TestBase {
 
 	@DataProvider
 	public Object[][] getTestData() {
-		return TestUtil.getData("AnPaaOnSubsTest", xlsx);
+		return TestUtil.getData("PaaOnPermitted", xlsx);
 	}
 	
 	@Test(priority = 0, dataProvider = "getTestData")
 	public void Portal(Hashtable<String, String> data) {
-		if (!TestUtil.isExecutable("AnPaaOnSubsTest", xlsx) || data.get("Runmode").equals("N"))
+		if (!TestUtil.isExecutable("PaaOnPermitted", xlsx) || data.get("Runmode").equals("N"))
 			throw new SkipException("Skipping test");
 		System.out.println("BEGIN " + convertedTimestamp() + " **************** " + data.get("description"));
 		test = rep.startTest(data.get("description"));
