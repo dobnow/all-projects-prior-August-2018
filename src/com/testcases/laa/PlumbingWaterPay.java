@@ -4,7 +4,6 @@ import com.util.Constants;
 import com.util.TestUtil;
 import com.util.Xls_Reader;
 import java.util.Hashtable;
-import org.openqa.selenium.support.PageFactory;
 import org.testng.SkipException;
 import org.testng.annotations.Test;
 import org.testng.annotations.AfterClass;
@@ -14,8 +13,6 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 import com.base.TestBase;
-import com.pages.CityPayPage;
-import com.pages.CrmTaskFormPage;
 import com.pages.LaaPage;
 import com.relevantcodes.extentreports.LogStatus;
 

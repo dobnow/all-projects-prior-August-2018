@@ -47,7 +47,7 @@ public class Equipment extends TestBase {
 
 	LaaPage laa = new LaaPage();
 	
-	@Test(priority = 0, dataProvider = "getTestData", invocationCount = 55)
+	@Test(priority = 0, dataProvider = "getTestData", invocationCount = 1)
 	public void Portal(Hashtable<String, String> data) {
 		if (!TestUtil.isExecutable(testname, xlsx) || data.get("Runmode").equals("N"))
 			throw new SkipException("Skipping the test");
