@@ -101,7 +101,7 @@ public class TestBase {
 			props.setProperty("browser", browser);
 			fileName.close();
 			FileOutputStream outFileName = new FileOutputStream(Constants.CONFIG_FILE_PATH);
-			props.store(outFileName, " # BROWSERS::  IE  Chrome  Mozilla # ENVIRONMENTS ::  443 444 8085 + WORK TYPES:: antenna curbcut plumbing electrical elevators fab4 laa");
+			props.store(outFileName, " # BROWSERS::  IE  Chrome  Mozilla # ENVIRONMENTS ::  443 444 8085 + WORK TYPES:: antenna curbcut plumbing electrical elevators fab4 laa assembly");
 			outFileName.close();
 			// props.load(fileName);
 			FileInputStream fs = new FileInputStream(Constants.CONFIG_FILE_PATH);
@@ -110,6 +110,8 @@ public class TestBase {
 		} catch (IOException io) {
 			io.printStackTrace();
 		}
+/*		if(driver != null)
+			killDriver();*/
 	}
 
 	public void initConfigurations() {
@@ -202,6 +204,7 @@ public class TestBase {
 				capabilities.setCapability(InternetExplorerDriver.INTRODUCE_FLAKINESS_BY_IGNORING_SECURITY_DOMAINS,	true);
 				capabilities.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true);
 				capabilities.setCapability("silent", true);
+				capabilities.setCapability("InPrivate", true);
 				driver = new InternetExplorerDriver();
 				driver.manage().window().maximize();
 			}
@@ -241,7 +244,7 @@ public class TestBase {
 			dob_now_url = Constants.dob_now_protocol_stage + Constants.stage_444;
 			crm_url = Constants.crm_stage;
 		}
-		if (CONFIG.getProperty("env").contains("antenna") || CONFIG.getProperty("env").contains("curbcut")) {
+		if (CONFIG.getProperty("env").contains("antenna") || CONFIG.getProperty("env").contains("curbcut") || CONFIG.getProperty("env").contains("asembly")) {
 			user = Constants.AJOETEST2;
 			owner = Constants.APPLEROME18;
 /*			tr1_user = Constants.DOBTESTING123;
@@ -838,7 +841,7 @@ public class TestBase {
 	public void quitDriver() {
  		if(driver != null) {
  			driver.close();
- 			driver=null;
+ 			driver = null;
  		}
  		if(rep != null) {
  			rep.endTest(test);
@@ -1151,7 +1154,7 @@ public class TestBase {
 			type(Constants.job_number_filter, job_number.trim());
 			if (count(Constants.found_job_part_one +job_number +Constants.found_job_part_two) > 0)
 				break;
-}
+		}
 		test = rep.startTest("Filter job " + job_number);
 		click(Constants.click_to_view_icon);
 		click(Constants.global_notification_ok_button);
@@ -1170,7 +1173,7 @@ public class TestBase {
 				props.setProperty(prop_name, value);
 				fileName.close();
 				FileOutputStream outFileName = new FileOutputStream(Constants.JOB_NUMBER);
-				props.store(outFileName, " BROWSERS::  IE  Chrome  Mozilla # ENVIRONMENTS ::  443 444 8085 + WORK TYPES:: antenna curbcut plumbing electrical elevators fab4");
+				props.store(outFileName, " BROWSERS::  IE  Chrome  Mozilla # ENVIRONMENTS ::  443 444 8085 + WORK TYPES:: antenna curbcut plumbing electrical elevators fab4 laa assembly");
 				outFileName.close();
 				// props.load(fileName);
 				FileInputStream fs = new FileInputStream(Constants.JOB_NUMBER);
@@ -1248,11 +1251,10 @@ public class TestBase {
 	public void killDriver() {
 //		setConfigBrowser("Chrome");
 		try {
-//			driver.quit();
 			Runtime.getRuntime().exec("taskkill /F /IM chromedriver.exe /T");
-			Runtime.getRuntime().exec("taskkill /F /IM firefox.exe /T");
+//			Runtime.getRuntime().exec("taskkill /F /IM firefox.exe /T");
 			Runtime.getRuntime().exec("taskkill /F /IM IEDriverServer.exe /T");
-//			softAssertion.assertAll();
+//			driver.quit();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
