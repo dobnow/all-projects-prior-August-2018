@@ -14,7 +14,7 @@ public class DobSOWPage extends TestBase {
 	
 	public void scopeOfWork(String asw) {	
 		if(!asw.equals("")){
-			System.out.println(convertedTimestamp() + " **************** " + "ScopeOfWorkTest");
+			System.out.println(convertedTimestamp() + " **************** ScopeOfWorkTest");
 			filterJob(user);		
 			test = rep.startTest("ASW");
 			click(Constants.antenna_scope_of_work_step);

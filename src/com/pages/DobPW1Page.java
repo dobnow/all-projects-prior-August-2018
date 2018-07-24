@@ -4,7 +4,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-
 import com.base.TestBase;
 import com.util.Constants;
 
@@ -151,6 +150,20 @@ public class DobPW1Page extends TestBase {
 		 	}
 		} 
 
+		// 2. Applicant Info PL/SP/SD
+		public void applicantInfoPlumbing(String user_info) {	
+			if(!user_info.equals("")){
+				String[] data = user_info.split(" :: ");
+				test = rep.startTest("Applicant Info");
+				email(data[0]);
+				select(Constants.license_type_list, data[1]);
+				wait(1);
+				if(count(Constants.business_name_list) > 0)
+					select(Constants.business_name_list, data[2]);
+		 		type(Constants.job_description_for_new_work, user_info);
+		 	}
+		} 
+		
 	public void applicantInfoSubs(String user_info) {	
 		if(!user_info.equals("")){
 			String[] data = user_info.split(" :: ");
@@ -265,11 +278,11 @@ public class DobPW1Page extends TestBase {
 			if (!data[4].equals("N"))
 				radio("//input[@id='rdZoningExemptionsBulkhead'][@value='" + data[4] + "']");
 			if (!data[5].equals("N"))
-				check("//input[contains(@id,'chkPWWrkTypeP')]"); // work type 1
+				check("//input[contains(@id,'chkPWWrkTypeP')]"); // select plumbing
 			if (!data[6].equals("N"))
-				check("//input[contains(@id,'chkPWWrkTypeSp')]"); // work type 2
+				check("//input[contains(@id,'chkPWWrkTypeSp')]"); // select sprinkler
 			if (!data[7].equals("N"))
-				check("//input[@id='chkPWWrkTypeSd1']"); // work type 3
+				check("//input[contains(@id,'chkPWWrkTypeSd')]"); // select standpipe
 			if (!data[8].equals("N"))
 				check("(//input[contains(@id,'chkPWWrkTypeP2')])[last()]"); 
 			if (!data[9].equals("N"))

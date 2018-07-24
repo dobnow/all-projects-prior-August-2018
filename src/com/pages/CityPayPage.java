@@ -177,15 +177,37 @@ public class CityPayPage extends TestBase {
 				}
 				
 				assertTextPresent("Receipt Details", "Receipt Details");
-				driver.close();
+				
 				wait(2);
 				setConfigBrowser("Chrome");
 				driver.switchTo().window(parentWindowContact);
 				waitVisible(Constants.ok_button);
 				clickButton("OK");
 				waitInvisible(Constants.ok_button);
-//				driver.close();
+				
+			    try {
+			        Set<String> windows = driver.getWindowHandles();
+			        Iterator<String> iter = windows.iterator();
+			        String[] winNames=new String[windows.size()];
+			        int i=0;
+			        while (iter.hasNext()) {
+			            winNames[i]=iter.next();
+			            i++;
+			        }
+
+			        if(winNames.length > 1) {
+			            for(i = winNames.length; i > 1; i--) {
+			            	driver.switchTo().window(winNames[i - 1]);
+			            	driver.close();
+			            }
+			        }
+			        driver.switchTo().window(winNames[0]);
+			    }
+			    catch(Exception e){         
+			        e.printStackTrace();
+			    }
 			}
+			driver.close();
 		}
 		successMessage("cityPay");
 	}
