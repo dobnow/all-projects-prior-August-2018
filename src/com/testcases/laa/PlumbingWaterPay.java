@@ -42,7 +42,7 @@ public class PlumbingWaterPay extends TestBase {
 		setConfigBrowser("Chrome");
 	}
 
-	@AfterSuite
+	@AfterSuite(alwaysRun=true)
 	public void killDrivers() {
 		killDriver();
 	}

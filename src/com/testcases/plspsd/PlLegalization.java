@@ -4,6 +4,8 @@ import com.util.Constants;
 import com.util.TestUtil;
 import com.util.Xls_Reader;
 import java.util.Hashtable;
+import java.util.List;
+
 import org.testng.SkipException;
 import org.testng.annotations.Test;
 import org.testng.annotations.AfterMethod;
@@ -11,6 +13,8 @@ import org.testng.annotations.AfterSuite;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 
 import com.base.TestBase;
@@ -72,13 +76,14 @@ public class PlLegalization extends TestBase {
 		DobTR8Page tr8 = PageFactory.initElements(driver, DobTR8Page.class);
 		DobSignaturesPage signature = PageFactory.initElements(driver, DobSignaturesPage.class);
 		DobDocumentsPage docs = PageFactory.initElements(driver, DobDocumentsPage.class);
+		
 
 		
 		dash.selectWorkTypePlumbing(data.get("work_type"));
 		pw1.locationImfo(data.get("address"));
 		type(Constants.pw1_1_apt_suite_number, testname);
 		pw1.workOnFloors(data.get("work_on_floors"));
-		pw1.applicantInfo(data.get("user_info"));
+		pw1.applicantInfoPlumbing(data.get("user_info"));
 		pw1.reviewtype(data.get("filing_review_type"));
 		pw1.workTypesPlumbing(data.get("new_existing_both"));
 		pw1.additionalInforPlumbing(data.get("additional_info"));

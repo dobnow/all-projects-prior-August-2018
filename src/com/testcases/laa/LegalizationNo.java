@@ -35,7 +35,7 @@ public class LegalizationNo extends TestBase {
 		quitDriver();
 	}
 
-	@AfterSuite
+	@AfterSuite(alwaysRun=true)
 	public void killDrivers() {
 		killDriver();
 	}

@@ -55,9 +55,8 @@ public class PaaOnPermitted extends TestBase {
 		setConfigBrowser("Chrome");
 	}
 
-	@AfterSuite
+	@AfterSuite(alwaysRun=true)
 	public void killDrivers() {
-		quitDriver();
 		killDriver();
 	}
 

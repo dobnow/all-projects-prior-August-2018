@@ -78,7 +78,7 @@ public class PlNewProfCert extends TestBase {
 		pw1.locationImfo(data.get("address"));
 		type(Constants.pw1_1_apt_suite_number, testname);
 		pw1.workOnFloors(data.get("work_on_floors"));
-		pw1.applicantInfo(data.get("user_info"));
+		pw1.applicantInfoPlumbing(data.get("user_info"));
 		pw1.reviewtype(data.get("filing_review_type"));
 		pw1.workTypesPlumbing(data.get("new_existing_both"));
 		pw1.additionalInforPlumbing(data.get("additional_info"));
