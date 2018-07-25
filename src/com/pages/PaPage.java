@@ -64,16 +64,12 @@ public class PaPage extends TestBase {
 				type("//input[@id='WFMaximumOccupancy']", "22");
 				type(Constants.pw1_1_work_on_floors_description_of_work, convertedTimestamp());
 				click(Constants.pw1_1_work_on_floors_add_button);
+				wait(1);
+				if(count("//input[@id='rdIrRegularFloorNumbering'][@value='false']") > 0) // PA only
+					radio("//input[@id='rdIrRegularFloorNumbering'][@value='false']");
 			} 
 		}
 	}
-	
-	public void zonning(String type) {	
-		if(!type.equals("")){
-			radio("//input[@ng-model='PAFormObj.PASpaceInformation.IrRegularFloorNumbering'][@value='false']");
-	 	}
-	}
-	
 	 
 	public void reviewtype(String type) {	
 		if(!type.equals("")){
@@ -85,10 +81,10 @@ public class PaPage extends TestBase {
 		if (!owner_info.equals("")) {
 			test = rep.startTest("Work On Floors");
 			for (int i = 1; i < 100; i++) {
-				if(count("//input[@id='rdPAOperation2']") > 0)
-					radio("//input[@id='rdPAOperation2']");
-				if(count("//select[@id='ddlPAOperation']") > 0)
-					select("//select[@id='ddlPAOperation']", "Yes");
+				if(count(Constants.party_to_renewpalce_assembly_no) > 0)
+					radio(Constants.party_to_renewpalce_assembly_no);
+/*				if(count("//select[@id='ddlPAOperation']") > 0)
+					select("//select[@id='ddlPAOperation']", "Yes");*/
 				select(Constants.ss_owner_type, "Partnership");
 				radio("//input[@ng-model='PAFormObj.IsTheDeedHolderaNonProfitOrganization'][@value='true']");
 				clear("//input[@id='txtDPEmail']");
@@ -110,8 +106,8 @@ public class PaPage extends TestBase {
 				clear("(//input[@id='txtDPEmail'])[last()]");
 				send("(//input[@id='txtDPEmail'])[last()]", data[0]);
 				wait(2);
-				if (count("//strong[text()='" + OR_PROPERTIES.getProperty("AJOETEST1") + "']") > 0) {
-					doubleclick("//strong[text()='" + OR_PROPERTIES.getProperty("AJOETEST1") + "']");
+				if (count("//strong[text()='" + data[0] + "']") > 0) {
+					doubleclick("//strong[text()='" + data[0] + "']");
 					wait(1);
 					break;
 				}
@@ -128,7 +124,7 @@ public class PaPage extends TestBase {
 			if(count(Constants.pw1_confirm_save_button) > 0)
 				click(Constants.pw1_confirm_save_button);
 			waitVisible60(Constants.ok_button);
-			assertNotification(TEXT_PROPERTIES.getProperty("job_filing_saved"), "saveForm savePW1");
+			assertNotification(TEXT_PROPERTIES.getProperty("job_filing_saved"), "saveGI");
 			clickButton("OK");
 			waitInvisible(Constants.ok_button);
 			wait(2);
@@ -279,7 +275,8 @@ public class PaPage extends TestBase {
 				waitForPageToLoad();
 				waitVisible("//span[text()='2. Applicant Information']");				
 				radio("//input[@ng-model='ProgressInspectionsApplicant'][@value='true']");
-				wait(1);
+/*				wait(51);
+				
 				if(count("//i[@class='fa fa-upload ng-scope']") > 0) {
 					click("//i[@class='fa fa-upload ng-scope']");
 					send(Constants.tr1_browse_button, Constants.uploadFolder + "upload.png");
@@ -290,7 +287,7 @@ public class PaPage extends TestBase {
 					waitVisible(Constants.ok_button);
 					clickButton("OK");
 					waitInvisible(Constants.ok_button);
-				}
+				}*/
 				for (int a = 1; a <= 5; a++) {
 					wait(2);
 					click("(//i[@class='fa fa-edit'])[last()]");
@@ -329,11 +326,27 @@ public class PaPage extends TestBase {
 			for (int i = 1; i < 100; i++) {
 				filterJob(data[1]);
 				test = rep.startTest("progressInspector");
+				waitUntilISpinnersInvisible();
+				waitForPageToLoad();
+				
+				
 				click("//a[@class='ng-binding'][@ng-click='changeCurrentPage(3);']");
 				waitUntilISpinnersInvisible();
 				waitForPageToLoad();
 				waitVisible("//span[text()='2. Applicant Information']");				
 				radio("//input[@ng-model='ProgressInspectionsApplicant'][@value='true']");
+				wait(1);
+				if(count("//i[@class='fa fa-upload ng-scope']") > 0) {
+					click("//i[@class='fa fa-upload ng-scope']");
+					send(Constants.tr1_browse_button, Constants.uploadFolder + "upload.png");
+					click(Constants.tr1_upload_button);
+					waitInvisible(Constants.tr1_please_wait_message);
+					waitVisible(Constants.tr1_upload_succesfull_message);
+					waitUntilISpinnersInvisible();
+					waitVisible(Constants.ok_button);
+					clickButton("OK");
+					waitInvisible(Constants.ok_button);
+				}
 				
 				for (int a = 1; a <= 5; a++) {
 					click("(//i[@class='fa fa-edit'])[last()]");
@@ -345,13 +358,14 @@ public class PaPage extends TestBase {
 					check(Constants.tr1_i_understand_and_agree);
 					if (getElement(Constants.tr1_i_take_responcibility).isSelected()) {
 						if (getElement(Constants.tr1_i_understand_my_failure_to_file).isSelected()) {
-							if (getElement(Constants.tr1_i_understand_and_agree).isSelected()) {
+							if (getElement(Constants.tr1_i_understand_and_agree).isSelected())
 								break;
-							}
 						}
 					} else
 						click(Constants.global_cancel_button);
 				}
+
+
 				click(Constants.global_save_form_button);
 				waitInvisible(Constants.global_save_form_button);
 				waitUntilISpinnersInvisible();
@@ -368,7 +382,7 @@ public class PaPage extends TestBase {
 	
 	public void signatures(String signatures) {	
 		if(!signatures.equals("")){
-			System.out.println(convertedTimestamp() + " **************** signatures");
+			System.out.println(convertedTimestamp() + " **************** applicant signature");
 			filterJob(user);	
 			test = rep.startTest("signatures");
 			click("//a[@class='ng-binding'][@ng-click='changeCurrentPage(6);']");
@@ -394,7 +408,7 @@ public class PaPage extends TestBase {
 	
 	public void owner(String owner) {	
 		if(!owner.equals("")){
-			System.out.println(convertedTimestamp() + " **************** owner");
+			System.out.println(convertedTimestamp() + " **************** owner signature");
 			filterJob(owner);	
 			test = rep.startTest("owner");
 			click("//a[@class='ng-binding'][@ng-click='changeCurrentPage(6);']");

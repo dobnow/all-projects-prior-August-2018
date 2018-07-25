@@ -234,14 +234,15 @@ public class CrmTaskFormPage extends TestBase {
 	}
 	
 	// Plan Examiner ACTION
-	public void cpeAssignToSelfElv(String user_name) {
-		if (!user_name.equals("")) {
-			System.out.println(convertedTimestamp() + " **************** Assign to Self");
+	public void cpeAssignToSelfElv(String action) {
+		if (!action.equals("")) {
+			String[] data = action.split(" :: ");
+			System.out.println(convertedTimestamp() + " **************** cpeAssignToSelfElv");
 			for (int i = 1; i <= 10; i++) {
-				loginToCrm(user_name);
+				loginToCrm(data[0]);
 				searchForJobCrm();
-				test = rep.startTest("PE ACTION");
-				test.log(LogStatus.INFO, user_name+" cpeAssignToSelf");
+				test = rep.startTest("cpeAssignToSelfElv");
+				test.log(LogStatus.INFO, action+" cpeAssignToSelf");
 				waitForPageToLoad();
 				driver.switchTo().frame("contentIFrame0");
 				scrollToElement(Constants.action_cpe_action_list);
@@ -366,8 +367,9 @@ public class CrmTaskFormPage extends TestBase {
 					driver.switchTo().window(tabs.get(0));
 					driver.switchTo().defaultContent();
 					click(Constants.accept_document_button);
+/*					wait(1);
+					ifAlertExistAccept();*/
 					wait(1);
-					ifAlertExistAccept();
 					ifAlertExistAccept();
 					wait(1);
 					waitVisible(Constants.accept_document_button);
@@ -680,7 +682,7 @@ public class CrmTaskFormPage extends TestBase {
 	public void cpeAssign(String cpe) {
 		if (!cpe.equals("")) {
 			String[] data = cpe.split(" :: ");
-			System.out.println(convertedTimestamp() + " **************** cpeAcpeAction " +data[0]+ " Assign to "+data[2]+ " " +data[3]);
+			System.out.println(convertedTimestamp() + " **************** cpeAssign " +data[0]+ " Assign to "+data[2]+ " " +data[3]);
 			for (int i = 1; i <= 10; i++) {
 				loginToCrm(data[0]);
 				searchForJobCrm();
@@ -738,14 +740,28 @@ public class CrmTaskFormPage extends TestBase {
 				test.log(LogStatus.INFO, " " +data[1]);
 				waitForPageToLoad();
 				driver.switchTo().frame("contentIFrame0");
-				if (count("//span[text()='Allow Appointment?']") > 0)
-					select(Constants.plan_examiner_action_select, data[4]);
+				if (count("//span[text()='Allow Appointment?']") > 0) { 
+					
+					click("//span[contains(.,'Allow Appointment?')]/following::div[contains(@jawsreadlabel,'dobnyc')]");
+					select("//span[contains(.,'Allow Appointment?')]/following::select[contains(@id,'dobnyc')]", data[1]);
+				}
+					
+//					select("//span[text()='Allow Appointment?']", data[1]);
 				if (chief_plan_examiner.contains("Approve")) { // Yes == "Is the Job Application Complete ?"
 					waitVisible(Constants.first_plan_examiner_action);
 					scrollToElement(Constants.first_plan_examiner_action);
 					click(Constants.first_plan_examiner_action);
-					select(Constants.plan_examiner_action_select, data[4]);
+					select(Constants.plan_examiner_action_select, data[2]);
 					ifAlertExistAccept();
+					ifAlertExistAccept();
+					wait(5);
+					waitUntilISpinnersInvisible();
+					waitForPageToLoad();
+					ifAlertExistAccept();
+				}
+				if(count(Constants.approved_plans_uploaded_list) > 0) {					
+//					click(Constants.approved_plans_uploaded_list);
+					select(Constants.approved_plans_uploaded, data[3]);
 				}
 /*				waitVisible(Constants.is_the_job_application_complete_list);
 				scrollToElement(Constants.is_the_job_application_complete_list);
@@ -787,7 +803,7 @@ public class CrmTaskFormPage extends TestBase {
 				loginToCrm(data[0]);
 				searchForJobCrm();
 				waitForPageToLoad();
-				test = rep.startTest("PE ACTION " +data[2]);
+				test = rep.startTest("PE ACTION " +action);
 				driver.switchTo().frame("contentIFrame0");
 				waitVisible(Constants.appoitment_required_list);
 				scrollToElement(Constants.appoitment_required_list);
@@ -913,11 +929,12 @@ public class CrmTaskFormPage extends TestBase {
 			searchForJobCrm();
 			waitForPageToLoad();
 			driver.switchTo().frame("contentIFrame0");
-			click(Constants.label_job_filing);
+			click(Constants.job_filing_link);
 			ifAlertExistAccept();
-			waitInvisible(Constants.label_job_filing);
+			waitInvisible(Constants.job_filing_link);
 			waitForPageToLoad();
 			wait(10);
+			ifAlertExistAccept();
 			waitVisible(Constants.crm_job_description);
 			scrollToElement(Constants.crm_job_description);
 			wait(2);
