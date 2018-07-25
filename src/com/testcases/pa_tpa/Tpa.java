@@ -50,7 +50,7 @@ public class Tpa extends TestBase {
 	
 	PaPage pa = new PaPage();	
 
-	@Test(priority = 0, dataProvider = "getTestData", invocationCount = 10)
+	@Test(priority = 0, dataProvider = "getTestData", invocationCount = 1)
 	public void Portal(Hashtable<String, String> data) {
 		if (!TestUtil.isExecutable("Tpa", xlsx) || data.get("Runmode").equals("N"))
 			throw new SkipException("Skipping the test");
@@ -71,7 +71,7 @@ public class Tpa extends TestBase {
 		pa.ownerinfo(data.get("owner_info"));
 //		pa.party(data.get("party"));	
 		pa.saveGI("Y");
-		pa.scopeOfWorkTpa(data.get("event_info"));
+		pa.scopeOfWorkTpa(data.get("sow"));
 		pa.techReport(data.get("tech_report"));
 		pa.progressInspector(data.get("tech_report"));
 		pa.signatures(data.get("signature"));

@@ -62,7 +62,7 @@ public class PaProfCert extends TestBase {
 		pa.selectWorkTypePa(data.get("work_type"));
 		pa.locationImfo(data.get("address"));
 		pa.workOnFloors(data.get("work_on_floors"));
-		pa.zonning(data.get("work_on_floors"));
+//		pa.zonning(data.get("work_on_floors"));
 		pa.applicantInfo(data.get("user_info"));
 		pa.reviewtype(data.get("filing_review_type"));
 		pa.ownerinfo(data.get("owner_info"));

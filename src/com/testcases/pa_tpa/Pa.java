@@ -4,6 +4,8 @@ import com.util.Constants;
 import com.util.TestUtil;
 import com.util.Xls_Reader;
 import java.util.Hashtable;
+
+import org.openqa.selenium.support.PageFactory;
 import org.testng.SkipException;
 import org.testng.annotations.Test;
 import org.testng.annotations.AfterMethod;
@@ -46,6 +48,8 @@ public class Pa extends TestBase {
 		return TestUtil.getData("Pa", xlsx);
 	}
 
+	PaPage pa = new PaPage();
+	
 	@Test(priority = 0, dataProvider = "getTestData", invocationCount = 1)
 	public void Portal(Hashtable<String, String> data) {
 		if (!TestUtil.isExecutable("Pa", xlsx) || data.get("Runmode").equals("N"))
@@ -55,20 +59,20 @@ public class Pa extends TestBase {
 		test.log(LogStatus.INFO, data.get("description"));
 		test = rep.startTest("Test Case Data");
 		test.log(LogStatus.INFO, data.toString());
-		PaPage pa = new PaPage();
-		
+
+
 
 		
 		pa.selectWorkTypePa(data.get("work_type"));
 		pa.locationImfo(data.get("address"));
 		pa.workOnFloors(data.get("work_on_floors"));
-		pa.zonning(data.get("work_on_floors"));
+//		pa.zonning(data.get("work_on_floors"));
 		pa.applicantInfo(data.get("user_info"));
 		pa.reviewtype(data.get("filing_review_type"));
 		pa.ownerinfo(data.get("owner_info"));
 		pa.party(data.get("party"));
 		pa.saveGI("Y");
-		pa.scopeOfWorkPa(data.get("event_info"));
+		pa.scopeOfWorkPa(data.get("sow"));
 		pa.techReport(data.get("tech_report"));
 		pa.progressInspector(data.get("tech_report"));
 		pa.signatures(data.get("signature"));
