@@ -80,6 +80,8 @@ public class TestBase {
 	public static String tr1_lic = null;
 	public static String tr8_lic = null;
 	public static String pw2_lic = null;
+	public static String testname;
+	
 
 	public static String exctracted_job_number = null;
 	public static String job_number_value = null;
@@ -101,7 +103,7 @@ public class TestBase {
 			props.setProperty("browser", browser);
 			fileName.close();
 			FileOutputStream outFileName = new FileOutputStream(Constants.CONFIG_FILE_PATH);
-			props.store(outFileName, " # BROWSERS::  IE  Chrome  Mozilla # ENVIRONMENTS ::  443 444 8085 + WORK TYPES:: antenna curbcut plumbing electrical elevators fab4 laa assembly");
+			props.store(outFileName, "# BROWSERS :: IE  Chrome  ENVIRONMENTS ::  443 444 8085 + WORK TYPES:: antenna curbcut plumbing electrical elevators fab4 laa patpa");
 			outFileName.close();
 			// props.load(fileName);
 			FileInputStream fs = new FileInputStream(Constants.CONFIG_FILE_PATH);
@@ -244,7 +246,7 @@ public class TestBase {
 			dob_now_url = Constants.dob_now_protocol_stage + Constants.stage_444;
 			crm_url = Constants.crm_stage;
 		}
-		if (CONFIG.getProperty("env").contains("antenna") || CONFIG.getProperty("env").contains("curbcut") || CONFIG.getProperty("env").contains("asembly")) {
+		if (CONFIG.getProperty("env").contains("antenna") || CONFIG.getProperty("env").contains("curbcut") || CONFIG.getProperty("env").contains("patpa")) {
 			user = Constants.AJOETEST2;
 			owner = Constants.APPLEROME18;
 /*			tr1_user = Constants.DOBTESTING123;
@@ -443,6 +445,16 @@ public class TestBase {
 		wait.until(ExpectedConditions.elementToBeClickable(getElement(locatorKey)));
 		if (getElement(locatorKey).isEnabled() || getElement(locatorKey).isDisplayed())
 			getElement(locatorKey).click();
+		try {
+			Alert alert = new WebDriverWait(driver, 1).until(ExpectedConditions.alertIsPresent());
+			if (alert != null) {
+				driver.switchTo().alert().accept();
+			} else {
+				throw new Throwable();
+			}
+		} catch (Throwable e) {
+			// System.err.println("Alert isn't present!!");
+		}
 		waitForPageToLoad();
 		report();
 	}
@@ -1125,7 +1137,7 @@ public class TestBase {
 	
 	public void waitDocStatus() {
 		driver.switchTo().frame("contentIFrame0");
-		waitClickableOr("//nobr[text()='Accepted']", "//nobr[text()='Submitted']");
+		waitForOneOf3Visible("//nobr[text()='Accepted']", "//nobr[text()='Submitted']", "//nobr[text()='Pending']");
 	}
 
 	public void filterJob(String user_name) {
@@ -1173,7 +1185,7 @@ public class TestBase {
 				props.setProperty(prop_name, value);
 				fileName.close();
 				FileOutputStream outFileName = new FileOutputStream(Constants.JOB_NUMBER);
-				props.store(outFileName, " BROWSERS::  IE  Chrome  Mozilla # ENVIRONMENTS ::  443 444 8085 + WORK TYPES:: antenna curbcut plumbing electrical elevators fab4 laa assembly");
+				props.store(outFileName, "# BROWSERS :: IE  Chrome  ENVIRONMENTS ::  443 444 8085 + WORK TYPES:: antenna curbcut plumbing electrical elevators fab4 laa patpa");
 				outFileName.close();
 				// props.load(fileName);
 				FileInputStream fs = new FileInputStream(Constants.JOB_NUMBER);
@@ -1218,7 +1230,7 @@ public class TestBase {
 				wait(2);
 				driver.switchTo().frame("contentIFrame0");
 				waitVisible(Constants.label_job_filing);
-				waitClickableOr("//nobr[text()='Accepted']", "//nobr[text()='Submitted']");
+				waitForOneOf3Visible("//nobr[text()='Accepted']", "//nobr[text()='Submitted']", "//nobr[text()='Pending']");
 				if (count(Constants.crm_document_status_submitted) == 0) {
 					reportPass("viewAcceptDocuments");
 					break;
@@ -1504,44 +1516,51 @@ public class TestBase {
 		    ExpectedConditions.elementToBeClickable(By.xpath(locatorKey1)),
 		    ExpectedConditions.elementToBeClickable(By.xpath(locatorKey2))));
 	}
+	
+	public void waitForOneOf3Visible(String locatorKey1, String locatorKey2, String locatorKey3) {
+		WebDriverWait wait = new WebDriverWait(driver, 30);
+		wait.until(ExpectedConditions.or(
+			ExpectedConditions.elementToBeClickable(By.xpath(locatorKey1)),
+		    ExpectedConditions.elementToBeClickable(By.xpath(locatorKey2)),
+		    ExpectedConditions.elementToBeClickable(By.xpath(locatorKey3))));
+	}
 
 
 	public void reportPass(String msg){
 		test.log(LogStatus.PASS, msg);
 	}
+
 	public void viewAcceptDocs() {
-		System.out.println(convertedTimestamp() + " **************** viewAcceptDocs");
+		System.out.println(convertedTimestamp() + " **************** viewAcceptDocs test base");
 		test = rep.startTest("View Accept Submitted Documents. viewAcceptDocs");
 		test.log(LogStatus.INFO, "viewAcceptDocuments");
 		waitForPageToLoad();
 //		driver.switchTo().frame("contentIFrame0");
 		waitVisible("//label[@class='ms-crm-List-Sortable'][text()='Document Status']");
-		waitClickableOr("//nobr[text()='Accepted']", "//nobr[text()='Submitted']");
+		waitForOneOf3Visible("//nobr[text()='Accepted']", "//nobr[text()='Submitted']", "//nobr[text()='Pending']");
 		if (count(Constants.crm_document_status_submitted) > 0) {
-//			for (int i = 1; i <= 20; i++) {
-				doubleclick(Constants.crm_document_status_submitted);
-				waitForPageToLoad();
-				wait(3);
-				driver.switchTo().defaultContent();
-				click(Constants.view_document_button);
-				wait(3);
-				ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
-				while (tabs.size() > 1) {
-					driver.switchTo().window(tabs.get(1));
-					driver.close();
-					wait(2);
-					tabs = new ArrayList<String>(driver.getWindowHandles());
-				}
-				driver.switchTo().window(tabs.get(0));
-				doubleclick(Constants.accept_document_button);
-				ifAlertExistAccept();
-				waitForPageToLoad();
+			doubleclick(Constants.crm_document_status_submitted);
+			waitForPageToLoad();
+			wait(3);
+			driver.switchTo().defaultContent();
+			click(Constants.view_document_button);
+			wait(3);
+			ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
+			while (tabs.size() > 1) {
+				driver.switchTo().window(tabs.get(1));
+				driver.close();
 				wait(2);
-				driver.switchTo().frame("contentIFrame0");
-				waitVisible(Constants.crm_document_accepted);
-				if (count(Constants.crm_document_accepted) > 0)
-					reportPass("viewAcceptDocs");
-//			}
+				tabs = new ArrayList<String>(driver.getWindowHandles());
+			}
+			driver.switchTo().window(tabs.get(0));
+			doubleclick(Constants.accept_document_button);
+			ifAlertExistAccept();
+			waitForPageToLoad();
+			wait(2);
+			driver.switchTo().frame("contentIFrame0");
+			waitVisible(Constants.crm_document_accepted);
+			if (count(Constants.crm_document_accepted) > 0)
+				reportPass("viewAcceptDocs");
 		}
 	}
 	
