@@ -8,7 +8,7 @@
 
 <test name="ElFieldSignInspectionTest">
     <classes>
-        <class name="com.testcases.electrical.ElFieldSignInspectionTest"></class>  
+        <class name="com.electrical.ElFieldSignInspectionTest"></class>  
     </classes>
 </test>
 
@@ -16,56 +16,56 @@
 
 <test name="ElMinorWorkTest">
     <classes>
-        <class name="com.testcases.electrical.ElMinorWorkTest"></class>  
+        <class name="com.electrical.ElMinorWorkTest"></class>  
     </classes>
 </test>
 
 <test name="ElNewInstallTest">
     <classes>
-        <class name="com.testcases.electrical.ElNewInstallTest"></class>  
+        <class name="com.electrical.ElNewInstallTest"></class>  
     </classes>
 </test>
 
 <test name="ElOnElSubsTest">
     <classes>
-        <class name="com.testcases.electrical.ElOnElSubsTest"></class>  
+        <class name="com.electrical.ElOnElSubsTest"></class>  
     </classes>
 </test>
 
 <test name="ElOnOtherSubsTest">
     <classes>
-        <class name="com.testcases.electrical.ElOnOtherSubsTest"></class>  
+        <class name="com.electrical.ElOnOtherSubsTest"></class>  
     </classes>
 </test>
 
 <test name="ElPaaTest">
     <classes>
-        <class name="com.testcases.electrical.ElPaaTest"></class>  
+        <class name="com.electrical.ElPaaTest"></class>  
     </classes>
 </test>
 
 
 <test name="ElPaByCheckTest">
     <classes>
-        <class name="com.testcases.electrical.ElPaByCheckTest"></class>  
+        <class name="com.electrical.ElPaByCheckTest"></class>  
     </classes>
 </test>
 
 <test name="ElPaByCreditCardTest">
     <classes>
-        <class name="com.testcases.electrical.ElPaByCreditCardTest"></class>  
+        <class name="com.electrical.ElPaByCreditCardTest"></class>  
     </classes>
 </test>
 
 <test name="ElSubsPayByCheckTest">
     <classes>
-        <class name="com.testcases.electrical.ElSubsPayByCheckTest"></class>  
+        <class name="com.electrical.ElSubsPayByCheckTest"></class>  
     </classes>
 </test>
 
 <test name="ElSubsPayByCreditCardTest">
     <classes>
-        <class name="com.testcases.electrical.ElSubsPayByCreditCardTest"></class>  
+        <class name="com.electrical.ElSubsPayByCreditCardTest"></class>  
     </classes>
 </test>
 
@@ -73,13 +73,13 @@
 
 <test name="ElLegalizationMinorTest">
     <classes>
-        <class name="com.testcases.electrical.ElLegalizationMinorTest"></class>  
+        <class name="com.electrical.ElLegalizationMinorTest"></class>  
     </classes>
 </test>
 
 <test name="ElLegalizationNewInstallTest">
     <classes>
-        <class name="com.testcases.electrical.ElLegalizationNewInstallTest"></class>  
+        <class name="com.electrical.ElLegalizationNewInstallTest"></class>  
     </classes>
 </test>
 

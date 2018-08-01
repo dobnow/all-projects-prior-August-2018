@@ -149,6 +149,7 @@ public class Constants {
 // SELECT COMPONENT PAGE
 	public static final String dob_now_build_component = "//img[@src='images/build-logo-button.png']";
 	public static final String dob_now_safety_component = "//img[@src='images/safety-button-logo.png']";
+	public static final String safety_elevators_link = "//a[text()='Elevators']";
 // DASHBOARD 
 	public static final String job_filing_button = "//button[@ng-click='NewAppOptions()']";
 	public static final String job_filing_label = "//span[contains(.,'Job Filing Id')]";
@@ -853,6 +854,18 @@ public class Constants {
 	public static final String elevator_type = "//select[@id='elevatorOptions']";
 	public static final String elevator_sub_type = "//select[@id='elevatorSubOptions']";
 	
+	public static final String access_lyft_numbers = "//input[@id='txtdevicePlanNumber']";
+	public static final String conveyor_type = "//select[@id='conveyorOptions']";
+	
+	
+	public static final String accessibility_lift = "//select[@id='accessibilityLiftOptions']";
+	public static final String accessibility_lift_type = "//select[@id='platformLiftOptions']";
+	public static final String physical_address_lyft = "//textarea[@id='txtphysicalAddress']";
+	public static final String conjunction_with_mta = "//input[@id='rdquestion6Accessibility']";
+	public static final String private_residence_lyft = "//input[@id='rdquestion11Accessibility']";
+	public static final String private_residence_no = "//input[@id='rdquestion11Accessibility3'][@value='2']";
+	
+	
 	public static final String only_elevator_in_building_no = "//input[@id='rdquestion1'][@value='2']";
 	public static final String elevator_part_of_destination_dispatch_system_no = "//input[@id='rdquestion2'][@value='2']";
 	public static final String an_occupant_evacuation_no = "//input[@id='rdquestion3'][@value='2']";
@@ -875,16 +888,13 @@ public class Constants {
 	public static final String controller_location = "//input[@id='txtdeviceControllerLocation']";
 	public static final String controller_manufacturer = "//input[@id='txtdeviceControllerManufacturer']";
 	public static final String controller_model = "//input[@id='txtdeviceControllerModel']";
+	
+	public static final String attendant_operation = "(//input[@id='rdbdeviceGIAttendantOperation'][@value='2'])[2]";
+	public static final String glass_transperent = "//input[@id='rdbdeviceGIGlassTransperant'][@value='2']";
+	
 
 	public static final String completed_checkmark = "//i[@class='fa fa-check-square-o']";
 // LABELS	
-/*	public static final String device_information_label = "//h4[@id='1'][text()='Device Information']";
-	public static final String machine_room_label = "//h4[@id='2'][text()='Machine and Machine Room']";
-	public static final String device_general_information_label = "//h4[@id='3'][text()='Device General Information']";
-	public static final String cars_and_counterweights_label = "//h4[@id='4'][text()='Cars and Counterweight']";
-	public static final String hoistway_opening_label = "//h4[@id='5'][text()='Hoistway Opening']";
-	public static final String pit_and_buffers_label = "//h4[@id='6'][text()='Pit and Buffers']";*/
-	
 	public static final String insurance_fee_information_tab = "//a[@class='ng-binding'][@ng-click='changeCurrentPage(3);']";
 	public static final String documents_tab = "//a[@class='ng-binding'][@ng-click='changeCurrentPage(4);']";
 	public static final String signatures_tab = "//a[@class='ng-binding'][@ng-click='changeCurrentPage(5);']";
@@ -908,6 +918,8 @@ public class Constants {
 	public static final String speed = "//input[@id='txtdeviceGISpeed']";
 	public static final String elevator_control = "//select[@id='deviceGIElevatorControl']";
 	public static final String mode_of_operation = "//select[@id='deviceGIModeOperation']";
+	public static final String device_configuration = "//select[@id='deviceGIConfiguration']";
+	
 	
 	public static final String load_weightholding_device_yes = "//input[@id='rdbdeviceGILoadweighingdevice'][@value='1']";
 	public static final String load_weightholding_device_no = "//input[@id='rdbdeviceGILoadweighingdevice'][@value='2']";
@@ -920,11 +932,31 @@ public class Constants {
 	public static final String car_openening = "//select[@id='txtdeviceCarOpening']";
 	public static final String car_openening_direction = "//select[@id='deviceCounterweightDirection']";
 	public static final String car_gate_door_operation = "//select[@id='deviceCounterweightOperation']";
+	
+	public static final String in_conjunction_with_mta = "//input[@id='rdquestion6Escalator'][@value='2']";
 
 	public static final String contactType = "//input[@id='txtdeviceContactType']";
 	public static final String manufacturer = "//input[@id='txtdeviceManufacturer']";
 	public static final String top_emergency_exit_min_area = "//input[@id='txtdeviceTopEmergencyExitMinArea']";
 	public static final String top_emergency_exit_min_side = "//input[@id='txtdeviceMinSide']";
+	public static final String model_number_escalator = "//input[@id='txtdeviceModelNumber']";
+	public static final String speed_escalator = "//input[@id='txtdeviceSpeed']";
+	public static final String rise_feet_escalator = "//input[@id='txtdeviceRise']";
+	public static final String rise_inches_escalator = "//input[@id='txtRiseInches']";
+	public static final String step_with_feet_escalator = "//input[@id='txtdeviceStepWidth']";
+	public static final String step_with_inches_escalator = "//input[@id='txtStepWidthInches']";
+	public static final String angle_of_inclination = "//input[@id='txtdeviceAngleofInclination']";
+	public static final String capacity_escalator = "//input[@id='txtdeviceCapacityEscaltor']";
+	public static final String number_of_steps_escalator = "//input[@id='txtdeviceNumberofflatsteps']";
+	public static final String brake_torque_escalator = "//input[@id='txtdeviceBrakeTorque']";
+	public static final String tandem_operation_escalator = "//input[@id='rdbdeviceTandemOperation12']";	
+	public static final String outdoor_escalator = "//input[@id='rdbdeviceOutdoorEscalator12']";
+	public static final String nergy_saving_function_escalator = "//input[@id='rdbdeviceEnergySavingFunction12']";
+	public static final String flame_smoke_heat_escalator = "//input[@id='rdbdeviceProtectionProvided12']";
+	public static final String regenerative_driv_escalator = "//input[@id='rdbdeviceReGenerativeDrive12']";
+
+	
+	
 	
 	public static final String car_inside_dimensions_width_feet = "//input[@id='txtWidthFeet']";
 	public static final String car_inside_dimensions_width_inches = "//input[@id='txtWidthinch']";
@@ -953,7 +985,16 @@ public class Constants {
 	public static final String interlock_in_hoistway_yes = "//input[@id='rdbInterlockInBlind1'][@value='1']";
 	public static final String interlock_in_hoistway_no = "//input[@id='rdbInterlockInBlind1'][@value='2']";
 	
+
+	public static final String car_buffer = "//select[@id='dpdeviceCarBuffer']";
 	public static final String car_type = "//select[@id='deviceCarBufferType']";
+	public static final String pit_depth_inches = "//input[@id='txtdevicePitBufferPitDepth']";	
+	public static final String counterweight_buffer = "//select[@id='dpdeviceCounterweightBuffer']";
+	public static final String counterweight_buffer_type = "//select[@id='deviceCounterweightBufferType']";
+	
+	public static final String device_details_arrow_down = "//i[@class='glyphicon pull-right v-pad-10 glyphicon-chevron-down']";
+	
+	
 	public static final String car_manufacturer = "//input[@id='txtdeviceCarBufferManufacturer']";
 	public static final String engagement_speed = "//input[@id='txtdeviceCarBufferEngagementSpeed']";
 	public static final String stroke_feet = "//input[@id='txtdeviceCarBufferStrokeFeet']";
@@ -1055,6 +1096,7 @@ public class Constants {
 	
 	
 	public static final String cpe_acpe_actions_field = "//div[contains(@jawsreadlabel,'cpeacpeteam')]";
+	//span[text()='Select CPE/ACPE Team']/following::div[contains(@jawsreadlabel,'cpeacpeteam')]
 	public static final String cpe_acpe_primary_pe_field = "//div[contains(@jawsreadlabel,'primaryplanexaminer')]";
 	
 	public static final String cpe_acpe_secondary_pe_field = "//div[contains(@jawsreadlabel,'secondaryplanexaminer')]";
@@ -1668,6 +1710,51 @@ public class Constants {
 	public static final String have_ewn = "//input[@id='rdIsEmergencyWork']";
 	public static final String ewn = "//input[@id='txtEmergencyFilingNo']";
 	public static final String search_ewn = " //span[@class='glyphicon glyphicon-search']";
+	// PA/TPA <---
+	public static final String party_to_renewpalce_assembly_yes = "//input[@id='rdPAOperation1']";
+	public static final String party_to_renewpalce_assembly_no = "//input[@id='rdPAOperation2']";
+	
+	
+	
+/*	public static final String xxxxxxxxxxxx = "xxxxxxxxxxxxxxxxx";
+	public static final String xxxxxxxxxxxx = "xxxxxxxxxxxxxxxxx";
+	public static final String xxxxxxxxxxxx = "xxxxxxxxxxxxxxxxx";
+
+	public static final String xxxxxxxxxxxx = "xxxxxxxxxxxxxxxxx";
+	public static final String xxxxxxxxxxxx = "xxxxxxxxxxxxxxxxx";
+	public static final String xxxxxxxxxxxx = "xxxxxxxxxxxxxxxxx";
+	public static final String xxxxxxxxxxxx = "xxxxxxxxxxxxxxxxx";
+	public static final String xxxxxxxxxxxx = "xxxxxxxxxxxxxxxxx";
+	public static final String xxxxxxxxxxxx = "xxxxxxxxxxxxxxxxx";
+	public static final String xxxxxxxxxxxx = "xxxxxxxxxxxxxxxxx";
+	public static final String xxxxxxxxxxxx = "xxxxxxxxxxxxxxxxx";
+	public static final String xxxxxxxxxxxx = "xxxxxxxxxxxxxxxxx";
+	public static final String xxxxxxxxxxxx = "xxxxxxxxxxxxxxxxx";
+	public static final String xxxxxxxxxxxx = "xxxxxxxxxxxxxxxxx";
+	public static final String xxxxxxxxxxxx = "xxxxxxxxxxxxxxxxx";
+	public static final String xxxxxxxxxxxx = "xxxxxxxxxxxxxxxxx";*/
+	
+	
+	
+	
+	
+	// PA/TPA ----->
+	// SAFETY ELEVATORS
+	public static final String group_number_filter = "//span[text()='Group Number']/following::input[@ng-model='colFilter.term']";
+	public static final String tracking_number_filter = "//span[text()='Tracking Number']/following::input[@ng-model='colFilter.term']";
+	public static final String location_filter = "//span[text()='Location']/following::input[@ng-model='colFilter.term']";
+	public static final String owner_fitlet = "//span[text()='Owner']/following::input[@ng-model='colFilter.term']";
+	public static final String device_id_filter = "//span[text()='Device ID']/following::input[@ng-model='colFilter.term']";
+	public static final String device_type_filter = "//span[text()='Device Type']/following::input[@ng-model='colFilter.term']";
+	public static final String inspection_type_filter = "//span[text()='Inspection Type']/following::input[@ng-model='colFilter.term']";
+	public static final String inspection_date_filter = "//span[text()='Inspection Date']/following::input[@ng-model='colFilter.term']";
+	public static final String defects_exist_filter = "//span[text()='Defects Exist']/following::input[@ng-model='colFilter.term']";
+	public static final String compliance_report_status_filter = "//span[text()='Compliance Report Status']/following::input[@ng-model='colFilter.term']";
+	public static final String created_date_filter = "//span[text()='Created Date']/following::input[@ng-model='colFilter.term']";
+	public static final String actions_filter = "//span[text()='Actions']/following::input[@ng-model='colFilter.term']";
+	public static final String actions_edit = "//span[@class='glyphicon glyphicon-edit']";
+	
+	public static final String public_assembly_emergency_lighting = "//span[text()='Public Assembly Emergency Lighting']";
 	
 //	public static final String ENV="PROD"; //PROD, UAT,SAT 
 	//paths
@@ -1711,7 +1798,14 @@ public class Constants {
 	        System.out.println(s); 
 	    }*/
 	//*[contains(@id, 'idNumber1') or contains(@id, 'idNumber2')]
-	
+	//                                     http://demo.guru99.com/test/guru99home
 	//div[.//a[text()='SELENIUM']]/ancestor::div[@class='rt-grid-2 rt-omega']
 	//div[.//a[text()='SELENIUM']]/following-sibling::div
+	//h2[contains(text(),'A few of our most popular courses')]/parent::div
+	//h2[contains(text(),'A few of our most popular courses')]/ancestor::div
+	//h2[contains(text(),'A few of our most popular courses')]/parent::div//div
+	//h2[contains(text(),'popular courses')]/parent::div//following-sibling::div[@class='rt-grid-2 rt-omega']
+	//h2[contains(text(),'popular courses')]/parent::div//div/following-sibling::div[@class='rt-grid-2 rt-omega']
+	//h2[contains(text(),'popular courses')]/parent::div//div[//a[text()='SELENIUM']]/following-sibling::div[@class='rt-grid-2 rt-omega']
+	//img[@id='dobnyc_ms_cpeacpeteam_i']/parent::node() = parent::node() just equal to .. = //img[@id='dobnyc_ms_cpeacpeteam_i']/..
 }

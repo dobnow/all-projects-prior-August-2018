@@ -7,103 +7,103 @@
 
 <test name="CommerciaWhirlpool">
     <classes>
-        <class name="com.testcases.laa.CommerciaWhirlpool"></class>  
+        <class name="com.laa.CommerciaWhirlpool"></class>  
     </classes>
 </test>
 
 <test name="Equipment">
     <classes>
-        <class name="com.testcases.laa.Equipment"></class>  
+        <class name="com.laa.Equipment"></class>  
     </classes>
 </test>
 
 <test name="EwnFromDash">
     <classes>
-        <class name="com.testcases.laa.EwnFromDash"></class>  
+        <class name="com.laa.EwnFromDash"></class>  
     </classes>
 </test>
 
 <test name="EwnNumber">
     <classes>
-        <class name="com.testcases.laa.EwnNumber"></class>  
+        <class name="com.laa.EwnNumber"></class>  
     </classes>
 </test>
 
 <test name="FireSuppressionPay">
     <classes>
-        <class name="com.testcases.laa.FireSuppressionPay"></class>  
+        <class name="com.laa.FireSuppressionPay"></class>  
     </classes>
 </test>
 
 <test name="LaaFromEwn">
     <classes>
-        <class name="com.testcases.laa.LaaFromEwn"></class>  
+        <class name="com.laa.LaaFromEwn"></class>  
     </classes>
 </test>
 
 <test name="LegalizationNo">
     <classes>
-        <class name="com.testcases.laa.LegalizationNo"></class>  
+        <class name="com.laa.LegalizationNo"></class>  
     </classes>
 </test>
 
 <test name="LegalizationYes">
     <classes>
-        <class name="com.testcases.laa.LegalizationYes"></class>  
+        <class name="com.laa.LegalizationYes"></class>  
     </classes>
 </test>
 
 <test name="OilBurner">
     <classes>
-        <class name="com.testcases.laa.OilBurner"></class>  
+        <class name="com.laa.OilBurner"></class>  
     </classes>
 </test>
 
 <test name="OilBurnerPay">
     <classes>
-        <class name="com.testcases.laa.OilBurnerPay"></class>  
+        <class name="com.laa.OilBurnerPay"></class>  
     </classes>
 </test>
 
 <test name="PaaOnCorrerctions">
     <classes>
-        <class name="com.testcases.laa.PaaOnCorrerctions"></class>  
+        <class name="com.laa.PaaOnCorrerctions"></class>  
     </classes>
 </test>
 
 <test name="PaaOnPermitted">
     <classes>
-        <class name="com.testcases.laa.PaaOnPermitted"></class>  
+        <class name="com.laa.PaaOnPermitted"></class>  
     </classes>
 </test>
 
 <test name="PlumbingGas">
     <classes>
-        <class name="com.testcases.laa.PlumbingGas"></class>  
+        <class name="com.laa.PlumbingGas"></class>  
     </classes>
 </test>
 
 <test name="PlumbingGasPay">
     <classes>
-        <class name="com.testcases.laa.PlumbingGasPay"></class>  
+        <class name="com.laa.PlumbingGasPay"></class>  
     </classes>
 </test>
 
 <test name="PlumbingWater">
     <classes>
-        <class name="com.testcases.laa.PlumbingWater"></class>  
+        <class name="com.laa.PlumbingWater"></class>  
     </classes>
 </test>
 
 <test name="PlumbingWaterPay">
     <classes>
-        <class name="com.testcases.laa.PlumbingWaterPay"></class>  
+        <class name="com.laa.PlumbingWaterPay"></class>  
     </classes>
 </test>
 
 <test name="WithoutAppliance">
     <classes>
-        <class name="com.testcases.laa.WithoutAppliance"></class>  
+        <class name="com.laa.WithoutAppliance"></class>  
     </classes>
 </test>
 

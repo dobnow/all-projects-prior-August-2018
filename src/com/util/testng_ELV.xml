@@ -7,49 +7,49 @@
 
 <test name="ElevAlterationTest">
     <classes>
-        <class name="com.testcases.elv.ElevAlterationTest"></class>  
+        <class name="com.elevators.ElevAlterationTest"></class>  
     </classes>
 </test>
 
 <test name="ElevDismantleTest">
     <classes>
-        <class name="com.testcases.elv.ElevDismantleTest"></class>  
+        <class name="com.elevators.ElevDismantleTest"></class>  
     </classes>
 </test>
 
 <test name="ElevNewInstallTest">
     <classes>
-        <class name="com.testcases.elv.ElevNewInstallTest"></class>  
+        <class name="com.elevators.ElevNewInstallTest"></class>  
     </classes>
 </test>
 
 <test name="ElevNewOtherTest">
     <classes>
-        <class name="com.testcases.elv.ElevNewOtherTest"></class>  
+        <class name="com.elevators.ElevNewOtherTest"></class>  
     </classes>
 </test>
 
 <test name="ElevPtoFTest">
     <classes>
-        <class name="com.testcases.elv.ElevPtoFTest"></class>  
+        <class name="com.elevators.ElevPtoFTest"></class>  
     </classes>
 </test>
 
 <test name="ElevRemoveTest">
     <classes>
-        <class name="com.testcases.elv.ElevRemoveTest"></class>  
+        <class name="com.elevators.ElevRemoveTest"></class>  
     </classes>
 </test>
 
 <test name="ElevRenewPermitTest">
     <classes>
-        <class name="com.testcases.elv.ElevRenewPermitTest"></class>  
+        <class name="com.elevators.ElevRenewPermitTest"></class>  
     </classes>
 </test>
 
 <test name="ElevSignOffTest">
     <classes>
-        <class name="com.testcases.elv.ElevSignOffTest"></class>  
+        <class name="com.elevators.ElevSignOffTest"></class>  
     </classes>
 </test>
 

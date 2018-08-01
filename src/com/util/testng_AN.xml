@@ -9,85 +9,85 @@
 
 <test name="AnProfCertNoPW2Test">
     <classes>
-        <class name="com.testcases.AnProfCertNoPW2Test"/>  
+        <class name="com.antennacurbcut.AnProfCertNoPW2Test"/>  
     </classes>
 </test>
 
 <test name="AnProfCertPW2Test">
     <classes>
-        <class name="com.testcases.AnProfCertPW2Test"/>  
+        <class name="com.antennacurbcut.AnProfCertPW2Test"/>  
     </classes>
 </test>
 
 <test name="AnQaFailedProfCertNoPW2Test">
     <classes>
-        <class name="com.testcases.AnQaFailedProfCertNoPW2Test"/>  
+        <class name="com.antennacurbcut.AnQaFailedProfCertNoPW2Test"/>  
     </classes>
 </test>
 
 <test name="AnQaFailedProfCertPW2Test">
     <classes>
-        <class name="com.testcases.AnQaFailedProfCertPW2Test"/>  
+        <class name="com.antennacurbcut.AnQaFailedProfCertPW2Test"/>  
     </classes>
 </test>
 
 <test name="AnQaFailedStandardTest">
     <classes>
-        <class name="com.testcases.AnQaFailedStandardTest"/>  
+        <class name="com.antennacurbcut.AnQaFailedStandardTest"/>  
     </classes>
 </test>
 
 <test name="AnCorrectionsTest">
     <classes>
-        <class name="com.testcases.AnCorrectionsTest"/>  
+        <class name="com.antennacurbcut.AnCorrectionsTest"/>  
     </classes>
 </test>
 
 <test name="AnStandardIncompleteTest">
     <classes>
-        <class name="com.testcases.AnStandardIncompleteTest"/>  
+        <class name="com.antennacurbcut.AnStandardIncompleteTest"/>  
     </classes>
 </test>
 
 <test name="AnStandardTest">
     <classes>
-        <class name="com.testcases.AnStandardTest"/>  
+        <class name="com.antennacurbcut.AnStandardTest"/>  
     </classes>
 </test>
 
 <test name="PayInitialByCheckTest">
     <classes>
-        <class name="com.testcases.PayInitialByCheckTest"/>  
+        <class name="com.antennacurbcut.PayInitialByCheckTest"/>  
     </classes>
 </test>
 
 <test name="PayInitialByCreditCardTest">
     <classes>
-        <class name="com.testcases.PayInitialByCreditCardTest"/>  
+        <class name="com.antennacurbcut.PayInitialByCreditCardTest"/>  
     </classes>
 </test>
 
 <test name="PayPaaByCheckTest">
     <classes>
-        <class name="com.testcases.PayPaaByCheckTest"/>  
+        <class name="com.antennacurbcut.PayPaaByCheckTest"/>  
     </classes>
 </test>
 
 <test name="PayPaaByCreditCardTest">
     <classes>
-        <class name="com.testcases.PayPaaByCreditCardTest"/>  
+        <class name="com.antennacurbcut.PayPaaByCreditCardTest"/>  
     </classes>
 </test>
 
 <test name="PaySubsByCheckTest">
     <classes>
-        <class name="com.testcases.PaySubsByCheckTest"/>  
+        <class name="com.antennacurbcut.PaySubsByCheckTest"/>  
     </classes>
 </test>
 
 <test name="PaySubsByCreditCardTest">
     <classes>
-        <class name="com.testcases.PaySubsByCreditCardTest"/>  
+        <class name="com.antennacurbcut.PaySubsByCreditCardTest"/>  
     </classes>
 </test>
 
@@ -97,38 +97,38 @@
 
 <test name="AnAhvTest">
     <classes>
-        <class name="com.testcases.AnAhvTest"/>  
+        <class name="com.antennacurbcut.AnAhvTest"/>  
     </classes>
 </test>
 
 <test name="AnObjectionsTest">
     <classes>
-        <class name="com.testcases.AnObjectionsTest"/>  
+        <class name="com.antennacurbcut.AnObjectionsTest"/>  
     </classes>
 </test>
 
 <test name="AnOnAnSubsTest">
     <classes>
-        <class name="com.testcases.AnOnAnSubsTest"/>  
+        <class name="com.antennacurbcut.AnOnAnSubsTest"/>  
     </classes>
 </test>
 
 <test name="AnOnCcSubsTest">
     <classes>
-        <class name="com.testcases.AnOnCcSubsTest"/>  
+        <class name="com.antennacurbcut.AnOnCcSubsTest"/>  
     </classes>
 </test>
 
 
 <test name="AnPaaOnSubsTest">
     <classes>
-        <class name="com.testcases.AnPaaOnSubsTest"/>  
+        <class name="com.antennacurbcut.AnPaaOnSubsTest"/>  
     </classes>
 </test>
 
 <test name="AnPermitRenewalTest">
     <classes>
-        <class name="com.testcases.AnPermitRenewalTest"/>  
+        <class name="com.antennacurbcut.AnPermitRenewalTest"/>  
     </classes>
 </test>
 

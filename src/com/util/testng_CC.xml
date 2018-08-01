@@ -8,78 +8,78 @@
 
 <test name="CcCorrectionsTest">
     <classes>
-        <class name="com.testcases.CcCorrectionsTest" ></class>  
+        <class name="com.CcCorrectionsTest" ></class>  
     </classes>
 </test>
 
 <test name="CcIIncompleteTest">
     <classes>
-        <class name="com.testcases.CcIIncompleteTest" ></class>  
+        <class name="com.CcIIncompleteTest" ></class>  
     </classes>
 </test>
 
 <test name="CcObjectionsTest">
     <classes>
-        <class name="com.testcases.CcObjectionsTest" ></class>  
+        <class name="com.CcObjectionsTest" ></class>  
     </classes>
 </test>
 
 <test name="CcOnAnSubsTest">
     <classes>
-        <class name="com.testcases.CcOnAnSubsTest" ></class>  
+        <class name="com.CcOnAnSubsTest" ></class>  
     </classes>
 </test>
 
 <test name="CcOnCcSubsTest">
     <classes>
-        <class name="com.testcases.CcOnCcSubsTest" ></class>  
+        <class name="com.CcOnCcSubsTest" ></class>  
     </classes>
 </test>
 
 <test name="CcOnElSubsTest">
     <classes>
-        <class name="com.testcases.CcOnElSubsTest" ></class>  
+        <class name="com.CcOnElSubsTest" ></class>  
     </classes>
 </test>
 
 <test name="CcPaaOnSubsTest">
     <classes>
-        <class name="com.testcases.CcPaaOnSubsTest" ></class>  
+        <class name="com.CcPaaOnSubsTest" ></class>  
     </classes>
 </test>
 
 <test name="CcProfCertNoPW2Test">
     <classes>
-        <class name="com.testcases.CcProfCertNoPW2Test" ></class>  
+        <class name="com.CcProfCertNoPW2Test" ></class>  
     </classes>
 </test>
 
 <test name="CcProfCertPW2Test">
     <classes>
-        <class name="com.testcases.CcProfCertPW2Test" ></class>  
+        <class name="com.CcProfCertPW2Test" ></class>  
     </classes>
 </test>
 
 <test name="CcQaFailedProfCertNoPW2Test">
     <classes>
-        <class name="com.testcases.CcQaFailedProfCertNoPW2Test" ></class>  
+        <class name="com.CcQaFailedProfCertNoPW2Test" ></class>  
     </classes>
 </test>
 
 <test name="CcQaFailedProfCertPW2Test">
     <classes>
-        <class name="com.testcases.CcQaFailedProfCertPW2Test" ></class>  
+        <class name="com.CcQaFailedProfCertPW2Test" ></class>  
     </classes>
 </test>
 <test name="CcQaFailedStandardTest">
     <classes>
-        <class name="com.testcases.CcQaFailedStandardTest" ></class>  
+        <class name="com.CcQaFailedStandardTest" ></class>  
     </classes>
 </test>
 
 <test name="CcStandardTest">
     <classes>
-        <class name="com.testcases.CcStandardTest" ></class>  
+        <class name="com.CcStandardTest" ></class>  
     </classes>
 </test>
 

@@ -7,85 +7,85 @@
 
 <test name="PlLegalization">
     <classes>
-     <class name="com.testcases.plspsd.PlLegalization" />
+     <class name="com.plspsd.PlLegalization" />
     </classes>
 </test>
 
 <test name="PlLegalizationProfCert">
     <classes>
-     <class name="com.testcases.plspsd.PlLegalizationProfCert" />
+     <class name="com.plspsd.PlLegalizationProfCert" />
     </classes>
 </test>
 
 <test name="PlNew">
     <classes>
-     <class name="com.testcases.plspsd.PlNew" />
+     <class name="com.plspsd.PlNew" />
     </classes>
 </test>
 
 <test name="PlNewProfCert">
     <classes>
-     <class name="com.testcases.plspsd.PlNewProfCert" />
+     <class name="com.plspsd.PlNewProfCert" />
     </classes>
 </test>
 
 <test name="PlSpSdLegalization">
     <classes>
-     <class name="com.testcases.plspsd.PlSpSdLegalization" />
+     <class name="com.plspsd.PlSpSdLegalization" />
     </classes>
 </test>
 
 <test name="PlSpSdLegalizationProfCert">
     <classes>
-     <class name="com.testcases.plspsd.PlSpSdLegalizationProfCert" />
+     <class name="com.plspsd.PlSpSdLegalizationProfCert" />
     </classes>
 </test>
 
 <test name="PlSpSdNew">
     <classes>
-     <class name="com.testcases.plspsd.PlSpSdNew" />
+     <class name="com.plspsd.PlSpSdNew" />
     </classes>
 </test>
 
 <test name="PlSpSdNewProfCert">
     <classes>
-     <class name="com.testcases.plspsd.PlSpSdNewProfCert" />
+     <class name="com.plspsd.PlSpSdNewProfCert" />
     </classes>
 </test>
 
 <test name="SdNew">
     <classes>
-     <class name="com.testcases.plspsd.SdNew" />
+     <class name="com.plspsd.SdNew" />
     </classes>
 </test>
 
 <test name="SdNewProfCert">
     <classes>
-     <class name="com.testcases.plspsd.SdNewProfCert" />
+     <class name="com.plspsd.SdNewProfCert" />
     </classes>
 </test>
 
 <test name="SpLegalization">
     <classes>
-     <class name="com.testcases.plspsd.SpLegalization" />
+     <class name="com.plspsd.SpLegalization" />
     </classes>
 </test>
 
 <test name="SpLegalizationProfCert">
     <classes>
-     <class name="com.testcases.plspsd.SpLegalizationProfCert" />
+     <class name="com.plspsd.SpLegalizationProfCert" />
     </classes>
 </test>
 
 <test name="SpNew">
     <classes>
-     <class name="com.testcases.plspsd.SpNew" />
+     <class name="com.plspsd.SpNew" />
     </classes>
 </test>
 
 <test name="SpNewProfCert">
     <classes>
-     <class name="com.testcases.plspsd.SpNewProfCert" />
+     <class name="com.plspsd.SpNewProfCert" />
     </classes>
 </test>
 
