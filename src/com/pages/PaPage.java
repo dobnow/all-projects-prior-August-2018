@@ -3,7 +3,9 @@ package com.pages;
 import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 
 import com.base.TestBase;
 import com.relevantcodes.extentreports.LogStatus;
@@ -81,8 +83,8 @@ public class PaPage extends TestBase {
 		if (!owner_info.equals("")) {
 			test = rep.startTest("Work On Floors");
 			for (int i = 1; i < 100; i++) {
-				if(count(Constants.party_to_renewpalce_assembly_no) > 0)
-					radio(Constants.party_to_renewpalce_assembly_no);
+				if(count(Constants.party_to_renewpalce_assembly_yes) > 0)
+					radio(Constants.party_to_renewpalce_assembly_yes);
 /*				if(count("//select[@id='ddlPAOperation']") > 0)
 					select("//select[@id='ddlPAOperation']", "Yes");*/
 				select(Constants.ss_owner_type, "Partnership");
@@ -514,6 +516,45 @@ public class PaPage extends TestBase {
 
 	
  
-	
+	public void crmTechnicalReport(String user_name,	String accept_tr) {
+		if (!accept_tr.equals("")) {
+			String[] data = user_name.split(" :: ");
+			System.out.println(convertedTimestamp() + " **************** " + data[0] + " crmTechnicalReport");
+			loginToCrm(data[0]);
+			searchForJobCrm();
+			waitForPageToLoad();
+			waitUntilISpinnersInvisible();
+			driver.switchTo().frame("contentIFrame0");
+//			waitUntilElementVisible(Constants.label_job_filing, 30);
+			for (int i=1; i < 20; i++) {
+				click(Constants.job_filing_link);
+				waitInvisible(Constants.job_filing_link);
+				if (count(Constants.job_filing_link) < 1) 
+					break;
+			}	
+			ifAlertExistAccept();
+//			waitInvisible(Constants.job_filing_link);
+			waitVisible(Constants.qa_admin_application_highlights_label);
+			waitVisible(Constants.qa_admin_tr1_tab);
+			for (int i = 1; i <= 20; i++) {
+				click(Constants.qa_admin_tr1_tab);
+				wait(5);
+/*				if (count(Constants.public_assembly_emergency_lighting) > 0)
+					break;*/				
+				if (driver.findElement(By.xpath(Constants.public_assembly_emergency_lighting)).isDisplayed() == true)
+					break;
+				refreshPage();
+				driver.switchTo().frame("contentIFrame0");
+			}
+			waitVisible(Constants.public_assembly_emergency_lighting);
+//			actionClick(Constants.public_assembly_emergency_lighting);
+			WebElement public_assembly_emergency_lighting = driver.findElement(By.xpath(Constants.public_assembly_emergency_lighting));
+			new Actions(driver).contextClick(public_assembly_emergency_lighting).build().perform();
+			wait(1);
+			new Actions(driver).sendKeys(Keys.ENTER).build().perform();
+			waitUntilElementVisible(Constants.qa_admin_progress_inspector_seal_signature, 30);
+			viewAcceptDocs();
+		}
+	}
 	
 }

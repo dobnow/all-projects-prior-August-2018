@@ -183,9 +183,126 @@ public class CrmTaskFormPage extends TestBase {
 			waitVisible(Constants.crm_top_nav_search_button);
 			click(Constants.select_dashboard_arrow);
 			click(Constants.pe_dashboard);
-		}
-		
+		}		
 	}
+	
+	
+	
+	// 007 ASSIGN TO TEAM
+	public void centralAssigner(String cpe_acpe) {
+		if (!cpe_acpe.equals("")) {
+			String[] data = cpe_acpe.split(" :: ");
+			System.out.println(convertedTimestamp() + " **************** centralAssigner ----- " + data[0]+ " Assign to " +data[1]);
+			for (int i = 1; i <= 5; i++) {
+				loginToCrm(data[0]);
+				searchForJobCrm();
+				test = rep.startTest(data[0]+ " Assign to " +data[1]);
+				test.log(LogStatus.INFO, data[0]+ " Assign to " +data[1]);
+				waitForPageToLoad();
+				driver.switchTo().frame("contentIFrame0");
+//				scrollTo(Constants.span_text + "Parent Team" + Constants.close_xpath);
+				scrollTo(Constants.cpe_acpe_actions_field);
+				click(Constants.cpe_acpe_actions_field);
+				click(Constants.cpe_acpe_find_team_image);
+				click(Constants.span_text +data[1]+ Constants.close_xpath);
+				ifAlertExistAccept();
+				driver.switchTo().defaultContent();
+				click(Constants.submit_button);
+				ifAlertExistAccept();
+				waitInvisible(Constants.submit_button);
+				driver.switchTo().frame("contentIFrame0");
+				ifAlertExistAccept();
+				if (count(Constants.crm_completed_message) > 0) {
+					reportPass("centralAssigner");
+					break;
+				}
+			}
+		}
+	}
+	
+	// 021 ACTION		
+	public void cpeActions(String cpe) {
+		if (!cpe.equals("")) {
+			String[] data = cpe.split(" :: ");
+			System.out.println(convertedTimestamp() + " **************** cpeActions " +data[0]+ " Assign to "+data[2]+ " " +data[3]);
+			for (int i = 1; i <= 10; i++) {
+				loginToCrm(data[0]);
+				searchForJobCrm();
+				test = rep.startTest(data[0]+ " Assign to " +data[2]+ " " +data[3]);
+				test.log(LogStatus.INFO, " " +data[0]+ " Assign to " +data[2]+ " " +data[3]);
+				waitForPageToLoad();
+				driver.switchTo().frame("contentIFrame0");
+				waitVisible(Constants.is_the_job_application_complete_list);
+				scrollToElement(Constants.is_the_job_application_complete_list);
+				click(Constants.is_the_job_application_complete_list);
+				select(Constants.is_the_job_application_complete_select, data[1]);
+				ifAlertExistAccept();
+				if (cpe.contains("Yes")) { // Yes == "Is the Job Application Complete ?"
+					click(Constants.cpe_acpe_primary_pe_field);
+					click(Constants.cpe_acpe_find_primary_pe_image);
+					doubleclick(Constants.span_text +data[2]+ Constants.close_xpath); // select Primary PE
+//					doubleclick("//span[text()='Assign to Primary Plan Examiner']/following::span[text()='" +data[2]+ Constants.close_xpath);
+					ifAlertExistAccept();
+					if (!data[3].equals("null")) {
+						click(Constants.cpe_acpe_secondary_pe_field);
+						click(Constants.cpe_acpe_find_secondary_pe_image);
+						doubleclick("(" +Constants.span_text +data[3]+ Constants.close_xpath+ ")[2]"); // select Secondary PE
+					}
+//						doubleclick("//span[text()='Assign to Secondary Plan Examiner']/following::span[text()='" +data[3]+ Constants.close_xpath);
+					ifAlertExistAccept();
+				}
+				driver.switchTo().defaultContent();
+				click(Constants.submit_button);
+				ifAlertExistAccept();
+				waitInvisible(Constants.submit_button);
+				driver.switchTo().frame("contentIFrame0");
+				ifAlertExistAccept();
+				if (count(Constants.crm_completed_message) > 0) {
+					reportPass("cpeAssign");
+					break;
+				}
+			}
+		}
+	}
+	
+	public void primaryPeAction(String action) {
+		if (!action.equals("")) {
+			String[] data = action.split(" :: ");
+			System.out.println(convertedTimestamp() + " **************** primaryPeAction " +action);
+			for (int i = 1; i <= 10; i++) {
+				loginToCrm(data[0]);
+				searchForJobCrm();
+				waitForPageToLoad();
+				test = rep.startTest("primaryPeAction " +action);
+				driver.switchTo().frame("contentIFrame0");
+				waitVisible(Constants.appoitment_required_list);
+				scrollToElement(Constants.appoitment_required_list);
+				click(Constants.appoitment_required_list);
+				select(Constants.apt_required, data[1]);
+				ifAlertExistAccept();
+				click(Constants.plan_examiner_action_list);
+				select(Constants.job_approved, data[2]);
+				ifAlertExistAccept();
+				ifAlertExistAccept();
+				click(Constants.approved_plans_uploaded_list);
+				select(Constants.approved_plans_uploaded, data[3]);
+				ifAlertExistAccept();
+				click(Constants.crm_comments_area);
+				wait(1);
+				type(Constants.crm_comments_box, action);
+				driver.switchTo().defaultContent();
+				click(Constants.submit_button);
+				ifAlertExistAccept();
+				waitInvisible(Constants.submit_button);
+				driver.switchTo().frame("contentIFrame0");
+				if (count(Constants.crm_completed_message) > 0) {
+					reportPass("peAction");
+					break;
+				}
+			}
+		}
+	}
+	
 	
 	public void XassignAvhToSelf(String qa_superviser_ahv) {
 		if (!qa_superviser_ahv.equals("")) {
@@ -393,10 +510,10 @@ public class CrmTaskFormPage extends TestBase {
 	public void viewAcceptDocuments(String user_name) {
 		if (!user_name.equals("")) {
 			String[] data = user_name.split(" :: ");
-			System.out.println(convertedTimestamp() + " **************** " + data[0] + " Accept Submitted Docs");
+			System.out.println(convertedTimestamp() + " **************** viewAcceptDocuments " + data[0]);
 			loginToCrm(data[0]);
 			searchForJobCrm();
-			test = rep.startTest("View Accept Submitted Documents.");
+			test = rep.startTest("viewAcceptDocuments");
 			test.log(LogStatus.INFO, "viewAcceptDocuments");
 			waitForPageToLoad();
 			waitDocStatus();
@@ -439,112 +556,6 @@ public class CrmTaskFormPage extends TestBase {
 		}
 	}
 
-	public void viewAcceptDocuments() {
-		System.out.println(convertedTimestamp() + " ****************  ");
-		test = rep.startTest("View Accept Submitted Documents. viewAcceptDocuments");
-		test.log(LogStatus.INFO, "viewAcceptDocuments");
-		waitForPageToLoad();
-		waitDocStatus();
-		if (count(Constants.crm_document_status_submitted) > 0) {
-			for (int i = 1; i <= 20; i++) {
-				doubleclick(Constants.crm_document_status_submitted);
-				wait(3);
-				driver.switchTo().defaultContent();
-				click(Constants.view_document_button);
-				wait(3);
-				ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
-				while (tabs.size() > 1) {
-					driver.switchTo().window(tabs.get(1));
-					driver.close();
-					wait(2);
-					tabs = new ArrayList<String>(driver.getWindowHandles());
-				}
-				driver.switchTo().window(tabs.get(0));
-				click(Constants.accept_document_button);
-				ifAlertExistAccept();
-				waitForPageToLoad();
-				wait(2);
-				driver.switchTo().frame("contentIFrame0");
-				waitVisible(Constants.crm_document_accepted);
-				driver.switchTo().defaultContent();
-				driver.navigate().back();
-				waitForPageToLoad();
-				wait(2);
-				driver.switchTo().frame("contentIFrame0");
-				waitVisible(Constants.label_job_filing);
-				waitClickableOr("//nobr[text()='Accepted']", "//nobr[text()='Submitted']");
-				if (count(Constants.crm_document_status_submitted) == 0) {
-					reportPass("viewAcceptDocuments");
-					break;
-				}
-			}
-		}
-	}
-	// VIEW ACCEPT DOCS MAIN
-	public void ORIGviewAcceptDocuments(String user_name) {
-		if (!user_name.equals("")) {
-			String[] data = user_name.split(" :: ");
-			System.out.println(convertedTimestamp() + " **************** " +data[0]+ " Accept Submitted Docs");
-			loginToCrm(data[0]);
-			searchForJobCrm();
-			test = rep.startTest("View Accept Submitted Documents.");
-			test.log(LogStatus.INFO, "viewAcceptDocuments");
-			waitForPageToLoad();
-			waitDocStatus();
-			if (count(Constants.crm_document_status_submitted) > 0) {
-				for (int i = 1; i <= 20; i++) {
-					doubleclick(Constants.crm_document_status_submitted);
-					wait(3);
-					driver.switchTo().defaultContent();
-					while (driver.getWindowHandles().size() < 2) {	
-						click(Constants.view_document_button);
-						wait(3);
-					}
-					Set<String> handles = driver.getWindowHandles();
-					Iterator<String> itr = handles.iterator();
-					String newWindow = itr.next();
-					driver.switchTo().window(newWindow);
-					driver.manage().window().maximize();
-					
-					Set<String> handleswindow = driver.getWindowHandles();
-					for (String windowHandle : handleswindow) {
-						wait(1);
-						driver.switchTo().window(windowHandle);
-						driver.manage().window().maximize();
-					}
-					
-					ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
-					driver.switchTo().window(tabs.get(1));
-					driver.close();
-					wait(1);
-					driver.switchTo().window(tabs.get(0));
-					driver.switchTo().defaultContent();
-					click(Constants.accept_document_button);
-					ifAlertExistAccept();
-					waitForPageToLoad();
-					wait(2);
-/*					if(count(Constants.accept_document_button) > 0)
-						click(Constants.accept_document_button);
-					ifAlertExistAccept();*/
-					wait(2);
-					driver.switchTo().frame("contentIFrame0");
-					waitVisible(Constants.crm_document_accepted);
-					driver.switchTo().defaultContent();
-					driver.navigate().back();
-					waitForPageToLoad();
-					wait(2);
-					driver.switchTo().frame("contentIFrame0");
-					waitVisible(Constants.label_job_filing);
-					waitClickableOr("//nobr[text()='Accepted']", "//nobr[text()='Submitted']");
-					if (count(Constants.crm_document_status_submitted) == 0) {
-						reportPass("viewAcceptDocuments");
-						break;
-					}
-				}
-			}
-			// viewAcceptDocs(); IN CASE OF MORE THEN 4 DOCUMENTS
-		}
-	}
 	public void adressObjections(String objections) {
 		if (!objections.equals("")) {
 			String[] data = objections.split(" :: ");
@@ -611,73 +622,7 @@ public class CrmTaskFormPage extends TestBase {
 		reportPass("assignTo");
 	}
 
-	public void centralAssigner(String cpe_acpe) {
-		if (!cpe_acpe.equals("")) {
-			String[] data = cpe_acpe.split(" :: ");
-			System.out.println(convertedTimestamp() + " **************** centralAssigner ----- " + data[0]+ " Assign to " +data[1]);
-			for (int i = 1; i <= 5; i++) {
-				loginToCrm(data[0]);
-				searchForJobCrm();
-				test = rep.startTest(data[0]+ " Assign to " +data[1]);
-				test.log(LogStatus.INFO, data[0]+ " Assign to " +data[1]);
-				waitForPageToLoad();
-				driver.switchTo().frame("contentIFrame0");
-//				scrollTo(Constants.span_text + "Parent Team" + Constants.close_xpath);
-				scrollTo(Constants.cpe_acpe_actions_field);
-				click(Constants.cpe_acpe_actions_field);
-				click(Constants.cpe_acpe_find_team_image);
-				click(Constants.span_text +data[1]+ Constants.close_xpath);
-				ifAlertExistAccept();
-				driver.switchTo().defaultContent();
-				click(Constants.submit_button);
-				ifAlertExistAccept();
-				waitInvisible(Constants.submit_button);
-				driver.switchTo().frame("contentIFrame0");
-				ifAlertExistAccept();
-				if (count(Constants.crm_completed_message) > 0) {
-					reportPass("centralAssigner");
-					break;
-				}
-			}
-/*			System.out.println(convertedTimestamp() + " **************** " + data[0]+ " Assign to " +data[3]+ " and to " +data[4]);
-			for (int i = 1; i <= 5; i++) {
-				test = rep.startTest(" " +data[0]+ " Assign to " +data[3]+ " and to " +data[4]);
-				test.log(LogStatus.INFO, " " +data[0]+ " Assign to " +data[3]+ " and to " +data[4]);
-				waitForPageToLoad();
-				driver.switchTo().frame("contentIFrame0");
-				waitVisible(Constants.is_the_job_application_complete_list);
-				scrollToElement(Constants.is_the_job_application_complete_list);
-				click(Constants.is_the_job_application_complete_list);
-				select(Constants.is_the_job_application_complete_select, data[2]);
-				ifAlertExistAccept();
-				if (data[2].contains("Yes")) {                      // Yes == "Is the Job Application Complete ?"
-					click(Constants.cpe_acpe_primary_pe_field);
-					type(Constants.assign_to_assignee, data[3]);
-					click(Constants.search_assignee_button);
-					click(Constants.select_assignee);
-					ifAlertExistAccept();
-					click(Constants.cpe_acpe_secondary_pe_field);
-					type(Constants.assign_to_assignee, data[4]);
-					click(Constants.search_assignee_button);
-					click(Constants.select_assignee);
-					ifAlertExistAccept();
-					
-					
-				}
-				driver.switchTo().defaultContent();
-				click(Constants.submit_button);
-				ifAlertExistAccept();
-				waitInvisible(Constants.submit_button);
-				driver.switchTo().frame("contentIFrame0");
-				ifAlertExistAccept();
-				if (count(Constants.crm_completed_message) > 0) {
-					reportPass("cpeAction");
-					break;
-				}
-			}*/
-			
-		}
-	}
+
 
 	public void cpeAssign(String cpe) {
 		if (!cpe.equals("")) {
